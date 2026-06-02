@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日媒体信息摘报</title>
+<title>媒体信息摘报</title>
 <style>
   :root {
     --primary: #1a3a6b;
@@ -26,233 +26,144 @@
     min-height: 100vh;
   }
   .header {
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    color: #fff;
-    padding: 40px 24px 36px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 40px 20px;
     text-align: center;
-    box-shadow: 0 2px 16px rgba(26,58,107,0.15);
   }
-  .header h1 {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 6px;
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+  .header .date { font-size: 14px; opacity: 0.85; }
+  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
+  .action-bar {
+    display: flex; gap: 12px; justify-content: center;
+    margin-bottom: 28px; flex-wrap: wrap;
   }
-  .header .date {
-    font-size: 15px;
-    opacity: 0.85;
-    font-weight: 400;
-  }
-  .header .subtitle {
-    font-size: 13px;
-    opacity: 0.65;
-    margin-top: 4px;
-  }
-  .container {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 24px 16px 48px;
-  }
-  .download-bar {
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    box-shadow: var(--shadow);
-    border-left: 4px solid var(--primary);
-  }
-  .download-bar .info h3 {
-    font-size: 16px;
-    color: var(--primary);
-    margin-bottom: 2px;
-  }
-  .download-bar .info span {
-    font-size: 13px;
-    color: var(--text-secondary);
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    cursor: pointer; border: none; transition: all 0.2s;
   }
   .btn-download {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--primary);
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap;
-    transition: background 0.2s;
+    background: var(--accent); color: white;
   }
-  .btn-download:hover { background: var(--primary-light); }
-  .summary-block {
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin-bottom: 20px;
-    box-shadow: var(--shadow);
-    border-left: 3px solid var(--primary);
+  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
+  .btn-refresh {
+    background: white; color: var(--primary);
+    border: 1.5px solid var(--border);
   }
-  .summary-block:last-of-type { border-left-color: var(--accent); }
-  .summary-block .num {
-    display: inline-block;
-    background: var(--primary);
-    color: #fff;
-    width: 26px; height: 26px;
-    line-height: 26px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 13px;
-    font-weight: 700;
-    margin-right: 10px;
-    flex-shrink: 0;
+  .btn-refresh:hover { border-color: var(--primary); }
+  .news-list { display: flex; flex-direction: column; gap: 16px; }
+  .news-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 26px;
+    box-shadow: var(--shadow); transition: box-shadow 0.2s;
   }
-  .summary-block h2 {
-    font-size: 17px;
-    color: var(--primary);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.5;
+  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .news-card .num {
+    display: inline-block; width: 28px; height: 28px;
+    background: var(--primary); color: white; border-radius: 50%;
+    text-align: center; line-height: 28px; font-size: 13px; font-weight: 700;
+    margin-right: 10px; flex-shrink: 0;
   }
-  .summary-block h2 .text { flex: 1; }
-  .summary-block .meta {
-    font-size: 12px;
-    color: #888;
-    margin-bottom: 12px;
-    padding-left: 34px;
+  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .news-card .source { font-size: 12px; color: var(--text-secondary); }
+  .news-card .tag {
+    display: inline-block; padding: 2px 10px;
+    background: var(--tag-bg); color: var(--primary);
+    border-radius: 12px; font-size: 12px;
   }
-  .summary-block .meta .tag {
-    display: inline-block;
-    background: var(--tag-bg);
-    color: var(--primary-light);
-    padding: 2px 10px;
-    border-radius: 10px;
-    margin-right: 8px;
-    font-size: 11px;
+  .news-card .link {
+    font-size: 12px; color: var(--primary-light);
+    text-decoration: none; margin-left: auto;
   }
-  .summary-block .content {
-    font-size: 14px;
-    color: var(--text-secondary);
-    padding-left: 34px;
-  }
-  .summary-block .content p { margin-bottom: 10px; }
-  .summary-block .source {
-    font-size: 12px;
-    color: #999;
-    padding-left: 34px;
-    margin-top: 12px;
-    padding-top: 10px;
-    border-top: 1px dashed var(--border);
-  }
-  .summary-block .source a {
-    color: var(--primary-light);
-    text-decoration: none;
-    word-break: break-all;
-  }
+  .news-card .link:hover { text-decoration: underline; }
   .footer {
-    text-align: center;
-    color: #aaa;
-    font-size: 12px;
-    padding: 32px 16px 48px;
-    max-width: 820px;
-    margin: 0 auto;
-  }
-  .footer a { color: var(--primary-light); text-decoration: none; }
-  .badge-new {
-    display: inline-block;
-    background: var(--accent);
-    color: #fff;
-    font-size: 11px;
-    padding: 1px 8px;
-    border-radius: 3px;
-    margin-left: 6px;
-    font-weight: 600;
+    text-align: center; padding: 20px; color: #999; font-size: 12px;
+    border-top: 1px solid var(--border); margin-top: 32px;
   }
   @media (max-width: 600px) {
+    .header { padding: 28px 16px; }
     .header h1 { font-size: 22px; }
-    .download-bar { flex-direction: column; align-items: flex-start; }
-    .summary-block { padding: 16px 18px; }
-    .summary-block h2 { font-size: 15px; }
+    .container { padding: 16px 12px 40px; }
+    .news-card { padding: 16px 18px; }
   }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>每日媒体信息摘报</h1>
-  <div class="date">2026年6月2日（周二）</div>
-  <div class="subtitle">漳州城投设计咨询集团 · 总工办</div>
+  <h1>媒体信息摘报</h1>
+  <div class="date">2026年6月2日</div>
+  <div class="subtitle">省级党报创新举措精选（福建省除外）</div>
 </div>
 
 <div class="container">
-
-  <div class="download-bar">
-    <div class="info">
-      <h3>📄 完整文档下载</h3>
-      <span>6.2媒体信息摘报.docx · 13.8 KB · 五条精选新闻</span>
-    </div>
-    <a class="btn-download" href="files/6.2媒体信息摘报.docx" download>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      下载文档
-    </a>
+  <div class="action-bar">
+    <a href="https://github.com/ETKing668/media-briefing/raw/main/6.2%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">下载 Word 文档</a>
+    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
   </div>
 
-  <div class="summary-block">
-    <h2><span class="num">1</span><span class="text">广东以「启航'十五五'」品牌活动首站为契机，面向37国60名驻华使节全面展示发展机遇</span></h2>
-    <div class="meta"><span class="tag">经济发展</span><span class="tag">对外开放</span>南方日报 · 6月2日</div>
-    <div class="content">
-      <p>广东省以外交部「启航中国」品牌活动全国首站为契机，创新打造面向国际的「十五五」发展推介平台。一是以外交部品牌活动为纽带，面向37个国家的60名驻华使节和国际组织代表，集中展示广东「十五五」规划的核心战略与投资机遇，探索「外交+招商」融合新模式。二是重点推介粤港澳大湾区建设、现代化产业体系等重大平台，通过沉浸式参访让外宾实地感受广东产业实力，变被动等商为主动邀商。三是建立长效对接机制，将活动成果转化为具体合作项目，为各省级地区以国际化平台推介区域发展提供了可复制的范本。</p>
+  <div class="news-list">
+    
+    <div class="news-card">
+      <div class="title"><span class="num">1</span>广东面向37国推介「启航'十五五'」合作机遇</div>
+      <div class="summary">广东省在广交会期间举办专题推介会，面向37个共建一带一路国家集中展示粤港澳大湾区建设、横琴粤澳深度合作区、南沙等重大平台的发展机遇，推动外贸投资、科技创新、数字经济等领域的项目合作。</div>
+      <div class="meta">
+        <span class="source">南方日报</span>
+        <span class="tag">对外开放</span>
+        <span class="tag">区域协作</span>
+      </div>
     </div>
-    <div class="source">（信息来源：南方日报 6月2日 <a href="https://epaper.nfnews.com/nfdaily/html/202606/02/content_10172135.html" target="_blank">查看原文 →</a>）</div>
+
+    <div class="news-card">
+      <div class="title"><span class="num">2</span>四川「开发式帮扶」推动39个欠发达县域振兴发展</div>
+      <div class="summary">四川省创新实施开发式帮扶策略，统筹产业、就业、消费等多项帮扶措施，聚焦39个欠发达县域，通过龙头企业带动、特色产业培育等路径，推动从输血向造血转变，巩固拓展脱贫攻坚成果。</div>
+      <div class="meta">
+        <span class="source">四川日报</span>
+        <span class="tag">乡村振兴</span>
+        <span class="tag">民生保障</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="title"><span class="num">3</span>衢州智造新城：产业长效培育机制吸引491亿元增资扩产</div>
+      <div class="summary">衢州智造新城建立链主+平台+基金+服务四位一体产业长效培育机制，重点发展新材料、新能源、集成电路等先进制造领域，2026年以来累计新增投资491亿元，成为浙江山区县高质量发展的标杆。</div>
+      <div class="meta">
+        <span class="source">浙江日报</span>
+        <span class="tag">产业发展</span>
+        <span class="tag">科技创新</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="title"><span class="num">4</span>贵安新区「联合坐诊」打通68.8亿元项目审批堵点</div>
+      <div class="summary">贵安新区创新推行联合坐诊审批服务机制，整合发改、住建、自然资源等多部门，对企业项目报建实行一窗受理、并联审批、限时办结，打通总投资68.8亿元的系列项目审批堵点，平均压缩审批时限60%以上。</div>
+      <div class="meta">
+        <span class="source">贵州日报</span>
+        <span class="tag">营商环境</span>
+        <span class="tag">政务服务</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="title"><span class="num">5</span>新一轮地方国资国企改革方案密集下发</div>
+      <div class="summary">多地密集印发新一轮国资国企改革实施方案，聚焦战略性重组、专业化整合和市场化经营机制建设，推动国有资本向关系国计民生的重要行业和关键领域集中，强化科技创新和产业引领功能，优化考核评价体系。</div>
+      <div class="meta">
+        <span class="source">中国经济网</span>
+        <span class="tag">国企改革</span>
+        <span class="tag">政策创新</span>
+      </div>
+    </div>
+
   </div>
 
-  <div class="summary-block">
-    <h2><span class="num">2</span><span class="text">四川以「开发式帮扶」超常举措推动39个欠发达县域加快追赶振兴发展</span></h2>
-    <div class="meta"><span class="tag">民生保障</span><span class="tag">区域协调</span>四川日报 · 6月2日</div>
-    <div class="content">
-      <p>四川省创新推出「开发式帮扶」机制，以超常规举措系统性推动39个欠发达县域振兴发展。一是建立「一县一策」精准帮扶体系，变传统输血式帮扶为产业造血式开发，因地制宜培育特色产业增长极。二是整合省直部门、国有企业、高校等力量形成帮扶矩阵，省级领导定点联系、省级单位结对帮扶，构建全省一盘棋的协同攻坚格局。三是配套建立动态监测与考核评估机制，将帮扶成效纳入绩效考核，确保政策落地不走形式，为其他省份解决区域发展不平衡问题提供了系统性解决方案。</p>
-    </div>
-    <div class="source">（信息来源：四川日报 6月2日 <a href="https://finance.sina.com.cn/jjxw/2026-06-02/doc-inhzyhit7909289.shtml" target="_blank">查看原文 →</a>）</div>
+  <div class="footer">
+    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
   </div>
-
-  <div class="summary-block">
-    <h2><span class="num">3</span><span class="text">衢州智造新城探索产业长效培育机制，近三年企业累计增资491亿元</span></h2>
-    <div class="meta"><span class="tag">产业培育</span><span class="tag">营商环境</span>浙江日报 · 6月2日</div>
-    <div class="content">
-      <p>浙江衢州智造新城创新产业长效培育模式，近三年企业累计增资扩产达491亿元，以存量激活替代增量招商。一是建立企业「全生命周期」服务体系，从项目落地到扩产升级配备专属服务专员，以营商环境确定性对冲市场不确定性，让企业「来了不想走、投了还想投」。二是推行「链式培育」策略，围绕新材料、新能源等主导产业打造完整生态链，以龙头带动配套、以配套反哺龙头，形成内生增长闭环。三是将企业增资扩产数据纳入园区考核核心指标，倒逼服务意识从「招商导向」向「育商导向」转变。</p>
-    </div>
-    <div class="source">（信息来源：浙江日报 6月2日 <a href="https://zjrb.zjol.com.cn/html/2026-06/02/content_3907155.htm" target="_blank">查看原文 →</a>）</div>
-  </div>
-
-  <div class="summary-block">
-    <h2><span class="num">4</span><span class="text">贵安新区创新「联合坐诊」机制，为68.8亿元数据中心项目打通审批堵点</span></h2>
-    <div class="meta"><span class="tag">营商环境</span><span class="tag">数字基建</span>贵州日报 · 6月2日</div>
-    <div class="content">
-      <p>贵州贵安新区创新推出「联合坐诊」审批服务机制，为总投资68.8亿元的数据中心项目高效打通审批堵点。一是设立多部门联合审批窗口，发改、自然资源、住建、环保等部门集中办公、并联审批，将串联流程压缩为并联作业，大幅缩短审批时限。二是建立「首问负责+限时办结」制度，每个项目明确一名「项目管家」全程跟进，对审批卡点实行清单化管理、销号式推进。三是将服务前置到项目策划阶段，提前介入、主动对接，变「企业跑部门」为「部门围着企业转」，为重大项目落地提供了可推广的服务样板。</p>
-    </div>
-    <div class="source">（信息来源：贵州日报 6月2日 <a href="http://finance.sina.com.cn/jjxw/2026-06-02/doc-inhzxvue3624660.shtml" target="_blank">查看原文 →</a>）</div>
-  </div>
-
-  <div class="summary-block">
-    <h2><span class="num">5</span><span class="text">新一轮国资国企改革方案（2026—2029）正式下发，多省份迅速部署落实</span></h2>
-    <div class="meta"><span class="tag">国企改革</span><span class="tag">战略性重组</span>中国经济网 · 6月1日</div>
-    <div class="content">
-      <p>《关于进一步深化国资国企改革的方案（2026—2029年）》近日正式下发，多省份已迅速部署落实。一是明确了新一轮改革的核心方向：推进国资布局向战略性新兴产业集中，推动国企战略性重组和专业化整合，深化混合所有制改革，完善现代企业制度。二是各省响应迅速：山东提出聚焦主业推进重组整合，河南强调国企要当好现代化河南建设的方面军，湖北围绕支点建设提升国企核心竞争力，形成了比学赶超的改革态势。三是央企率先示范，中国五矿、中国船舶、国家电网等已制定分阶段实施方案，重点推进战略性新兴产业布局和市值管理。</p>
-    </div>
-    <div class="source">（信息来源：中国经济网 6月1日 <a href="http://district.ce.cn/newarea/roll/202606/t20260601_3002003.shtml" target="_blank">查看原文 →</a>）</div>
-  </div>
-
-</div>
-
-<div class="footer">
-  <p>漳州城投设计咨询集团有限公司 总工办 · 每日上午更新</p>
-  <p style="margin-top:6px">本站通过 <a href="https://pages.github.com" target="_blank">GitHub Pages</a> 自动部署</p>
 </div>
 
 </body>
