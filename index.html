@@ -5,129 +5,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>媒体信息摘报</title>
 <style>
-  :root {
-    --primary: #1a3a6b;
-    --primary-light: #2d5aa0;
-    --bg: #f8f9fb;
-    --card-bg: #ffffff;
-    --text: #2c2c2c;
-    --text-secondary: #555;
-    --border: #e0e4ea;
-    --accent: #c41230;
-    --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
+  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
+    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.8;
-  }
-  .header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center;
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
+    color: var(--text); line-height: 1.8; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white; padding: 40px 20px; text-align: center; }
   .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
   .header .date { font-size: 14px; opacity: 0.85; }
   .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
   .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
   .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 24px; border-radius: 6px;
-    font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s;
-  }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
+    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
+    cursor: pointer; border: none; transition: all 0.2s; }
   .btn-download { background: var(--accent); color: white; }
   .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
   .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
   .btn-refresh:hover { border-color: var(--primary); }
   .news-list { display: flex; flex-direction: column; gap: 16px; }
-  .news-card {
-    background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 22px 26px;
-    box-shadow: var(--shadow); transition: box-shadow 0.2s;
-  }
+  .news-card { background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
+    transition: box-shadow 0.2s; }
   .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  .news-card .num {
-    display: inline-block; width: 28px; height: 28px;
-    background: var(--primary); color: white; border-radius: 50%;
-    text-align: center; line-height: 28px; font-size: 13px; font-weight: 700;
-    margin-right: 10px; flex-shrink: 0;
-  }
+  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
+    color: white; border-radius: 50%; text-align: center; line-height: 28px;
+    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
   .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
   .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
   .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
   .news-card .source { font-size: 12px; color: var(--text-secondary); }
-  .news-card .tag {
-    display: inline-block; padding: 2px 10px;
-    background: var(--tag-bg); color: var(--primary);
-    border-radius: 12px; font-size: 12px;
-  }
+  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
+    color: var(--primary); border-radius: 12px; font-size: 12px; }
   .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
     border-top: 1px solid var(--border); margin-top: 32px; }
-  @media (max-width: 600px) {
-    .header { padding: 28px 16px; } .header h1 { font-size: 22px; }
-    .container { padding: 16px 12px 40px; } .news-card { padding: 16px 18px; }
-  }
+  @media (max-width: 600px) { .header { padding: 28px 16px; }
+    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
+    .news-card { padding: 16px 18px; } }
 </style>
 </head>
 <body>
 <div class="header">
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年6月2日</div>
+  <div class="date">2026年6月3日</div>
   <div class="subtitle">省级党报创新举措精选（福建省除外）</div>
 </div>
 <div class="container">
   <div class="action-bar">
-    <a href="files/6.2媒体信息摘报.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="6.3%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
     <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
   </div>
   <div class="news-list">
     <div class="news-card">
-      <div class="title"><span class="num">1</span>广东面向37国推介「启航十五五」合作机遇</div>
-      <div class="summary">广东省在广交会期间举办专题推介会，面向37个共建一带一路国家集中展示粤港澳大湾区建设、横琴粤澳深度合作区、南沙等重大平台的发展机遇，推动外贸投资、科技创新、数字经济等领域的项目合作。</div>
+      <div class="title"><span class="num">1</span>多省份密集部署新一轮国企改革</div>
+      <div class="summary">近日，《关于进一步深化国资国企改革的方案（2026—2029年）》下发，山东、河南、湖北、重庆等20多个省市密集召开工作会议。方案锚定国有资本向国家安全、民生保障与战略性新兴产业「三个集中」，力争央企资产集中到20个重点行业。山东明确推动企业向「微笑曲线」两端延伸，河南提出做好「四篇强产业大文章」，重庆启动8方面30项重点任务。东风集团等央企已完成资本重组先行先试。</div>
       <div class="meta">
-        <span class="source">南方日报</span>
-        <span class="tag">对外开放</span>
-        <span class="tag">区域协作</span>
+        <span class="source">经济参考报 6月2日</span>
+        <span class="tag">国企改革</span><span class="tag">战略性重组</span>
       </div>
     </div>
     <div class="news-card">
-      <div class="title"><span class="num">2</span>四川开发式帮扶推动39个欠发达县域振兴发展</div>
-      <div class="summary">四川省创新实施开发式帮扶策略，统筹产业、就业、消费等多项帮扶措施，聚点39个欠发达县域，通过龙头企业带动、特色产业培育等路径，推动从输血向造血转变，巩固拓展脱贫攻坚成果。</div>
+      <div class="title"><span class="num">2</span>浙江「四题一评」机制让企业主导创新</div>
+      <div class="summary">浙江省构建「企业出题、政府助题、平台答题、车间验题、市场评价」的协同攻关机制，出台12条措施支持企业主导「尖兵」「领雁」项目，企业榜单比例不低于60%。2025年全省科创投入达7232亿元，高新技术企业4.92万家。将AI纳入全省产业集群培育体系，推动智能机器人、AI眼镜、智能网联车等终端产品发展。杭州财政科技支出年均增长超15%。</div>
       <div class="meta">
-        <span class="source">四川日报</span>
-        <span class="tag">乡村振兴</span>
-        <span class="tag">民生保障</span>
+        <span class="source">浙江日报 6月2日</span>
+        <span class="tag">科技创新</span><span class="tag">人工智能</span>
       </div>
     </div>
     <div class="news-card">
-      <div class="title"><span class="num">3</span>衢州智造新城：产业长效培育机制吸引491亿元增资扩产</div>
-      <div class="summary">衢州智造新城建立链主+平台+基金+服务四位一体产业长效培育机制，重点发展新材料、新能源、集成电路等先进制造领域，2026年以来累计新增投资491亿元，成为浙江山区县高质量发展的标杆。</div>
+      <div class="title"><span class="num">3</span>广州拟创建全国海洋经济发展示范区</div>
+      <div class="summary">广州发布海洋经济发展规划，到2030年海洋生产总值突破7300亿元，构建「一带三区」空间布局。部署深海机器人、天然气水合物商业化开发等未来产业，实施「深蓝种业」工程。全力争取崂山实验室广东基地、「梦想」号深海探测全国重点实验室等国家级平台落地。携手港澳推进海事仲裁与船舶认证资质互认。2025年广州海洋生产总值为5231亿元，占GDP16.3%。</div>
       <div class="meta">
-        <span class="source">浙江日报</span>
-        <span class="tag">产业发展</span>
-        <span class="tag">科技创新</span>
+        <span class="source">南方日报 6月3日</span>
+        <span class="tag">海洋经济</span><span class="tag">产业发展</span>
       </div>
     </div>
     <div class="news-card">
-      <div class="title"><span class="num">4</span>贵安新区联合坐诊打通68.8亿元项目审批堵点</div>
-      <div class="summary">贵安新区创新推行联合坐诊审批服务机制，整合发改、住建、自然资源等多部门，对企业项目报建实行一窗受理、并联审批、限时办结，打通总投资68.8亿元的系列项目审批堵点，平均压缩审批时限60%以上。</div>
+      <div class="title"><span class="num">4</span>云浮预计2027年「县县通高铁」</div>
+      <div class="summary">云浮市出台《关于加快建设绿色国际化城市的决定》，规划15平方公里高铁CBD片区，依托深南高铁打造融湾城市门户。盘活4800亩产业用地引导石材产业升级，布局医药健康、人工智能等新业态。深南高铁、佛肇云高速等加速推进。作为广东唯一国家生态产品价值实现试点市，全面推进生态产品摸底与交易流转平台建设，落地2个国际未来社区。</div>
       <div class="meta">
-        <span class="source">贵州日报</span>
-        <span class="tag">营商环境</span>
-        <span class="tag">政务服务</span>
+        <span class="source">南方日报 6月3日</span>
+        <span class="tag">城市建设</span><span class="tag">交通基建</span>
       </div>
     </div>
     <div class="news-card">
-      <div class="title"><span class="num">5</span>新一轮地方国资国企改革方案密集下发</div>
-      <div class="summary">多地密集印发新一轮国资国企改革实施方案，聚焦战略性重组、专业化整合和市场化经营机制建设，推动国有资本向关系国计民生的重要行业和关键领域集中，强化科技创新和产业引领功能，优化考核评价体系。</div>
+      <div class="title"><span class="num">5</span>「国聘行动」叠加「百万英才汇南粤」</div>
+      <div class="summary">教育部等8部门启动「国聘行动」，聚焦制造业、服务业开展「城市产业专场」招聘。广东「百万英才汇南粤」行动持续扩容，去年吸纳超110万高校毕业生，今年目标仍保持百万人以上。广东多城联动「招聘直通车」送岗上门，依托大湾区制造业集群和现代服务业扩大就业空间。今年全国高校毕业生预计达1270万人，稳就业任务艰巨。</div>
       <div class="meta">
-        <span class="source">中国经济网</span>
-        <span class="tag">国企改革</span>
-        <span class="tag">政策创新</span>
+        <span class="source">南方日报 6月3日</span>
+        <span class="tag">民生保障</span><span class="tag">人才就业</span>
       </div>
     </div>
+
   </div>
   <div class="footer">
     每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
