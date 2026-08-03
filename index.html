@@ -3,107 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>媒体信息摘报</title>
+<title>媒体信息摘报（2026年8月3日）</title>
 <style>
-  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
-    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
-    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }
-  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }
-  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
-  .header .date { font-size: 14px; opacity: 0.85; }
-  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
-  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
-  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
-    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }
-  .btn-download { background: var(--accent); color: white; }
-  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
-  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
-  .btn-refresh:hover { border-color: var(--primary); }
-  .news-list { display: flex; flex-direction: column; gap: 16px; }
-  .news-card { background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }
-  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
-    color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
-  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
-  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); }
-  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }
-  @media (max-width: 600px) { .header { padding: 28px 16px; }
-    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
-    .news-card { padding: 16px 18px; } }
+  * { box-sizing: border-box; }
+  body { font-family: "Microsoft YaHei","PingFang SC",sans-serif; background:#f5f6f8; margin:0; color:#222; line-height:1.7; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 24px 16px 48px; }
+  .header { background: linear-gradient(135deg,#1f6feb,#15489e); color:#fff; border-radius:14px; padding:30px 26px; }
+  .header h1 { margin:0 0 6px; font-size:27px; letter-spacing:1px; }
+  .header .date { opacity:.92; font-size:14px; }
+  .dl { display:inline-block; margin-top:18px; background:#fff; color:#15489e; text-decoration:none; font-weight:700; padding:11px 20px; border-radius:8px; font-size:14px; box-shadow:0 2px 8px rgba(0,0,0,.15); }
+  .news-card { background:#fff; border-radius:12px; padding:20px 22px; margin-top:18px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+  .head { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+  .num { background:#eaf1ff; color:#15489e; font-weight:700; border-radius:8px; padding:2px 11px; font-size:13px; }
+  .title { font-size:19px; font-weight:700; color:#15489e; }
+  .tag { background:#fff3e0; color:#b26a00; font-size:12px; padding:2px 9px; border-radius:6px; }
+  .summary { margin-top:12px; font-size:15px; color:#333; }
+  .source { margin-top:12px; font-size:13px; color:#666; word-break:break-all; }
+  .footer { text-align:center; color:#aaa; font-size:12px; margin-top:30px; }
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>媒体信息摘报</h1>
-  <div class="date">2026年7月31日</div>
-  <div class="subtitle">省级党报创新举措精选（福建省除外）</div>
-</div>
-<div class="container">
-  <div class="action-bar">
-    <a href="7.31%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
-    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
+<div class="wrap">
+  <div class="header">
+    <h1>媒体信息摘报</h1>
+    <div class="date">2026年8月3日 · 周一 · 省级党报经济科技消费动态</div>
+    <a class="dl" href="https://raw.githubusercontent.com/ETKing668/media-briefing/main/8.3%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx">📥 下载 Word 版（8.3媒体信息摘报.docx）</a>
   </div>
-  <div class="news-list">
-    <div class="news-card">
-  <div class="title"><span class="num">1</span>"千年商都"迈向全球新消费策源地</div>
-  <div class="summary">广州培育建设国际消费中心城市五周年，交出亮眼答卷，系统推进从空间到场景、从品牌到环境的消费能级跃升。<br>一是强化顶层设计，出台商圈发展专项规划，为11个区量身定制商业建设重点，构建"5+2+4+22"重点商圈格局；太古汇、K11、太古里、万象城、SKP五大高端商业IP首次同城聚首，全市优质零售物业达633万平方米。<br>二是推进老旧小区"绣花式"改造，带动北京路、永庆坊、上下九、东山口等街区提质升级，在保留历史风貌基础上活化建筑空间，吸引潮流品牌、文创店铺、特色餐饮集聚；全市100余个老旧小区完成改造，22个试点、88个社区搭建"一刻钟便民生活圈"，近98万居民下楼即享便利。<br>三是推出"羊城消费新八景"贯穿全年，链接节庆、赛事、演艺等多元场景，将"吃住行游购娱"串珠成链，推动消费向场景体验延伸。<br>四是设立全国首只老字号振兴地方性基金，五年累计支持42家企业60个项目，拨付资金超2.3亿元；全市离境退税商店从76家增至超1750家，2025年退税销售额超6.9亿元，较2021年增长594倍；超1.6万重点商户支持外卡刷卡，近400个地铁站9000台闸机支持外卡"拍卡"过闸；2025年全市限额以上批零业通过公共网络实现零售额超3500亿元。</div>
-  <div class="meta">
-    <span class="source">（信息来源：南方日报7月31日《"千年商都"迈向全球新消费策源地》  https://epaper.nfnews.com/nfdaily/html/202607/31/content_10177381.html）</span>
-    <span class="tag">国际消费中心</span><span class="tag">商圈规划</span>
+  <div class="news-card">
+    <div class="head"><span class="num">一</span><span class="title">让资产“活”起来，让减碳“算得清”，让价值“看得见”</span><span class="tag">江苏·绿色金融</span></div>
+    <div class="summary">江苏省以绿色金融创新打通“资产盘活—减碳计量—价值变现”链条，多项举措在全国先行先试。一是开展物理可溯源的小时级绿电交易。大丰港零碳产业园落地长三角首笔按小时结算、来源可物理溯源的绿电直供交易，单笔电量约60兆瓦时，于6月每日7时至9时高频开展，让绿电消费时点与生产过程精准匹配。二是以数字人民币智能合约实现电费自动结算。5月落地全国首笔绿电电费数字人民币智能合约结算，合约触发后秒级自动划转，减少人工对账与资金占用，提升绿电交易结算效率。三是盘活环境权益发行资产证券化产品。江阴秦望山绿色循环产业园以危废处理收费收益权为基础资产发行资产支持票据（ABN）6.67亿元，系全国首单，将固废处理未来现金流转化为当期融资。四是扩大绿色债券与基础设施REITs供给。上半年全省发行绿色债券266.9亿元，落地多笔全国首单公募REITs，引导社会资本投向清洁能源与环保基础设施。五是构建转型金融挂钩碳绩效的利率机制。参照人民银行11个行业转型金融支持标准，江苏银行推出“减排越好、利率越低”的ESG挂钩贷款，将贷款利率与碳减排绩效绑定，已服务20余家绿色工厂，以价格信号引导传统高碳工序低碳改造。</div>
+    <div class="source">（信息来源：新华日报2026年8月3日《让资产“活”起来，让减碳“算得清”，让价值“看得见”》  https://xh.xhby.net/pad/con/202608/03/content_1577902.html）</div>
   </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">2</span>查验流程"搬"进无尘车间</div>
-  <div class="summary">黄埔海关将真空包装等高新技术货物布控查验模式落地企业无尘车间，关员上门检查，破解精密设备、原材料在口岸开拆易受损受污的难题，实现安全高效进口。<br>一是海关总署自2023年推出真空包装等高新技术货物布控查验模式改革，将需真空包装、防光防尘、恒温储存的原材料或设备，从口岸转移至具备条件的场所检查，有效保护设备和产品性能，避免货物品质受影响。<br>二是黄埔海关辖区上半年共有36家企业获得该模式备案，其中4家通过智慧网备平台提交申请；累计约79.17亿元高新技术货物享受到该政策的通关便利。以广州增芯科技为例，企业供应链总监表示，进口精密设备由海关关员直接上门到无尘车间检查，避免设备受损或污染，既安全又高效；该企业上半年运用该模式申报进口产品货值达3.16亿元。<br>三是海关持续推动"送政策上门"服务，组织"关企面对面"专场宣讲，设立服务专岗随时解答企业疑问；针对不同企业特点定制服务指导方案，实现"秒传即达""随到随审"，让更多高新技术企业在进口环节少跑腿、快通关；同时加强备案企业培育，扩大政策覆盖面，使集成电路、新型显示等更多高新技术企业享受到通关便利。</div>
-  <div class="meta">
-    <span class="source">（信息来源：南方日报7月31日《查验流程"搬"进无尘车间》  https://epaper.nfnews.com/nfdaily/html/202607/31/content_10177385.html）</span>
-    <span class="tag">通关便利</span><span class="tag">营商环境</span>
+  <div class="news-card">
+    <div class="head"><span class="num">二</span><span class="title">辽宁启动潮玩消费季 百场漫展将进商圈</span><span class="tag">辽宁·新型消费</span></div>
+    <div class="summary">辽宁省抢抓《扩大消费“十五五”规划》机遇，于7月31日在辽宁工业展览馆启动2026辽宁五彩消费季·潮玩消费季，以“潮聚辽宁·漫享新消费”为主题，推动潮玩、潮服、动漫等新型消费与线下商圈深度融合，助力全省新型消费提质扩容。一是聚焦年轻群体布局潮玩新赛道。省商务厅明确抓住沈阳、大连获批国家“三新”试点城市契机，从政策活动双轮驱动、深挖本土文化资源打造特色IP、强化协会和金融机构服务支撑、面向新趋势培育消费热点四个方向系统发力，推动潮玩消费与商圈、市集、老字号、文博场馆跨界融合。二是推动“百场漫展进商圈”。沈阳市动漫产业协会计划下半年联合省内多个城市核心商圈，推出“动漫IP促消费·百场漫展进商圈”活动，把二次元流量导入实体商业空间，带动商圈客流与衍生消费。三是开放本土IP授权降低合作门槛。协会推动辽沈本土文创IP开放授权，降低中小消费品牌与IP方合作门槛，丰富潮玩市场供给，激活本土原创内容变现。四是配套潮玩专项金融服务。银联商务辽宁公司在活动现场发布潮玩专项金融举措，面向小微零售、餐饮、文博商户推出优惠政策，以金融手段降低商户参与潮玩消费的运营成本，完善“政策+活动+金融”支撑体系。</div>
+    <div class="source">（信息来源：辽宁日报2026年8月3日《辽宁启动潮玩消费季 百场漫展将进商圈》  https://www.163.com/dy/article/L3CRE8UN05568W0A.html）</div>
   </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">3</span>将率先探路生态化出海</div>
-  <div class="summary">7月30日，全球跨境贸易产业集聚区生态大会在广州南沙举行，全省首个全球跨境贸易产业集聚区启动建设，广东词元交易和服务中心正式揭牌，为生态化出海率先探路。<br>一是构建"软硬兼施"生态赋能。软生态将"关、税、汇、融、仓、证、商、物"八大核心服务深度整合，以区块链、AI智能运营为数字基座，为企业铺就低成本、高合规快车道；中科汇智实现与海关、税务、国有银行数据直连，累计跨境结算金额超1700亿元。<br>二是硬生态由区属国企南沙开建集团统筹开发运营，构建"上下楼就是上下游"产业聚合生态圈；依托南沙港开通180余条国际航线、通达400多个港口，2025年集装箱吞吐量突破2260万标箱；通过"一港通"模式串联23个支线港口，货物平均堆存期从7天压缩至2天以内。<br>三是成立广东词元交易和服务中心，由省政务服务和数据管理局统筹、依托广州数据交易所建设，为跨境贸易数据流通提供制度性保障，承接国家数据领域国际合作试点，打造粤港澳数据特区，布局词元经济新赛道。<br>四是会上一批跨境贸易、汽车出口、港口供应链、外贸金融重点项目同步签约落地，进一步完善区域跨境出海全链条产业生态。</div>
-  <div class="meta">
-    <span class="source">（信息来源：南方日报7月31日《将率先探路生态化出海》  https://epaper.nfnews.com/nfdaily/html/202607/31/content_10177378.html）</span>
-    <span class="tag">跨境贸易</span><span class="tag">生态出海</span>
+  <div class="news-card">
+    <div class="head"><span class="num">三</span><span class="title">推动文旅体商深度融合（东北超赛事经济）</span><span class="tag">辽宁·文旅体商</span></div>
+    <div class="summary">辽宁以“东北超”赛事为牵引，推动文旅体商深度融合，以新业态、新模式、新场景引领消费升级。一是推出“四重让利”撬动以旧换新。省商务厅实施“国补+厂补+店补+金融贴息”组合举措，推动汽车、家电、数码等消费品以旧换新，引导绿色智能消费升级。二是布局观赛“第二现场”激活夜间消费。全省围绕赛事打造866个观赛第二现场，构建“赛事+商圈+夜经济”消费新场景，将赛场人流导入周边商业与市集。三是做优“五彩消费季”活动矩阵。推出首发集结季、辽品好物争霸赛等特色活动，培育首发经济与“人工智能+消费”等新增长点，放大赛事经济与政策杠杆叠加效应。四是放大票根经济与嘉年华效应。继续打造“东北超”区域特色品牌，丰富“观赛+出游”配套体验，办热赛场嘉年华，推动赛事球票兑换景区游览等权益，把观赛人流转化为消费活力。五是丰富文旅消费新场景。全省落实文化场馆延时开放、做深文创开发，加快“辽作馆”建设并亮相上海进博会，推出“何以辽宁”精品展，遴选“人工智能+文旅”示范项目，策划房车露营、海岛游、古塔游、研学游等精品线路。六是建设“辽宁优品”公共品牌与激活住房消费。今年再评定一批“辽宁优品”引导品质消费；住建系统完善“好房子”政策体系，出台金融支持举措，推行住房以旧换新、带押过户与房票安置。</div>
+    <div class="source">（信息来源：辽宁日报2026年8月3日《推动文旅体商深度融合——辽宁广大党员干部群众深入学习贯彻省委十三届十一次全会精神》  https://www.toutiao.com/article/7669574893997916707/）</div>
   </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">4</span>加速布局新赛道</div>
-  <div class="summary">天津国资系统2026年上半年加速培育新质生产力，战略性新兴产业投资占比再创新高，19项成果荣获2025年度天津市科学技术奖，获奖数量为近年最多。<br>一是建立新质生产力领导推动机制，与市科技局、市发展改革委、天津大学等联合开展场景对接和项目路演，推动科技成果加速从实验室走向生产线；渤化集团158项在研、49项储备项目有序推进，22项产学研合作落地；食品集团海河乳业取得行业首家"黑灯工厂"认证。<br>二是国资母基金累计新设7只战略性新兴产业子基金，认缴总规模26.11亿元，撬动社会资本超11亿元；泰达控股联合天津大学、海河实验室组建天津脑机接口产业集团，注册资本10亿元，推动脑机接口产业规模化发展；城投集团、津智资本加快布局低维材料。<br>三是在智能机器人领域，轨道交通集团牵头协同渤化、百利装备、天津港等企业在清洁、问询、安检等场景开放合作，国资产业母基金通过子基金对具身智能企业帕西尼感知科技投资2000万元；生物制造领域渤轻集团与天津大学签约推动功效化妆品原料创新技术成果转化。<br>四是存量盘活与开放合作，市区两级盘活存量房产约52.64万平方米、新增就业岗位1567个；天津软件园吸引近400家企业注册；天津港集装箱吞吐量达1299万标箱。</div>
-  <div class="meta">
-    <span class="source">（信息来源：天津日报7月31日《加速布局新赛道》  https://epaper.tianjinwe.com/tjrb/html/2026-07/31/content_143078_3691027.htm）</span>
-    <span class="tag">国资改革</span><span class="tag">新质生产力</span>
+  <div class="news-card">
+    <div class="head"><span class="num">四</span><span class="title">人在场景里 花钱也乐意（安徽“大消费”促进机制）</span><span class="tag">安徽·大消费</span></div>
+    <div class="summary">安徽构建“大消费”促进机制，以跨部门协同打通行政壁垒，把分散在文旅、公安、商务、财政等环节的力量拧成一股绳，探索“造场子”提振消费的新路径。一是搭建沉浸式活动场景引流。上半年全省举办营业性演出18224场次（同比增长9.72%），合肥骆岗公园承接音乐节、家博会、风筝嘉年华等20余场科文旅活动，带动园区超40万人次客流；“超级皖”美食争霸赛、广场舞进商圈等融合美食、非遗、文旅元素，商圈客流增长30%至50%。二是创新“票根经济”与无感消费券。鼓励演出票根联动周边商圈折扣、免费游景区，形成“看戏+游玩+购物+美食”一体链条；合肥发布全省首个“即碰即用”夜经济消费券（规模300万元），支付宝“碰一下”支付自动核销、立减10元至76.6元，实现1∶9带动比，16条人气街区打卡超36万人次。三是深化大型演出审批“一件事”改革。7月21日集成联审模式全省推广，整合营业性演出审批、涉外演出审批、5000人以上大型活动安全许可等5项事项，实行“一表申请、一窗受理、并联审批”，全流程时限压缩至10个工作日以内，较改革前压缩63%。四是遴选“皖美消费”新场景。省发展改革委联合九部门开展新场景遴选推广，省商务厅会同财政、文旅推出“徽动消费·惊喜盲盒”活动，面向住宿、餐饮、零售等九大行业投放普惠激励，做优做强活动矩阵。</div>
+    <div class="source">（信息来源：安徽日报2026年8月3日《年中经济观察④丨人在场景里 花钱也乐意》  https://www.ahnews.com.cn/toutiao2/pc/con/2026-08/03/571_1782652.html）</div>
   </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">5</span>汇八方优品 聚创新服务</div>
-  <div class="summary">7月30日，第31届中国天津投资贸易洽谈会在国家会展中心（天津）开幕，设置五大特色主题展馆，近700家海内外企业携新产品、新技术、新服务参展，持续至8月2日。<br>一是综合主馆及机器人产业生态专区看点十足，朗誉、阿童木、艾普斯、博诺智创等本土科创企业集中展示重载智能物流、具身智能机器人等领域前沿成果；"供销市集"再度亮相，30余家合作社及企业带来130余款优质农副产品展销。<br>二是依托东西部协作平台，新疆、甘肃、青海等中西部省区市展团积极参与津洽会，集中展示当地特色农产品及产业优势，推动区域产销对接与消费帮扶，拓展中西部好物入津通道。<br>三是在S8馆举办第三届天津国际银发经济博览会，聚焦养老产业新趋势、新需求，参展企业覆盖智慧康养设备、适老化改造、老年文旅、养老金融全产业链；本土企业小橙集团展示多种智慧养老产品和护理服务，服务已覆盖国内22个省区市。<br>四是首次举办2026天津国际咖啡产业展，集聚240余家来自全国各地的咖啡及烘焙展商，邀请非洲、南美洲咖啡豆原产国展商参展；组委会以展聚商、以产赋能，联通全球市场、整合区域资源，把展会品牌推向更广受众群体，共同做大市场，服务国内国际双循环与京津冀协同发展。</div>
-  <div class="meta">
-    <span class="source">（信息来源：天津日报7月31日《汇八方优品 聚创新服务》  https://epaper.tianjinwe.com/tjrb/html/2026-07/31/content_143078_3691031.htm）</span>
-    <span class="tag">会展经济</span><span class="tag">消费场景</span>
+  <div class="news-card">
+    <div class="head"><span class="num">五</span><span class="title">河北推动算力资源转化成产业优势</span><span class="tag">河北·算力产业</span></div>
+    <div class="summary">河北依托综合算力指数连续两年全国第一的基础，加快把算力资源转化为产业优势，从“卖机柜”向“卖词元”升级。一是发放“算力券”降低企业用算成本。广监云等大模型企业借助廊坊“算力券”优惠，算力成本降低40%至50%；河北人工智能计算中心作为全省首个全栈国产化公共算力平台，月度实际使用率稳定在95%以上，已与1000多家企业、200余个高校及科研机构团队建立联系，孵化170余个场景方案。二是布局环京智能算力集聚区。形成张家口、廊坊两大算力高地，联动石家庄、保定等地，截至2026年3月底全省智能算力规模达38.4万PFlops；润泽人工智能应用中心一期、中国电信怀来园区二期、世纪互联华北基地等重大项目接续投运。三是抢占词元经济新赛道。河北联通开发UniAI·智枢平台，汇聚通用语言、多模态及工业、政务、文旅等行业垂类模型，支持一站式调用与并行测试，用户按月充值即可按需采购词元；省发展改革委支持本土算力企业建设“词元工厂”，探索“API调用、按次计费、词元消耗”新型服务交易模式，构建算力支撑、词元流转、产业赋能全链条体系。四是推进高质量数据集供给。雄安集团获批国家数据局可信数据空间试点，建设具身智能语料加工平台统一采集标注150家机器人厂商数据；全省数据归集总量突破1万亿条、公共数据开放2130项，推动建设保张石邢邯数据标注基地，系统提升数据供给质量。</div>
+    <div class="source">（信息来源：河北日报2026年8月3日《河北推动算力资源转化成产业优势》  https://www.163.com/dy/article/L3CU918R05568W0A.html）</div>
   </div>
-</div>
-  </div>
-  <div class="footer">
-    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
-  </div>
+  <div class="footer">数据来源：各省级党报公开报道 · 仅作内部参阅</div>
 </div>
 </body>
 </html>
