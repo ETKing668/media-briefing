@@ -1,63 +1,109 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>媒体信息摘报（2026年8月7日）</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>媒体信息摘报</title>
 <style>
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: "Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
-         background:#f4f6fb; color:#1f2733; line-height:1.7; }
-  header { background:linear-gradient(135deg,#1f6feb,#0b3d91); color:#fff; padding:34px 20px; text-align:center; }
-  header h1 { margin:0; font-size:26px; letter-spacing:2px; }
-  header p { margin:8px 0 0; opacity:.85; font-size:14px; }
-  main { max-width:880px; margin:0 auto; padding:26px 16px 40px; }
-  .news-card { background:#fff; border-radius:14px; padding:22px 24px; margin:18px 0;
-               box-shadow:0 4px 18px rgba(20,40,80,.08); border-left:5px solid #1f6feb; }
-  .news-card .title { margin:0 0 12px; font-size:19px; color:#0b3d91; }
-  .news-card .summary { margin:0 0 14px; font-size:15px; color:#33404f; text-align:justify; }
-  .news-card .meta { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; font-size:13px; }
-  .news-card .src a { color:#1f6feb; text-decoration:none; }
-  .news-card .src a:hover { text-decoration:underline; }
-  .news-card .tag { background:#eaf2ff; color:#0b3d91; padding:3px 12px; border-radius:999px; font-size:12px; }
-  .download { display:block; width:fit-content; margin:30px auto 0; padding:13px 30px;
-              background:#0b3d91; color:#fff; border-radius:999px; text-decoration:none; font-size:15px; }
-  footer { text-align:center; color:#8a94a6; font-size:12px; padding:18px; }
+  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
+    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
+    color: var(--text); line-height: 1.8; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white; padding: 40px 20px; text-align: center; }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+  .header .date { font-size: 14px; opacity: 0.85; }
+  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
+  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
+    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
+    cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-download { background: var(--accent); color: white; }
+  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
+  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
+  .btn-refresh:hover { border-color: var(--primary); }
+  .news-list { display: flex; flex-direction: column; gap: 16px; }
+  .news-card { background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
+    transition: box-shadow 0.2s; }
+  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
+    color: white; border-radius: 50%; text-align: center; line-height: 28px;
+    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
+  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .news-card .source { font-size: 12px; color: var(--text-secondary); }
+  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
+    color: var(--primary); border-radius: 12px; font-size: 12px; }
+  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
+    border-top: 1px solid var(--border); margin-top: 32px; }
+  @media (max-width: 600px) { .header { padding: 28px 16px; }
+    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
+    .news-card { padding: 16px 18px; } }
 </style>
 </head>
 <body>
-  <header>
-    <h1>媒体信息摘报</h1>
-    <p>2026年8月7日 · 省级党报经济 / 科技 / 消费新举措</p>
-  </header>
-  <main>
-      <article class="news-card">
-        <h2 class="title">打造"粤海粮仓"万亿级产业集群（南方日报）</h2>
-        <p class="summary">广东加快建设现代化海洋牧场全产业链，打造万亿级产业集群：构建苗种到品牌完整链条，以"大渔带小渔"带动渔民参与；汇聚63个育种团队攻关种业，2026年新建重力式网箱920个；组织10家省属国企开展专场招商、成立18家一级开发主体；政策性保险财政补贴保费75%；编制产业"一张图"支撑用海选址。</p>
-        <div class="meta"><span class="src"><a href="https://epaper.nfnews.com/nfdaily/html/202608/07/content_10178088.html" target="_blank" rel="noopener">南方日报8月7日《打造"粤海粮仓"万亿级产业集群》</a></span><span class="tag">海洋经济·全产业链</span></div>
-      </article>
-      <article class="news-card">
-        <h2 class="title">山水间练就硬核筋骨 吴中产创融合驱动新质生产力（新华日报）</h2>
-        <p class="summary">苏州吴中区以产创融合驱动新质生产力：集聚机器人上下游企业1600余家、规上产值超千亿元；举办中欧机器人产业合作对接会、推进"百团千企"出海；五年签约10亿元以上项目超百个；建设具身智谷与高能级平台；开放8大领域1000个智能应用场景，太湖算力中心上线4500P。</p>
-        <div class="meta"><span class="src"><a href="https://xh.xhby.net/pad/con/202608/07/content_1579063.html" target="_blank" rel="noopener">新华日报8月7日《山水间练就硬核筋骨》</a></span><span class="tag">智能制造·产业集群</span></div>
-      </article>
-      <article class="news-card">
-        <h2 class="title">享补贴智能机器人产品陆续上架（北京青年报）</h2>
-        <p class="summary">北京将具身智能机器人纳入消费品以旧换新补贴：新增10类智能家居产品（含陪伴机器人、机器狗、外骨骼机器人等），按最终售价15%立减、每件最高1500元；通过"京通"领取资格券码线上线下同享；20余家电商平台设专区，线下补贴后低至六折；进一步将全屋智能系统等纳入试点。</p>
-        <div class="meta"><span class="src"><a href="https://new.qq.com/rain/a/20260807A03QU200?refer=cp_1009" target="_blank" rel="noopener">北京青年报8月7日《享补贴智能机器人产品陆续上架》</a></span><span class="tag">智能消费·补贴新政</span></div>
-      </article>
-      <article class="news-card">
-        <h2 class="title">来得畅，玩得嗨，湖北文旅促消费特色线路吸引八方游客（楚天都市报·极目新闻）</h2>
-        <p class="summary">湖北推出三季度文旅促消费举措：围绕避暑、亲水、研学、红色4大主题发布线路；借西十高铁开通赴西安、兰州推介，十堰免费接驳、票价优惠、客源互送；打造七类夜游矩阵；8—9月全省营业性演出2850余场；盘活闲置资源推融合产品与优惠套票。</p>
-        <div class="meta"><span class="src"><a href="https://www.ctdsb.net/c1722_202608/2822288.html" target="_blank" rel="noopener">楚天都市报·极目新闻8月7日《来得畅，玩得嗨，湖北文旅促消费特色线路吸引八方游客》</a></span><span class="tag">文旅消费·夜游矩阵</span></div>
-      </article>
-      <article class="news-card">
-        <h2 class="title">专利产业化助推山东新兴产业发展（大众日报）</h2>
-        <p class="summary">山东以专利产业化赋能现代化产业体系：首批建15家高价值专利培育中心；以产业链为单元组建50个重点产业专利池，近1.6万件专利转化实施；布局8家国家级知识产权保护中心，专利预审审查周期压缩84%；建省级专利转化资源库，AI匹配精准推送。</p>
-        <div class="meta"><span class="src"><a href="https://new.qq.com/rain/a/20260807A03X3N00?refer=cp_1009" target="_blank" rel="noopener">大众日报8月7日《专利产业化助推山东新兴产业发展》</a></span><span class="tag">知识产权·专利转化</span></div>
-      </article>
-    <a class="download" href="https://raw.githubusercontent.com/ETKing668/media-briefing/main/8.7%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" target="_blank" rel="noopener">📥 下载 Word 文档</a>
-  </main>
-  <footer>本摘报由自动化流程每日生成，仅供内部学习参考</footer>
+<div class="header">
+  <h1>媒体信息摘报</h1>
+  <div class="date">2026年8月10日</div>
+  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
+</div>
+<div class="container">
+  <div class="action-bar">
+    <a href="8.10%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
+  </div>
+  <div class="news-list">
+<div class="news-card">
+  <div class="title"><span class="num">1</span>镇江以人才&quot;关键子&quot;下活产业大棋局</div>
+  <div class="summary">8月8日，镇江发布《&quot;金山英才&quot;计划（2026—2030）》，以&quot;人才项目支持资金上不封顶&quot;的诚意引才聚才，服务&quot;4833&quot;现代化产业体系。<br>一是扩容&quot;真金白银&quot;礼包引领军人才。对顶尖人才（团队）给予最高1000万元资金支持；对特色产业、未来产业和&quot;人工智能+&quot;领域单设引才赛道，专门举办行业创新创业大赛，给予人才创业项目最高200万元跟踪奖励；新设规模5亿元的人才科创投资基金，优先投资人才项目。<br>二是推行&quot;企业认定、政府认账&quot;引紧缺才。结合市场岗位、薪酬，制定以产业领域、行业小类、具体岗位为基本单元的紧缺人才引进指导目录，分6档发放最高18万元专项补助。<br>三是加码校地合作育人才。对在镇高校对接地方产业设置的现代产业学院、卓越工程师学院给予最高50万元支持，人才定制班给予最高10万元办班奖励；选任为技术经理人等给予1万元工作优秀奖励；全职引进或培育国家级人才最高给予100万元引才奖励。<br>四是组建创新联合体攻技术。聚焦重大战略需求遴选组建创新联合体，支持定向申报市科技计划项目并给予最高200万元支持；对新建省级以上重点实验室、制造业创新中心等研发机构，按建设成效给予最高1000万元建设经费。<br>五是优化全周期服务生态。发放最高三年、每月最多1000元人才公寓租房票及最高100万元购房票；设最高1000万元&quot;金山英才贷&quot;及&quot;投贷保卡&quot;联动金融产品，为2600余名高层次人才提供便利化服务。</div>
+  <div class="meta">
+    <span class="source">新华日报 8月10日</span>
+    <span class="tag">人才政策</span><span class="tag">产业升级</span>
+  </div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">2</span>淮安为超万个政府外包项目做&quot;体检&quot;</div>
+  <div class="summary">2025年年初以来，淮安对养老、环保、医疗等12个领域超万个政府外包项目逐一&quot;过筛&quot;，以信息化监管和纪财审协同规范民生资金用实用好。<br>一是建预警系统锁定串标线索。运行&quot;淮上清风&quot;预警系统，自动比对投标文件IP地址、MAC地址及标书制作工具客户端标识码，发现两家公司办公地点一致、投标文件由同一电脑制作上传等异常即启动核查，认定供应商存在串通投标行为。<br>二是自查核查结合全覆盖。组织17个职能部门对超万个外包项目开展集中自查、专项核查，逐一过筛，压减取消非必要项目1272个，完善内控制度65项。<br>三是严查&quot;先上车后补票&quot;。对未发布采购公告、未确定供应商、未签合同即提供服务的行为明确叫停，如合同签于服务开始之后等&quot;补票&quot;情形一律不予认可，特殊项目须提前申请紧急采购流程，杜绝程序后补。<br>四是清理无关评审加分项。核查采购文件，取消&quot;诚信管理体系认证证书&quot;等与合同履行无关的认证证书加分等不合理条款，净化评审环境。<br>五是推进外包统筹改革&quot;造血&quot;。自2024年起将市级各部门信息化运维资金预算管理权限统一收归市数据局，破解分散运维成本高、标准不一难题，两年多来整体运维支出压降20%，节约资金近千万元。<br>六是纪财审协同闭环管。将大数据预警捕捉串标线索、绩效评价结果与资金结算直接挂钩，把民生资金置于阳光下监管。</div>
+  <div class="meta">
+    <span class="source">新华日报 8月10日</span>
+    <span class="tag">政府监管</span><span class="tag">财政绩效</span>
+  </div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">3</span>教学设备进园区 产教携手育匠才</div>
+  <div class="summary">今年6月底，天开津南园政校企共建的开放型产教融合实践中心投用，以引入真实产线为核心，打通职业教育育人与企业生产发展之间的衔接堵点。<br>一是共建开放型公共服务平台。由津南园、院校、企业多方共建，集产教融合服务、社会化技能培训、企业定制化技术服务、人力资源供给四大核心职能，面向院校、企业、社会多方开放，承担衔接堵点的枢纽作用。<br>二是推行设备共享盘活院校资产。由天津现代职业技术学院提供专业实训设备入驻园区，所有权归属学校、园区统筹调配使用，企业根据实际需求租用设备开展小试、中试和小批量生产，省下高昂设备购置与维护费用。<br>三是配套先进制造全流程设备。中心设3000平方米综合教学大楼，配恒温实训车间、精密测量技术中心，引入三轴/四轴/五轴加工中心、数控车床、三坐标测量机、齿轮测量机等，覆盖从毛坯到成品、从粗加工到精密测量全流程。<br>四是实景实训对接岗位标准。学生参与真实生产订单任务，严格遵循企业质量标准和生产流程，掌握设备调参、工艺排查、精密加工等岗位技能，实现从&quot;会操作机器&quot;到&quot;能胜任岗位&quot;转变。<br>五是依托数字化平台和专项政策深化融合。中心持续深化产教融合，一边为产业输送高素质技能人才，一边为企业提供技术赋能，让产教融合真正成为区域制造业提质增效的持久动力，形成人才实训、技术服务、就业输出的良性运转体系。</div>
+  <div class="meta">
+    <span class="source">天津日报 8月10日</span>
+    <span class="tag">产教融合</span><span class="tag">技能培训</span>
+  </div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">4</span>深圳机器人&quot;工友&quot;闯全球</div>
+  <div class="summary">在APEC&quot;中国年&quot;背景下，深圳机器人企业从产品出海迈向能力出海、标准出海，今年前4个月深圳机器人出口额40.3亿元，占全国同类产品出口总额25.5%。<br>一是走&quot;技术支撑&quot;路径。企业坚持协作机器人硬件、软件、核心算法、智能操作全技术链自研，关键零部件自研率超90%、国产化率100%，累计知识产权超1500项、比行业第二名到第六名总和还多，凭核心技术从海外众筹走向世界500强供应链。<br>二是走&quot;用户共创&quot;路径。把海外社群反馈直接转化为产品迭代动力，针对德国媒体逐条抠说明书用词、美国用户反映转向时轮子摩草、社区想把草坪割成队徽等需求，迭代APP点对点修复、改用全向轮、开发&quot;3D草坪打印&quot;功能，弗若斯特沙利文报告显示其已跻身无埋线割草机器人销售额全球第一，覆盖30余国、服务超40万个家庭。<br>三是走&quot;标准先行&quot;路径。手术机器人企业自研机械臂、底层算法、整机系统，以开放姿态不绑定假体品牌，推进欧盟MDR认证（周期超两年）及巴西、马来西亚等境外首例商业化手术，主刀医生评价其展现亚毫米级精度与稳定性，建立临床培训体系。<br>四是建&quot;机器人谷&quot;产业生态。依托&quot;立足深圳、背靠大湾区&quot;的一小时供应链，产品从创意到落地最快两周实现；政府现场协调测试场地等要素，2025年深圳机器人产业总产值突破2400亿元，存续企业约10万家，今年上半年我国研发的四足机器人占全球销量份额接近70%。</div>
+  <div class="meta">
+    <span class="source">南方日报 8月10日</span>
+    <span class="tag">机器人</span><span class="tag">出海</span>
+  </div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">5</span>建&quot;好房子&quot;：升级供给端 加力稳楼市</div>
+  <div class="summary">安徽以&quot;好房子&quot;建设为主抓手升级住房供给端，通过中国建造（安徽）互联网平台全链条赋能，推进智能建造与建筑工业化协同发展。<br>一是平台赋能智能建造。以中国建造（安徽）互联网平台全链条赋能，推进智能建造与建筑工业化协同，引导房企加大&quot;好房子&quot;建设和供给，打造高性价比适销产品；安徽建工等推出科技住宅、智慧康养等多款创新产品，中好建造创新&quot;实物+数字孪生住宅&quot;双交付模式。<br>二是构建&quot;166X&quot;产品体系。合肥轨道交通集团推出自主研发的&quot;166X&quot;好房子产品体系，以TOD模式为核心引领，延伸高颜值、极自然等6大居住价值维度，依托6大全周期内控体系及X项精细化工艺优化，覆盖从规划到运维完整链条。<br>三是&quot;自主更新、原拆原建&quot;改危房。合肥、淮北等地对D级危房采取业主自筹、原拆原建方式翻建；合肥瑶海电机厂片区统筹&quot;住宅提质+遗存活化+TOD赋能&quot;三位一体片区综合更新，推动老工业区向城市核心商圈蝶变。<br>四是保障性租赁住房建&quot;好房子&quot;。合肥加大定制化供给，承寓·桐华里运用智能建造及BIM技术、配光伏发电系统实现拎包入住；&quot;城改·云庐府&quot;配售型保障房探索&quot;政府决策定方向、国企运作抓落实、提质降本控投资&quot;等建设模式。<br>五是推进&quot;四好&quot;建设。以&quot;好房子&quot;为基础，全链条提升住房设计、建造、维护、服务水平，一体推动好房子、好小区、好社区、好城区&quot;四好&quot;建设，为人民群众打造高品质居住生活空间。</div>
+  <div class="meta">
+    <span class="source">安徽日报 8月10日</span>
+    <span class="tag">好房子</span><span class="tag">智能建造</span>
+  </div>
+</div>
+  </div>
+  <div class="footer">
+    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
+  </div>
+</div>
 </body>
 </html>
