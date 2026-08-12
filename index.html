@@ -29,15 +29,16 @@
   .btn-refresh:hover { border-color: var(--primary); }
   .news-list { display: flex; flex-direction: column; gap: 16px; }
   .news-card { background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow); transition: box-shadow 0.2s; }
+    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
+    transition: box-shadow 0.2s; }
   .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
   .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
     color: white; border-radius: 50%; text-align: center; line-height: 28px;
     font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
   .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; white-space: pre-wrap; }
   .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); word-break: break-all; }
+  .news-card .source { font-size: 12px; color: var(--text-secondary); }
   .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
     color: var(--primary); border-radius: 12px; font-size: 12px; }
   .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
@@ -50,53 +51,53 @@
 <body>
 <div class="header">
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年8月11日</div>
-  <div class="subtitle">省级党报创新举措精选（福建省除外）</div>
+  <div class="date">2026年8月12日</div>
+  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
 </div>
 <div class="container">
   <div class="action-bar">
-    <a href="8.11%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="8.12%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
     <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
   </div>
   <div class="news-list">
     <div class="news-card">
-  <div class="title"><span class="num">1</span>天津出台智能机器人产业创新发展行动方案 2028年核心产值突破200亿元</div>
-  <div class="summary">天津市工业和信息化局、市发展改革委、市科技局联合印发《天津市智能机器人产业创新发展行动方案（2026—2028年）》，提出到2028年底全市智能机器人产业核心产值突破200亿元，产值年均增速超过15%，京津冀区域配套率提升至60%以上。一是实施核心技术攻关行动，攻关端云协同芯片与操作系统，研发工业类专用模型不少于200个。二是实施产品谱系培优行动，做强工业机器人、做优特种机器人、做精服务机器人，差异化布局人形及仿生机器人。三是实施京津冀协同提速行动，推进京津冀人形机器人产业链协进工程，深化与具身智能机器人创新中心等平台合作。四是强化要素保障，研究设立市级机器人产业专项基金，鼓励“机器人6S店”新型商业体建设，打造智能机器人出海总部基地。</div>
+  <div class="title"><span class="num">1</span>县域经济发展有了“空间说明书”</div>
+  <div class="summary">广东省自然资源厅组织厅技术中心搭建“时空智策·领航”系统，把经济社会发展相关数据“装”进覆盖全省超840万个格网，借助人工智能技术分析海量数据，构建起一套坐标化、可量化、可视化的“县域国民经济发展空间说明书”，让数据自己“开口说话”。具体做法如下：一是统一数据“语言”打通孤岛。将生态环境、人口分布、产业发展等部门数据按时间、空间两个维度“对齐颗粒度”，标准化处理后转换到同一套时空体系，打造“时空立方体”。二是构建五大量化指数评价体系。由国土空间利用、生态环境保护、乡村振兴、城镇化、系统协调五大指数组成，让每个县与自身纵向比，精准识别潜力与短板，作为“一县一策”基础。三是提供格网到县域双视角决策。系统以约150米×150米格网为最小单元（全省超840万个），用户可在格网与全县视角间切换，不到一分钟输出一份“县域国民经济发展空间说明书”，并可逐层“下钻”呈现运算依据。四是在肇庆四会、江门台山、梅州五华等地试点应用。四会完成全域国土空间“体检”，识别开发与保护等核心冲突并输出“纠偏式治理”方案；台山依托平台辅助决策，推动端芬镇全域土地整治项目落地。</div>
   <div class="meta">
-    <span class="source">天津日报8月11日《2028年全市智能机器人产业核心产值突破200亿元》　https://k.sina.com.cn/article_5953189932_162d6782c06704uw46.html</span>
-    <span class="tag">智能机器人</span><span class="tag">京津冀协同</span>
+    <span class="source">南方日报8月12日《县域经济发展有了“空间说明书”》  https://epaper.nfnews.com/nfdaily/html/202608/12/content_10178438.html</span>
+    <span class="tag">县域经济</span><span class="tag">数据治理</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">2</span>江苏十部门出台16条措施支持非遗小微企业文创发展</div>
-  <div class="summary">江苏省文旅厅会同省教育厅、省工信厅、省财政厅等十部门联合印发《关于支持江苏省非物质文化遗产小微企业文创发展的若干措施（试行）》，围绕夯实发展基础、拓展市场空间、强化要素保障3个方向提出16条措施。目前全省备案非遗小微企业已超11万家，近八成涉及文创经营。一是明确扶持对象与奖补机制，根据企业年度非遗文创产品研发并投产数量给予奖补，择优遴选不少于300家新锐企业纳入重点目录。二是拓展市场空间，全年组织参展促销活动不少于300场、非遗体验销售活动不少于1000场。三是强化人才与品牌支撑，每年举办不少于100场设计沙龙，开展线上线下培训不少于500人次，每年为不少于200家企业提供品牌诊断与定位指导。</div>
+<div class="news-card">
+  <div class="title"><span class="num">2</span>深圳发布优化口岸营商环境“19条”</div>
+  <div class="summary">深圳市正式印发《深圳市2026年优化口岸营商环境若干措施》，围绕通关便利化、跨境低空物流、跨境电商监管改革等领域，一次性推出19条具体举措。具体做法如下：一是升级口岸通关环境。制定口岸服务保障总体方案，设置APEC专用绿色通道实现参会人员快速通关；规范双语及多语种标识；建立市级口岸综合整治长效机制，重点治理违规拉客、非法揽客、占道经营等问题。二是创新通关监管模式。支持前海综合保税区试点“一线直通、智联监管”模式，允许企业货物先行提离至综保区理货集拼，实现全流程数字化监管；全面推广边检到港“零等待”、离港“零延时”及海事抵港预检等便利制度。三是布局低空与跨境电商。加强深港跨境低空物流协作，探索跨境无人机物流口岸通关查验新模式，推进eVTOL通关监管研究；跨境电商推进“先查验后装运”改革，深化阳光化2.0，完善“商、关、汇、税、贷、保”六位一体监管服务体系。四是完善口岸硬件与消费服务。新皇岗口岸启用并实施“合作查验、一次放行”；公路口岸推行“刷脸”无感通关；新增组合港、内陆港航线5条，力争国际及地区客货运航线达110条；实施“口岸商圈国际化焕新”行动，新设2家进境免税店，探索“电商预购+口岸提货”，升级“深圳AI城市旅行卡”。五是发展邮轮游艇经济与规范收费。推广访问港大型邮轮境外随船查验；扩大游艇自由行水域，建立港澳游艇“两套牌”管理；建立涉企收费监测点，落实查验无问题企业费用免除，精准培育AEO企业10家以上，并在国际贸易“单一窗口”增设“碳足迹认证”专区。</div>
   <div class="meta">
-    <span class="source">新华日报8月11日《江苏十部门联合出台相关举措支持非遗小微企业文创发展》　https://so.html5.qq.com/page/real/search_news?docid=70000021_7596a7a5e8d67052</span>
-    <span class="tag">非遗文创</span><span class="tag">消费升级</span>
+    <span class="source">南方日报8月12日《深圳发布优化口岸营商环境“19条”》  https://epaper.nfnews.com/nfdaily/html/202608/12/content_10178440.html</span>
+    <span class="tag">口岸营商</span><span class="tag">通关便利</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">3</span>浙江发布高教服务产业体系行动方案 七项计划破解产学研用“最后一公里”</div>
-  <div class="summary">浙江省发布《高等教育服务加快构建浙江特色现代化产业体系行动方案（2026—2028年）》，提出到2028年新增或升级500个以上学科专业，培养输送重点产业急需人才30万名以上，科技成果转化总金额超200亿元。一是构建“高校+平台+企业+产业链”结对合作机制，形成500多项重点任务清单。二是统筹推进五大领域，传统产业建设200项以上技术攻关项目，新兴产业建设100个省级重点支持现代产业学院，未来产业建设5个交叉学科中心。三是创新协同攻关与人才机制，建立“四题一评”协同攻关机制，推广“产业教授”“科技副总”制度，探索“先用后转”险破解中小微企业转化难题。</div>
+<div class="news-card">
+  <div class="title"><span class="num">3</span>AI赋能 材料创新夯实江苏产业底座</div>
+  <div class="summary">江苏省“AI+新材料”产业联盟在苏州成立，由苏州实验室担任理事长单位，省新材料产业协会与省人工智能学会联合担任秘书处单位，同期举办“制造强省·材料先行”AI+高分子材料研发专题活动。具体做法如下：一是组建高规格联盟矩阵。首批汇聚77家发起单位，涵盖新材料企业、人工智能服务商、高校院所、中试平台、检验检测机构和金融机构，搭建政策互通、技术共研、场景共享的一体化创新平台。二是明确常态化协同机制。联盟坚持需求牵引破解痛点、强化协同联动破除资源壁垒、抓实成果转化打造交流平台，力争促成一批协同项目、转化一批创新成果、落地一批示范场景。三是构建阶梯式政策链条。省工信厅推动从新测推广到产品认定再到应用示范的链条，开展首批次新材料认定；推进全国首个省级层面《江苏省新材料产业发展促进条例》；实施“模数共振”行动计划，统筹推进数据集建设、模型攻关和场景适配。四是推动企业需求与技术方案对接。多家新材料企业带着明确应用场景和具体指标登台提需求（如涂料配方优化、绿色低碳材料、超高速增材制造性能调控）；供给方展示材料大模型、“固态电池材料科学家”系统、AI自动化实验装备、专利情报分析等成体系解决方案，联合建模、现场验证。</div>
   <div class="meta">
-    <span class="source">浙江日报8月11日《七项计划力解产学研用“最后一公里”难题》　https://so.html5.qq.com/page/real/search_news?docid=70000021_5916a7a15a543652</span>
-    <span class="tag">产学研融合</span><span class="tag">高教改革</span>
+    <span class="source">江苏经济报8月12日《AI赋能 材料创新夯实江苏产业底座》  https://jsjjb.xhby.net/pad/con/202608/12/content_1580506.html</span>
+    <span class="tag">AI+新材料</span><span class="tag">产业联盟</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">4</span>上海发布新城高质量发展行动方案 以“强功能”为主线推进26项重点项目</div>
-  <div class="summary">上海市政府新闻办发布2026年上海市新城高质量发展行动方案，以“强功能”为主线，围绕主导特色产业、创新创业环境、公共服务体系、城市设施环境、重点区域发展、协同工作机制等领域推进26项重点项目。一是深化先进制造业主力军作用，聚焦汽车“新四化”、新一代信息技术、高端装备、集成电路等领域推进产业链招商，推动五个新城培育细分赛道规模化发展。二是培育创新创业土壤，保障临港实验室、中国科学院有机所正式投用，优化青年驿站、人才公寓等配套服务。三是提质公共服务与城市能级，新开办9所中小学和幼儿园，推进多处医院院区竣工投用；2026年内全市新城绿环贯通段基本实现贯通。四是突出青年友好导向，完善“15分钟社区生活圈”，探索小月龄托育服务试点。</div>
+<div class="news-card">
+  <div class="title"><span class="num">4</span>锚定4万亿！上海软信业“十五五”布局6条新兴赛道</div>
+  <div class="summary">《上海市软件和信息服务业发展“十五五”规划》8月11日对外公布，提出到2030年把上海软件和信息服务业打造成经济增长“动力源”、AI赋能应用“主阵地”、参与全球竞争“桥头堡”。具体做法如下：一是明确规模目标。产业规模力争达到4万亿元，产业增加值突破1.1万亿元，营收超百亿元企业增至35家。二是实施“百千万”智算集群工程。在松江、临港、青浦等布局打造十万卡级超大规模智算集群，在宝山、浦东、嘉定等布局千卡级智算集群，引导传统数据中心向百卡级边缘智算中心转变，形成“大集群+小集群+边缘算力”梯次供给体系。三是创新算力要素市场化改革。持续探索算力作价入股等新型投资方式，以及“算力资源+应用场景”新招商模式。四是布局6条面向未来的新兴赛道。包括智能体经济、AI游戏、新型终端软件、虚拟现实、原生安全、物理仿真等。五是实施九大工程。推进互联网业、软件业、数字内容、网络安全、云计算、金融科技、工业数智化转型及软件技术研发应用强基、开源创新生态体系建设；其中软件业实施AI+工业软件“百企百项”计划，推广软件按效付费（SaaS）模式，建设工业软件中试验证平台。</div>
   <div class="meta">
-    <span class="source">解放日报8月11日《上海新城高质量发展行动方案发布 以“强功能”为主线推进26项重点项目》　https://www.shio.gov.cn/TrueCMS//shxwbgs/ywts/content/74a0c11a-be38-44b1-8b4b-7a552337dbb0.htm</span>
-    <span class="tag">新城建设</span><span class="tag">产城融合</span>
+    <span class="source">解放日报8月12日《锚定4万亿！上海软信业“十五五”布局6条新兴赛道》  https://www.jfdaily.com/staticsg/res/html/web/newsDetail.html?id=1158766&amp;sid=300</span>
+    <span class="tag">软件信息</span><span class="tag">智算集群</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">5</span>重庆印发“十五五”社会发展规划 数字赋能改革增效建设全龄友好社会</div>
-  <div class="summary">重庆市政府印发《重庆市“十五五”社会发展规划（2026—2030年）》，深化数字赋能改革增效，加强普惠性、基础性、兜底性民生建设。规划明确基本医疗保险参保率达95%左右，城乡居民人均可支配收入比缩小至2.1∶1左右，义务教育优质均衡发展区县比例跃升至100%，人均预期寿命达80.5岁。一是构建全龄友好型社会。二是建设新时代教育强市，加快高等教育突破跃升。三是实施就业优先战略，大力支持自主创业、灵活就业。四是推进健康中国重庆行动，加强优质高效智慧医疗服务供给。五是优化住房供应体系，大力建设“好房子”“好小区”。六是健全社会保障体系与推进公共服务数智化改革，全域打造高品质生活服务圈。</div>
+<div class="news-card">
+  <div class="title"><span class="num">5</span>最高可贷1亿元 利率低至2.8%</div>
+  <div class="summary">重庆市知识产权局、重庆金融监管局联合发布《重庆市知识产权质押融资产品清单（2026年版）》和《重庆市知识产权保险产品清单（2026年版）》，为广大创新主体提供知识产权金融服务查询渠道。具体做法如下：一是归集发布两类清单共73个产品。其中质押融资产品28个、知识产权保险产品45个，涵盖“知识产权质押贷”“知信贷”“知识产权海外侵权责任险”“商标被侵权损失保险”“专利密集型产品责任保险”等。二是详细公开产品关键信息。清单逐项列明各产品的借款主体、贷款最高额度、贷款期限、贷款利率、还款方式、产品特色、申请流程及联系方式，方便创新主体自主查询、综合比选。三是提供高额低息质押融资。质押融资产品最高贷款额度达1亿元，企业以依法可转让的注册商标专用权、发明专利权、著作权中的财产权质押即可获授信，贷款最低利率2.8%、最高3.1%，最长期限120个月。四是完善知识产权保险保障。推出“知识产权侵权责任保险”，企事业单位、社会团体、个体工商户等均可投保，对被保险人非故意侵犯载明类型知识产权、被权利人首次索赔依法应承担的经济赔偿责任，由保险机构按约赔付。五是明确服务对象与转化导向。鼓励高校、科研机构、企业、医疗卫生机构等创新主体查阅清单、自主选择适配产品，推动“知产”高效转化为“资产”，为培育新质生产力注入金融活水。</div>
   <div class="meta">
-    <span class="source">重庆日报8月11日《重庆市“十五五”社会发展规划（2026—2030年）印发》　https://www.cqrb.cn/shishi/2026-08-11/2748117_pc.html</span>
-    <span class="tag">十五五规划</span><span class="tag">民生保障</span>
+    <span class="source">重庆日报8月12日《最高可贷1亿元 利率低至2.8%》  https://epaper.cqrb.cn/cqrb/2026-08/12/002/content_rb_363015.htm</span>
+    <span class="tag">知识产权</span><span class="tag">科技金融</span>
   </div>
 </div>
   </div>
