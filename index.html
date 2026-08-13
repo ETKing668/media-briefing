@@ -1,109 +1,66 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>媒体信息摘报</title>
+<title>媒体信息摘报 · 2026年8月13日</title>
 <style>
-  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
-    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
-    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }
-  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }
-  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
-  .header .date { font-size: 14px; opacity: 0.85; }
-  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
-  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
-  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
-    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }
-  .btn-download { background: var(--accent); color: white; }
-  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
-  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
-  .btn-refresh:hover { border-color: var(--primary); }
-  .news-list { display: flex; flex-direction: column; gap: 16px; }
-  .news-card { background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }
-  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
-    color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
-  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; white-space: pre-wrap; }
-  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); }
-  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }
-  @media (max-width: 600px) { .header { padding: 28px 16px; }
-    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
-    .news-card { padding: 16px 18px; } }
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --ink:#1f2d3d; --sub:#5a6b7b;
+    --accent:#c0392b; --line:#e6eaf0; --shadow:0 2px 12px rgba(31,45,61,.08);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Microsoft YaHei","PingFang SC",-apple-system,sans-serif;
+    line-height:1.8;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 56px;}
+  header{text-align:center;padding:18px 0 8px;border-bottom:3px solid var(--accent);margin-bottom:28px;}
+  header h1{margin:0;font-size:26px;letter-spacing:2px;color:var(--accent);}
+  header .date{color:var(--sub);font-size:15px;margin-top:6px;}
+  .download{display:inline-block;margin-top:14px;padding:8px 18px;background:var(--accent);
+    color:#fff;border-radius:20px;font-size:14px;text-decoration:none;}
+  .news-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px 24px;margin-bottom:20px;box-shadow:var(--shadow);}
+  .tag{display:inline-block;font-size:12px;color:#fff;background:var(--accent);
+    padding:2px 10px;border-radius:10px;margin-bottom:10px;letter-spacing:1px;}
+  .news-title{margin:0 0 12px;font-size:19px;color:var(--ink);line-height:1.5;}
+  .news-summary{margin:0;font-size:15px;color:var(--sub);text-align:justify;}
+  footer{text-align:center;color:var(--sub);font-size:13px;margin-top:30px;}
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>媒体信息摘报</h1>
-  <div class="date">2026年8月12日</div>
-  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
-</div>
-<div class="container">
-  <div class="action-bar">
-    <a href="8.12%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
-    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
+  <div class="wrap">
+    <header>
+      <h1>媒体信息摘报</h1>
+      <div class="date">2026年8月13日 · 省级媒体创新举措选编</div>
+      <a class="download" href="8.13媒体信息摘报.docx">下载 Word 全文</a>
+    </header>
+      <article class="news-card">
+        <div class="tag">媒体信息摘报</div>
+        <h2 class="news-title">一、连续两年吸纳超百万 高校毕业生就业创业</h2>
+        <p class="news-summary">广东省自实施“百万英才汇南粤”行动计划以来，连续两年实现应届毕业生来粤就业创业规模超百万人次，形成部省联动、省市协同、线上线下贯通的人才吸纳格局。一是开展部省联动春季招聘，组织近2000家用人单位提供8.5万个优质岗位，联动全国2000多所高校面向17万名毕业生精准推送。二是实施“N城联动”巡回招聘，在13个省份举办120场专场活动，发动7400家企事业单位提供22万个岗位。三是开设省级引才专题，围绕先进制造、人工智能、低空经济等10类重点产业归集3400家单位11.7万个岗位，实行产业靶向引才。四是建设线上“粤就业”服务专区，归集简历107万份，引入AI模拟面试、智能岗位匹配等功能。五是推行人才公寓线上预约，为来粤青年提供低成本安居保障，配套落户、补贴等一站式服务。</p>
+      </article>
+      <article class="news-card">
+        <div class="tag">媒体信息摘报</div>
+        <h2 class="news-title">二、江苏16条措施赋能非遗小微企业</h2>
+        <p class="news-summary">江苏省文化和旅游厅等10部门联合出台《关于支持非遗小微企业发展的若干措施（试行）》，提出16条具体举措，系统性破解非遗小微企业规模小、渠道窄、转化难等问题。一是开展非遗小微企业摸排，从各级非遗名录中择优遴选约300家作为重点扶持对象。二是落实租金减免政策，支持利用老旧厂房、历史文化街区等空间设立非遗工坊。三是搭建设计赋能平台，全年举办100场设计沙龙、推动50家设计机构与非遗企业结对、开发100款联名文创产品。四是实施“AI伙伴计划”，鼓励非遗小微企业运用人工智能辅助纹样生成、内容创作与电商运营。五是推动文博IP授权与非遗融合，全年推介100家、对接50家重点企业，联动腾讯、网易、小米等平台。六是组织展销对接，全年开展展销活动300场、体验式销售1000场，新增10款非遗产品进入免税店。七是强化人才与品牌支撑，全年培训从业人员500人次，为200家企业提供品牌诊断与知识产权服务。</p>
+      </article>
+      <article class="news-card">
+        <div class="tag">媒体信息摘报</div>
+        <h2 class="news-title">三、【活力中国调研行】国家发展改革委专家谈湖南发展AI的优势</h2>
+        <p class="news-summary">在“活力中国调研行”采访中，国家发展改革委有关专家剖析湖南发展人工智能产业的差异化优势，指出湖南已构建从顶层设计、应用场景、人才储备到算力支撑的完整生态。一是强化顶层布局，2025年出台《湖南省促进人工智能产业发展实施方案》，明确“5大领域14个赛道”主攻方向。二是深耕特色应用场景，依托工程机械、轨道交通、航空航天三大世界级产业集群，开放矿山、工厂、工地、交通等真实产业场景，催生垂直行业大模型。三是厚植人才根基，发挥3所985高校学科优势，依托芙蓉实验室等高能级平台集聚高端创新人才。四是夯实算力底座，作为“银河”“天河”超级计算机的诞生地，湖南建成总算力达13000PF、智能算力4800PF的供给体系。五是促进成果转化，建设一批人工智能应用场景示范区和产教融合平台，引导企业开发专用模型与智能体。</p>
+      </article>
+      <article class="news-card">
+        <div class="tag">媒体信息摘报</div>
+        <h2 class="news-title">四、推动服务业向好向优向新发展</h2>
+        <p class="news-summary">河北省全面落实全国服务业大会要求，印发实施《河北省推进服务业扩能提质实施方案》，配套制定工业设计、知识产权、养老托育、文化创意等15个专项方案，构建起全省服务业发展“1+15”政策体系。一是加快科技服务扩能，筹建先进制造实验室，实体化运行钢铁、绿色化工、电力、现代交通4家省级实验室。二是发展制造服务，建成工业互联网“1+21”平台体系，开发钢铁、化工、交通等行业垂直大模型441个、智能体98个。三是优化专业服务，上半年发布服务业地方标准9项、获批国家服务业标准化试点1项。四是做活文旅体服务，推动京津冀旅游景区联票扩面提质。五是做精居民服务，推动“河北福嫂”实现京津就业17.1万人，150个京津冀医联体实现设区市全覆盖。六是做细养老托育，建设养老机构2080家、床位26.8万张，累计培育普惠托育机构604家、普惠托位2.6万个。</p>
+      </article>
+      <article class="news-card">
+        <div class="tag">媒体信息摘报</div>
+        <h2 class="news-title">五、贵阳市“消夏消费季”促消费活动启动</h2>
+        <p class="news-summary">贵阳市于8月12日启动2026年“消夏消费季”促消费活动，推出200余场主题活动，点燃暑期消费热潮。一是贯穿节庆节点，活动时间为期跨越整个暑期、七夕、中秋、国庆，覆盖“吃、喝、玩、乐、购、游、娱、动”全消费场景。二是强化区域联动，各区（市、县、开发区）联动商圈、景区、街区、车企商超、家电卖场、餐饮门店，共同推出超200余场促消费活动。三是突出主题片区，花溪区组织63场活动，同步开展2026现代五项世界锦标赛配套促消费，片区商户凭赛事票根享专属折扣，清溪云廊开启夏日露天放映会、夜间街头Live演绎及周末消费抽奖。四是开展汽车家电“六进”活动，联合车企将汽车、家电促销进机关、进企业、进社区、进乡村、进商圈、进景区，同步推进消费品以旧换新。五是发放满减券等优惠政策，持续提振消费信心、挖掘消费潜力。</p>
+      </article>
+    <footer>本页由媒体信息摘报自动化流程生成 · 仅供内部参阅</footer>
   </div>
-  <div class="news-list">
-    <div class="news-card">
-  <div class="title"><span class="num">1</span>县域经济发展有了“空间说明书”</div>
-  <div class="summary">广东省自然资源厅组织厅技术中心搭建“时空智策·领航”系统，把经济社会发展相关数据“装”进覆盖全省超840万个格网，借助人工智能技术分析海量数据，构建起一套坐标化、可量化、可视化的“县域国民经济发展空间说明书”，让数据自己“开口说话”。具体做法如下：一是统一数据“语言”打通孤岛。将生态环境、人口分布、产业发展等部门数据按时间、空间两个维度“对齐颗粒度”，标准化处理后转换到同一套时空体系，打造“时空立方体”。二是构建五大量化指数评价体系。由国土空间利用、生态环境保护、乡村振兴、城镇化、系统协调五大指数组成，让每个县与自身纵向比，精准识别潜力与短板，作为“一县一策”基础。三是提供格网到县域双视角决策。系统以约150米×150米格网为最小单元（全省超840万个），用户可在格网与全县视角间切换，不到一分钟输出一份“县域国民经济发展空间说明书”，并可逐层“下钻”呈现运算依据。四是在肇庆四会、江门台山、梅州五华等地试点应用。四会完成全域国土空间“体检”，识别开发与保护等核心冲突并输出“纠偏式治理”方案；台山依托平台辅助决策，推动端芬镇全域土地整治项目落地。</div>
-  <div class="meta">
-    <span class="source">南方日报8月12日《县域经济发展有了“空间说明书”》  https://epaper.nfnews.com/nfdaily/html/202608/12/content_10178438.html</span>
-    <span class="tag">县域经济</span><span class="tag">数据治理</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">2</span>深圳发布优化口岸营商环境“19条”</div>
-  <div class="summary">深圳市正式印发《深圳市2026年优化口岸营商环境若干措施》，围绕通关便利化、跨境低空物流、跨境电商监管改革等领域，一次性推出19条具体举措。具体做法如下：一是升级口岸通关环境。制定口岸服务保障总体方案，设置APEC专用绿色通道实现参会人员快速通关；规范双语及多语种标识；建立市级口岸综合整治长效机制，重点治理违规拉客、非法揽客、占道经营等问题。二是创新通关监管模式。支持前海综合保税区试点“一线直通、智联监管”模式，允许企业货物先行提离至综保区理货集拼，实现全流程数字化监管；全面推广边检到港“零等待”、离港“零延时”及海事抵港预检等便利制度。三是布局低空与跨境电商。加强深港跨境低空物流协作，探索跨境无人机物流口岸通关查验新模式，推进eVTOL通关监管研究；跨境电商推进“先查验后装运”改革，深化阳光化2.0，完善“商、关、汇、税、贷、保”六位一体监管服务体系。四是完善口岸硬件与消费服务。新皇岗口岸启用并实施“合作查验、一次放行”；公路口岸推行“刷脸”无感通关；新增组合港、内陆港航线5条，力争国际及地区客货运航线达110条；实施“口岸商圈国际化焕新”行动，新设2家进境免税店，探索“电商预购+口岸提货”，升级“深圳AI城市旅行卡”。五是发展邮轮游艇经济与规范收费。推广访问港大型邮轮境外随船查验；扩大游艇自由行水域，建立港澳游艇“两套牌”管理；建立涉企收费监测点，落实查验无问题企业费用免除，精准培育AEO企业10家以上，并在国际贸易“单一窗口”增设“碳足迹认证”专区。</div>
-  <div class="meta">
-    <span class="source">南方日报8月12日《深圳发布优化口岸营商环境“19条”》  https://epaper.nfnews.com/nfdaily/html/202608/12/content_10178440.html</span>
-    <span class="tag">口岸营商</span><span class="tag">通关便利</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">3</span>AI赋能 材料创新夯实江苏产业底座</div>
-  <div class="summary">江苏省“AI+新材料”产业联盟在苏州成立，由苏州实验室担任理事长单位，省新材料产业协会与省人工智能学会联合担任秘书处单位，同期举办“制造强省·材料先行”AI+高分子材料研发专题活动。具体做法如下：一是组建高规格联盟矩阵。首批汇聚77家发起单位，涵盖新材料企业、人工智能服务商、高校院所、中试平台、检验检测机构和金融机构，搭建政策互通、技术共研、场景共享的一体化创新平台。二是明确常态化协同机制。联盟坚持需求牵引破解痛点、强化协同联动破除资源壁垒、抓实成果转化打造交流平台，力争促成一批协同项目、转化一批创新成果、落地一批示范场景。三是构建阶梯式政策链条。省工信厅推动从新测推广到产品认定再到应用示范的链条，开展首批次新材料认定；推进全国首个省级层面《江苏省新材料产业发展促进条例》；实施“模数共振”行动计划，统筹推进数据集建设、模型攻关和场景适配。四是推动企业需求与技术方案对接。多家新材料企业带着明确应用场景和具体指标登台提需求（如涂料配方优化、绿色低碳材料、超高速增材制造性能调控）；供给方展示材料大模型、“固态电池材料科学家”系统、AI自动化实验装备、专利情报分析等成体系解决方案，联合建模、现场验证。</div>
-  <div class="meta">
-    <span class="source">江苏经济报8月12日《AI赋能 材料创新夯实江苏产业底座》  https://jsjjb.xhby.net/pad/con/202608/12/content_1580506.html</span>
-    <span class="tag">AI+新材料</span><span class="tag">产业联盟</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">4</span>锚定4万亿！上海软信业“十五五”布局6条新兴赛道</div>
-  <div class="summary">《上海市软件和信息服务业发展“十五五”规划》8月11日对外公布，提出到2030年把上海软件和信息服务业打造成经济增长“动力源”、AI赋能应用“主阵地”、参与全球竞争“桥头堡”。具体做法如下：一是明确规模目标。产业规模力争达到4万亿元，产业增加值突破1.1万亿元，营收超百亿元企业增至35家。二是实施“百千万”智算集群工程。在松江、临港、青浦等布局打造十万卡级超大规模智算集群，在宝山、浦东、嘉定等布局千卡级智算集群，引导传统数据中心向百卡级边缘智算中心转变，形成“大集群+小集群+边缘算力”梯次供给体系。三是创新算力要素市场化改革。持续探索算力作价入股等新型投资方式，以及“算力资源+应用场景”新招商模式。四是布局6条面向未来的新兴赛道。包括智能体经济、AI游戏、新型终端软件、虚拟现实、原生安全、物理仿真等。五是实施九大工程。推进互联网业、软件业、数字内容、网络安全、云计算、金融科技、工业数智化转型及软件技术研发应用强基、开源创新生态体系建设；其中软件业实施AI+工业软件“百企百项”计划，推广软件按效付费（SaaS）模式，建设工业软件中试验证平台。</div>
-  <div class="meta">
-    <span class="source">解放日报8月12日《锚定4万亿！上海软信业“十五五”布局6条新兴赛道》  https://www.jfdaily.com/staticsg/res/html/web/newsDetail.html?id=1158766&amp;sid=300</span>
-    <span class="tag">软件信息</span><span class="tag">智算集群</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">5</span>最高可贷1亿元 利率低至2.8%</div>
-  <div class="summary">重庆市知识产权局、重庆金融监管局联合发布《重庆市知识产权质押融资产品清单（2026年版）》和《重庆市知识产权保险产品清单（2026年版）》，为广大创新主体提供知识产权金融服务查询渠道。具体做法如下：一是归集发布两类清单共73个产品。其中质押融资产品28个、知识产权保险产品45个，涵盖“知识产权质押贷”“知信贷”“知识产权海外侵权责任险”“商标被侵权损失保险”“专利密集型产品责任保险”等。二是详细公开产品关键信息。清单逐项列明各产品的借款主体、贷款最高额度、贷款期限、贷款利率、还款方式、产品特色、申请流程及联系方式，方便创新主体自主查询、综合比选。三是提供高额低息质押融资。质押融资产品最高贷款额度达1亿元，企业以依法可转让的注册商标专用权、发明专利权、著作权中的财产权质押即可获授信，贷款最低利率2.8%、最高3.1%，最长期限120个月。四是完善知识产权保险保障。推出“知识产权侵权责任保险”，企事业单位、社会团体、个体工商户等均可投保，对被保险人非故意侵犯载明类型知识产权、被权利人首次索赔依法应承担的经济赔偿责任，由保险机构按约赔付。五是明确服务对象与转化导向。鼓励高校、科研机构、企业、医疗卫生机构等创新主体查阅清单、自主选择适配产品，推动“知产”高效转化为“资产”，为培育新质生产力注入金融活水。</div>
-  <div class="meta">
-    <span class="source">重庆日报8月12日《最高可贷1亿元 利率低至2.8%》  https://epaper.cqrb.cn/cqrb/2026-08/12/002/content_rb_363015.htm</span>
-    <span class="tag">知识产权</span><span class="tag">科技金融</span>
-  </div>
-</div>
-  </div>
-  <div class="footer">
-    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
-  </div>
-</div>
 </body>
 </html>
