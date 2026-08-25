@@ -1,109 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>媒体信息摘报</title>
+<title>媒体信息摘报（2026年8月25日）</title>
 <style>
-  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
-    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
-    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }
-  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }
-  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
-  .header .date { font-size: 14px; opacity: 0.85; }
-  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
-  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
-  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
-    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }
-  .btn-download { background: var(--accent); color: white; }
-  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
-  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
-  .btn-refresh:hover { border-color: var(--primary); }
-  .news-list { display: flex; flex-direction: column; gap: 16px; }
-  .news-card { background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }
-  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
-    color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
-  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
-  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); }
-  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }
-  @media (max-width: 600px) { .header { padding: 28px 16px; }
-    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
-    .news-card { padding: 16px 18px; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+         background: #f3f5f9; color: #1f2733; line-height: 1.8; padding: 24px; }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  header { text-align: center; padding: 28px 16px 18px; }
+  header h1 { font-size: 28px; letter-spacing: 4px; color: #b01e2e; }
+  header .date { margin-top: 8px; color: #5a6573; font-size: 15px; }
+  .news-card { background: #fff; border-radius: 14px; padding: 22px 24px; margin-bottom: 18px;
+               box-shadow: 0 4px 18px rgba(20,40,80,.07); border-left: 5px solid #b01e2e; }
+  .news-card .title { font-size: 19px; font-weight: 700; color: #1f2733; margin-bottom: 12px;
+                      display: flex; align-items: baseline; gap: 10px; }
+  .news-card .num { display: inline-block; min-width: 26px; height: 26px; line-height: 26px;
+                    text-align: center; background: #b01e2e; color: #fff; border-radius: 6px;
+                    font-size: 14px; font-weight: 700; }
+  .news-card .summary p { font-size: 15px; color: #34404f; margin-bottom: 8px;
+                          padding-left: 14px; position: relative; }
+  .news-card .summary p::before { content: "•"; color: #b01e2e; position: absolute; left: 0; }
+  .news-card .meta { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #e0e4ea;
+                     font-size: 12.5px; color: #8590a0; word-break: break-all; }
+  .dl { text-align: center; margin: 26px 0 8px; }
+  .dl a { display: inline-block; background: #b01e2e; color: #fff; text-decoration: none;
+          padding: 11px 26px; border-radius: 24px; font-size: 15px; font-weight: 600; }
+  footer { text-align: center; color: #9aa4b2; font-size: 12px; margin-top: 20px; }
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>媒体信息摘报</h1>
-  <div class="date">2026年8月24日</div>
-  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
-</div>
-<div class="container">
-  <div class="action-bar">
-    <a href="8.24%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
-    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
-  </div>
-  <div class="news-list">
-    <div class="news-card">
-  <div class="title"><span class="num">1</span>冲刺全年10万亿元营收目标 浙江全力推进415X先进制造业集群向新向优</div>
-  <div class="summary">为全力冲刺全年10万亿元营收目标，浙江以五大实招推动“415X”先进制造业集群“动能向新、结构向优”。上半年，全省集群规上营收达5.3万亿元，同比增长11.6%；规上企业研发费用1885.3亿元，同比增长8.5%，研发占比3.5%。<br>一是梯度培育，持续深化“省级—国家级—世界级”梯度培育体系，支持纺织服装、绿色石化、视觉智能（数字安防）等集群率先探索培育世界级集群；今年新增低空经济与航空航天赛道，推进第四批核心区协同区和“新星”产业群遴选。<br>二是链群协同，落实新一轮链长方案，动态调整一批省级链主企业，发挥链长、链主、专家服务团作用，在技术攻关、场景开放、要素共享上引领；优化“链企直通车”服务机制，诉求分类搜集、统一交办、定期督办闭环管理。<br>三是创新融合，实施企业研发机构“扩容”工程，修订企业技术中心管理办法，争创国家级企业技术中心；推进省级中试平台新认定，加快实现集群重点领域全覆盖。<br>四是数智赋能，印发《浙江省人工智能赋能制造业数字化转型实施方案（2026—2030年）》，加快建设杭州具身智能、宁波石化化工等人工智能应用中试基地，推动一批“AI制造”典型场景落地。<br>五是项目投资，推进954个“415X”集群重大项目，上半年完成投资1422.1亿元，占5亿元以上制造业重大项目完成投资比重87.3%，投资完成率78.6%。</div>
-  <div class="meta">
-    <span class="source">浙江日报  8月24日</span>
-    <span class="tag">先进制造业集群</span><span class="tag">梯度培育</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">2</span>看深圳：“奇迹之城”是开放创新合作鲜活案例</div>
-  <div class="summary">深圳以开放创新合作实践，为沿海地区提供可借鉴的产业升级路径。<br>一是先进制造出海，形成以先进制造业为主体的现代化产业体系，新能源汽车、人工智能、机器人等新兴业态持续涌现；今年前4月比亚迪海外市场销量超45万辆，上半年深圳对APEC其他成员经济体进出口1.98万亿元，同比增长33%，电动汽车、锂电池、光伏产品等“新三样”出口667.8亿元，同比增长28.9%。<br>二是跨境电商与海外仓协同，前海跨境贸易物流监管中心日均清关跨境电商包裹超70万件、车辆超400辆；2024年深圳跨境电商进出口额达3720亿元，企业建设运营海外仓面积超420万平方米，机场、港口、中欧班列织起“海陆空铁”立体出海网络。<br>三是AI深度渗透产业，2025年深圳人工智能核心产业营收2200亿元，规上人工智能企业超2600家；思谋科技工业AI智能体服务全球超730家客户，交付约14万个、累计检测超170亿件产品；兔展智能开源视觉大模型单模型下载超2600万次。<br>四是人文经贸融合，原创舞剧《咏春》走过59座城市、累计337场、观演约46万人次；电影《给阿嬷的情书》海外票房破1亿元，登陆新加坡、马来西亚、泰国、日本院线。</div>
-  <div class="meta">
-    <span class="source">南方日报  8月24日</span>
-    <span class="tag">开放型经济</span><span class="tag">跨境出海</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">3</span>山东的夏夜，不只有灯光</div>
-  <div class="summary">山东以多元夜游新场景激活文旅消费，推动夜间经济从餐饮购物向文化、演艺等领域拓展。入夏以来，全省重点商圈、主题街区、景区开展多元形态夜游活动。<br>一是海上夜游IP，蓬莱“寻仙游”夜航7月首航，累计接待游客近6000人次、上座率90%；动画电影《八仙！》带动八仙传说破圈，蓬莱八仙主题文创实现30%—50%增长。<br>二是街区夜经济焕新，济南大明湖推出“明湖夜酌Barhop嘉年华”，设20个市集摊位，带动景区客流增长7%以上；济南动物园66年来首开夜游，明水古城、台儿庄古城音乐节、东平新大宋不夜城以“演艺+NPC”让游客“一秒入宋”。<br>三是啤酒节引流，青岛国际啤酒节西海岸新区会场接待718万人次，周边3公里酒店预订热度环比涨超60%；崂山会场吸引81.9万人次，拉动消费4.97亿元。<br>四是餐饮演艺融合，淄博八大局探索“烧烤+室内演艺”小剧场模式，演出齐国韶羽舞、姜太公封齐等历史演艺，冬季本地客流亦明显增长。<br>五是延展消费链条，推动日间游客转化为过夜游客（消费差2—3倍），让夜游从景区延伸至城市生活，实现多业态深度融合。</div>
-  <div class="meta">
-    <span class="source">大众日报  8月24日</span>
-    <span class="tag">夜间经济</span><span class="tag">文旅消费</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">4</span>“北京机域”绘就具身智能新蓝图</div>
-  <div class="summary">北京经开区以“北京机域”具身智能制造引领区为承载，构建城市级具身智能产业生态。<br>一是打造城市级试验场，统筹12平方公里空间，释放300万平方米产业载体，机器人大世界从1.0展厅升级为3.0“一座城”；按照规划，加快打造100款可实际落地的特色机器人产品，推动在1000种细分领域实现应用，加快实现10万台套级具身智能机器人规模量产，形成100万套关键核心零部件生产能力。<br>二是构建“1234”产业支撑体系，形成一片空间、两个平台（智能经济研究院、全生命周期管理平台）、三大创新基地（开发者社区、数据综合服务基地、产教融合基地）、四类智造能力（快速响应、柔性打样、批量制造、车机复用）。<br>三是迈向千亿级集群，“十五五”期间推动机器人和智能制造迈向千亿级产业集群，统筹南北两大机器人产业集聚区，布局高能级创新平台、检验检测基地。<br>四是开放真实场景，打通“技术突破—场景验证—产业应用—迭代升级”完整路径，持续开放工业、市政、医疗、养老等海量真实场景。<br>五是全链条覆盖，产业涵盖核心芯片、关键零部件、整机制造、场景应用等全链条，人形机器人、医疗手术机器人、工业智能装备等多赛道稳居全国第一方阵。</div>
-  <div class="meta">
-    <span class="source">北京日报  8月24日</span>
-    <span class="tag">具身智能</span><span class="tag">产业空间统筹</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">5</span>北京发布16个人工智能赋能科学研究典型案例</div>
-  <div class="summary">北京系统布局人工智能赋能科学研究（AI4S），发布首批16个典型案例。<br>一是印发实施方案，今年6月中共北京市委教育科技人才工作领导小组印发《北京市加快推进人工智能赋能科学研究实施方案》，围绕科学智能关键要素系统部署，打造辐射全球的科学智能创新中枢。<br>二是发布五类典型案例，首批16个案例涵盖自主实验室体系、高价值场景、科学模型、科学数据、创新生态五大类。<br>三是建设自主实验室，清华大学化学研究自主实验室变革传统“经验试错”模式，建立数据与算法驱动的新范式，实现从分子设计到智能表征全流程无人运行。<br>四是夯实模型与数据底座，中科院自动化所、中科闻歌共建磐石科学基础大模型，内嵌物理规则、适配国产算力；中科院计算机网络信息中心建设科学数据银行，作为国家级通用科学数据存储库，推动科学数据汇交与共享。<br>五是构建创新生态与空间，深势科技、北京科学智能研究院共建玻尔科研空间站，集成“读文献、做计算、做实验”全流程智能工具；海淀发布“中关村（海淀）科学智能（AI4S）创新集聚区”，统筹160万平方米产业空间、74万平方米中试空间，打造从源头创新到产业化落地的完整链条。</div>
-  <div class="meta">
-    <span class="source">北京日报  8月24日</span>
-    <span class="tag">科学智能</span><span class="tag">创新集聚区</span>
-  </div>
-</div>
-  </div>
-  <div class="footer">
-    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
-  </div>
+<div class="wrap">
+  <header>
+    <h1>媒体信息摘报</h1>
+    <div class="date">2026年8月25日 · 省级党报创新实践辑要</div>
+  </header>
+      <div class="news-card">
+        <div class="title"><span class="num">一</span>一场协作改变一座城 博罗与深圳福田共建新型“飞地”</div>
+        <div class="summary"><p>探索“五同”产业协作模式：2023年11月两地签订共建现代产业园框架协议，首期规划5100亩，构建“福田总部+博罗生产基地”飞地经济模式，建立同规划、同政策、同招商、同收益、同服务“五同”机制。</p><p>双重政策叠加：企业可申请福田区协同研发、固投支持、知识产权融资、科技信贷贴息等扶持，同时享受博罗县科技创新平台建设、扩产增效、上规纳统、技术改造等惠企政策。</p><p>税收收益分享：按“福田母公司+博罗子公司”架构，将项目投产后增值税、企业所得税等税收留成部分按比例分享，落实省级县域产业园区利益共享机制。</p><p>“双城配置”联动招商：已落户25宗项目、总投资约54亿元，投产后产值预计超100亿元；另有11宗在谈项目计划总投资约78亿元。</p><p>产城人融合共建罗浮未来城：以第四代住宅合作为契机全面合作，园区配套社区健康中心、员工食堂、酒店式公寓，新招引注册服务业企业6家。</p></div>
+        <div class="meta">（信息来源：南方日报8月25日《一场协作改变一座城！博尔...与深圳福田共建新型“飞地”》 https://static.nfnews.com/content/202608/25/c12752802.html）</div>
+      </div>
+      <div class="news-card">
+        <div class="title"><span class="num">二</span>200多万户经营主体将受益 湖南全面推行信用修复“即申即享”</div>
+        <div class="summary"><p>明确适用情形：因未按时报送年报、未公示企业信息、通过登记住所无法联系、未依法办理名称变更登记被列入经营异常名录的，符合规定情形即可享受“即申即享”服务。</p><p>办理时限大幅压缩：经营异常名录信用修复办理时限从原4个工作日缩短至“即申即享”，以更大力度优化营商环境、提升信用修复服务水平。</p><p>惠及主体广泛：预计惠及全省200多万户已被列入经营异常名录的经营主体，覆盖大中小微企业及个体工商户等各类市场主体。</p><p>推动服务理念转变：由“企业跑腿、逐级审核”向“数据跑路、即时办理”转变，强化主动服务、靠前服务，降低制度性交易成本。</p><p>锚定营商环境目标：完善以信用为基础的新型监管机制，引导经营主体自觉守法诚信经营，实现“应修尽修”与“降本增效”相统一。</p></div>
+        <div class="meta">（信息来源：湖南日报8月25日《200多万户经营主体将受益》 https://epaper.voc.com.cn/hnrb/html/2026-08/25/content_1798387.htm）</div>
+      </div>
+      <div class="news-card">
+        <div class="title"><span class="num">三</span>上海“十五五”产业规划出炉 构建“2+3+6+6”现代化产业体系</div>
+        <div class="summary"><p>设定量级目标：到2030年工业增加值占GDP比重由19.7%提升至20%以上，工业战略性新兴产业产值占比由45%提升至50%以上，工业机器人密度由500台/万人增至600台/万人。</p><p>做强三大先导产业：集成电路建设“一体两翼”世界级集群、攻关高性能算力芯片；生物医药加快脑机接口等高端医疗器械上市；人工智能攻关智算芯片、下一代大模型。</p><p>打造六大新兴支柱：新一代电子信息、智能网联新能源汽车、高端装备、先进材料、新能源及绿色低碳、时尚消费品；培育量子科技、脑机接口、可控核聚变、生物制造、6G等未来产业。</p><p>构建“1025”体系：市级聚焦10条重点产业链、新增三大万亿级产业集群；区级围绕25个主导产业建成50个区级千亿主导产业集群。</p><p>智能制造升级：累计建设500个先进级智能工厂，规上工业企业数字化生产设备普及率和智能体应用普及率均超80%；建成50家市级中试平台，力争300项以上关键核心技术突破。</p></div>
+        <div class="meta">（信息来源：解放日报8月25日《上海“十五五”产业规划出炉 新增三大万亿级产业集群》 https://cj.sina.com.cn/article/norm_detail?url=https%3A%2F%2Ffinance.sina.com.cn%2Fjjxw%2F2026-08-25%2Fdoc-inipmxce9964118.shtml）</div>
+      </div>
+      <div class="news-card">
+        <div class="title"><span class="num">四</span>全国首个AI4Chip专项政策发布 北京亦庄绘就集成电路“AI原生”新范式</div>
+        <div class="summary"><p>聚焦五大行动：“AI4Chip 20条”围绕AI原生全链赋能、“AI+智能设计”焕芯、“AI+制造封测”筑芯、“AI+设备材料”强芯、“AI+产业生态”育芯系统部署。</p><p>构建“软硬互驱、芯智共生”新范式：全国首个AI4Chip专项政策，推动集成电路产业从“AI赋能”升级迈向“AI原生”创新，重构研发、制造、封测全周期。</p><p>培育领军企业：力争到2028年基本建成集成电路产业AI融合发展体系，培育3—5家具有国际影响力的AI4Chip生态型领军企业。</p><p>打造标杆应用：形成10个以上具备行业推广能力的标杆应用，在智能设计、制造封测、设备材料等环节形成可复制的AI落地样板。</p><p>完善产业生态：统筹算力、模型、数据、场景等要素，强化政产学研用协同，构建覆盖设计、制造、封测、设备材料的全产业链AI赋能生态。</p></div>
+        <div class="meta">（信息来源：北京日报8月25日《全国首个AI4Chip专项政策发布 北京亦庄绘就集成电路“AI原生”新范式》 https://view.inews.qq.com/a/20260824A0AR1U00）</div>
+      </div>
+      <div class="news-card">
+        <div class="title"><span class="num">五</span>山东促消费打出“五聚力”组合拳 前7月社零增速高于全国1.5个百分点</div>
+        <div class="summary"><p>聚力实施消费品以旧换新：将扫地机器人、智能马桶、吸油烟机、洗碗机、助听器、外骨骼机器人等8类产品纳入补贴，经“爱山东”平台申领可享15%、单件最高1500元；截至8月15日申请量1430.5万件、带动销售额1157亿元。</p><p>聚力政策活动协同：出台释放消费潜能、服务消费提质惠民方案，举办老字号博览会、家政对接会、齐鲁服务消费季、美食节，16市布局超100处“第二现场”消费场景。</p><p>聚力培育“三新”消费：用好首批5.5亿元专项资金，推动190余个项目建设，壮大首发经济、潮玩经济、体验经济等新业态。</p><p>聚力发展数字与入境消费：落地美团、京东等头部平台新项目；全省离境退税商店达289家，1—7月网上零售额5052.5亿元、增长8.9%。</p><p>聚力优化消费环境：济青烟有奖发票试点消费拉动比1:24.2；新增适老化品类，政策落地半月相关新品销量3.5万件、带动消费超1.3亿元。</p></div>
+        <div class="meta">（信息来源：大众日报8月25日《山东促消费打出“五聚力”组合拳》 https://www.toutiao.com/article/7677752437754610218/）</div>
+      </div>
+  <div class="dl"><a href="https://raw.githubusercontent.com/ETKing668/media-briefing/main/8.25%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx">下载 Word 版全文（8.25媒体信息摘报.docx）</a></div>
+  <footer>本摘报由媒体信息摘报自动化生成 · 内容均来自省级党报当日公开报道</footer>
 </div>
 </body>
 </html>
