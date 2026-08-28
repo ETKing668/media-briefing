@@ -1,109 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>媒体信息摘报</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>媒体信息摘报 · 2026年8月28日</title>
 <style>
-  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
-    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
-    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }
-  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }
-  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
-  .header .date { font-size: 14px; opacity: 0.85; }
-  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
-  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
-  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
-    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }
-  .btn-download { background: var(--accent); color: white; }
-  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
-  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
-  .btn-refresh:hover { border-color: var(--primary); }
-  .news-list { display: flex; flex-direction: column; gap: 16px; }
-  .news-card { background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }
-  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
-    color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
-  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
-  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); }
-  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }
-  @media (max-width: 600px) { .header { padding: 28px 16px; }
-    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
-    .news-card { padding: 16px 18px; } }
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; margin:0; background:#f5f6f8; color:#222; }
+  header { background:#b01e2e; color:#fff; padding:28px 20px; text-align:center; }
+  header h1 { margin:0; font-size:24px; letter-spacing:2px; }
+  header p { margin:6px 0 0; font-size:13px; opacity:.9; }
+  main { max-width:820px; margin:24px auto; padding:0 16px; }
+  .card { background:#fff; border-radius:10px; padding:20px 22px; margin-bottom:18px; box-shadow:0 2px 10px rgba(0,0,0,.06); border-left:5px solid #b01e2e; }
+  .card h2 { margin:0 0 10px; font-size:18px; color:#b01e2e; }
+  .summary { margin:0 0 12px; font-size:15px; line-height:1.9; text-indent:2em; }
+  .source { margin:0; font-size:12px; color:#888; }
+  .dl { display:block; max-width:820px; margin:0 auto 30px; text-align:center; }
+  .dl a { display:inline-block; background:#b01e2e; color:#fff; text-decoration:none; padding:12px 28px; border-radius:24px; font-size:15px; }
+  footer { text-align:center; color:#aaa; font-size:12px; padding:20px; }
 </style>
 </head>
 <body>
-<div class="header">
+<header>
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年8月27日</div>
-  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
-</div>
-<div class="container">
-  <div class="action-bar">
-    <a href="8.27%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
-    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
-  </div>
-  <div class="news-list">
-    <div class="news-card">
-  <div class="title"><span class="num">1</span>宁波、滨江入选国家级示范区首批创建名单</div>
-  <div class="summary">一是宁波制定实施《宁波市国家服务贸易创新发展示范区创建工作方案》，推进8个方面30条重点任务，构建“3+5+X”服务贸易产业体系：做大做强大宗商品供应链服务、国际港航服务、高端制造服务三大优势领域，发展提升服务外包、旅行服务、对外文化贸易、人力资源服务、优质服务进口五大特色领域，前瞻布局人工智能、数据要素、绿色低碳、低空经济、脑机接口、智能健康等“X”个新兴服务领域。<br>二是杭州滨江区制定实施《国家数字贸易示范区创建工作方案》，推进11个方面41条重点任务，深化数据要素市场化改革，做强数字技术服务出口，建强知识产权服务贸易港核心区，筑牢数字贸易核心支撑。<br>三是培育壮大数字贸易经营主体，发展具身智能产业，提能升级数字文化产业，加速发展生命健康服务，夯实数字贸易产业根基。<br>四是构建全链条出海服务体系，深化数字金融创新赋能，优化数字贸易发展营商环境，打造有利于经营主体成长的产业生态。<br>五是省商务厅加强对创建单位的政策支持和培育引导，营造有利于示范区建设的制度和政策环境，因地制宜发展服务贸易、数字贸易，争取创建周期内达到示范要求，引领全省服务贸易、数字贸易高质量发展。</div>
-  <div class="meta">
-    <span class="source">浙江日报  8月27日</span>
-    <span class="tag">服务贸易</span><span class="tag">数字贸易</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">2</span>上海“十五五”战新规划出炉 壮大新兴支柱产业12个细分赛道</div>
-  <div class="summary">一是设定量级目标。到2030年战略性新兴产业增加值达2.1万亿元，工业战略性新兴产业总产值占规模以上工业总产值比重达50%以上，三大先导产业制造业年均增速达10%以上。<br>二是提升三大先导产业战略引领力。集成电路重点发展高端芯片和AI赋能设计、先进封装、新型器件和新架构芯片；生物医药重点发展高临床价值创新药、智能化高端医疗器械、高端医药研发和医疗服务；人工智能重点发展大模型和智能体、科学智能、具身智能、智算产业体系。<br>三是壮大12个新兴支柱产业细分赛道，分别是新型智能终端、区块链、工业软件、智能网联新能源汽车、智能机器人、民用航空、商业航天和卫星互联网、低空经济、船舶海工、新型储能及能源装备、高端科学仪器、先进材料。<br>四是前瞻布局10个前沿技术方向，包括量子科技、脑机接口、核聚变能、第六代移动通信、类脑智能、光计算、第四代半导体、生物制造、细胞与基因治疗、绿色燃料；培育8类服务新业态新模式，含科技研发、转化孵化、检验检测认证、知识产权、新型制造、科技金融、专业数据、数字创意。<br>五是打造各具特色的战略性新兴产业集群，明确张江综合性国家科学中心、临港新片区、紫竹高新区—“大零号湾”、“一江一河”及环中环研发经济创新带、沿江临海及郊环先进制造承载地、长三角产业创新协同发展带的特色发展方向。</div>
-  <div class="meta">
-    <span class="source">解放日报  8月27日</span>
-    <span class="tag">战略性新兴产业</span><span class="tag">十五五规划</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">3</span>百年水泥厂重燃“新火焰” 启新1889工业遗存文创活化</div>
-  <div class="summary">一是坚持“保护优先、合理利用”，实施“修旧如旧”。唐山对启新水泥厂1889年至2008年的2000余卷档案、水泥窑系统等核心工业文物进行整理与抢救性修复，完整保留1906年至1994年建设的24座建（构）筑物，保留原料磨、水泥旋窑等全套近代水泥工业遗存。<br>二是改造老旧厂房为博物馆展陈中心。依托4至7号窑窑头区域改造为启新水泥工业博物馆，将早期发电机组改造成互动展区，游客可亲手操作老式开关感受电流震动；CAVE影院以裸眼3D影像重现百年水泥生产场景。<br>三是创新“工业遗存+潮流音乐”融合模式，举办“工业摇篮 唱响唐山”大型摇滚音乐节，邀请京津冀原创乐队登台，粗粝厂房肌理与现代灯光、潮流旋律碰撞，同步线上直播，形成“线上引流、线下体验、产品变现”闭环。<br>四是引入现代消费业态。园区集聚120多家文化创意类企业，涵盖艺术展览、特色餐饮、影视拍摄等；“鲨鱼咖啡”推出“水泥”冰激凌、工业风杯套，“璃火·玻璃艺术空间”供游客制作玻璃摆件，拉动周边餐饮、住宿消费。<br>五是规划研学线路与智慧升级。依托水泥工业博物馆、百年水泥旋窑、电力科技馆等点位，设计工业溯源、红色思政、科普实践三条标准化研学线路；与中小学、高校建立长期研学合作，重点扶持工业设计产业，吸引高端设计企业入驻。</div>
-  <div class="meta">
-    <span class="source">河北日报  8月27日</span>
-    <span class="tag">工业遗存</span><span class="tag">文创活化</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">4</span>郑州片区入选国家数字贸易示范区首批创建试点</div>
-  <div class="summary">一是以制度创新为核心构筑数字贸易底座。河南自贸试验区郑州片区累计形成426项制度创新成果，其中60项为全国首创、125项为全省首创，13项数字贸易领域创新案例在全国复制推广。<br>二是首创“1210”保税备货模式，被世界海关组织（WCO）收录为全球跨境电商参考监管范式；打造全国首个农业数字流通跨境消费服务平台“郑数登”，以可信数字凭证实现信息流、商流、物流、资金流“四流合一”。<br>三是完善数字贸易产业生态。亚马逊全球开店华中首个办公室、1688选品中心等头部平台相继落户，华为安驰智行、数字马力、天桥短剧等一批全国性数字贸易骨干企业加速集聚，“竖屏郑州”成为中部数字文化贸易特色名片。<br>四是夯实数字底座。郑州加速建设“数仓、数纽、数港”，国家超算互联网核心节点正式上线运行，获批国家首批数据流通利用基础设施建设试点、城市可信数据空间创新发展试点。<br>五是深化制度创新，持续打造全国数字贸易创新策源地和算力服务高地，吸引更多头部企业、跨国公司集聚郑州，推动数字贸易产业集群加速形成，提升城市开放能级。</div>
-  <div class="meta">
-    <span class="source">河南日报  8月27日</span>
-    <span class="tag">数字贸易</span><span class="tag">制度型开放</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">5</span>许昌市场采购贸易方式出口大增 新业态激发外贸新活力</div>
-  <div class="summary">一是落地国家级市场采购贸易方式试点。中国（许昌）国际发制品交易市场作为全国第五批、河南省唯一的国家级市场采购贸易方式试点，为“多品种、多批次、小批量”商品出口量身打造新型贸易方式。<br>二是实施便利化监管措施。单笔商品货值在15万美元以下，即可通过市场采购贸易方式申报出口，享受增值税免征不退、简化申报、灵活结汇等便利化措施，破解中小微企业订单零散、出口手续繁杂、收汇不畅等瓶颈。<br>三是持续丰富出口品类与拓展市场。试点累计备案商品达1200余种、2.8万项，出口商品由发制品向汽车零配件、灯具、玩具、纺织服装等多元品类拓展，出口目的地覆盖170多个国家和地区，累计备案企业突破2100家。<br>四是多部门协作优化营商环境。当地通过惠企政策宣讲、设立服务专窗等，提供政策解读、咨询答疑、业务指导等“一站式”便捷服务，引导中小微企业借力新业态拓展出口贸易。<br>五是引导特色产品扩大出口。下一步将持续优化监管服务、降低企业制度性成本，引导木制品、蜂产品、预包装食品等特色产品通过市场采购贸易扩大出口，充分用好新业态、新模式激发外贸新潜力。</div>
-  <div class="meta">
-    <span class="source">河南日报  8月27日</span>
-    <span class="tag">市场采购</span><span class="tag">外贸新业态</span>
-  </div>
-</div>
-  </div>
-  <div class="footer">
-    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
-  </div>
-</div>
+  <p>2026年8月28日 · 省级党报精选 · 福建可借鉴创新举措</p>
+</header>
+<main>
+      <article class="card">
+        <h2>打造高端新能源汽车智造高地</h2>
+        <p class="summary">上汽智己重仓郑州，采用两期梯次布局，专注高端智能新能源乘用车研发制造，推动郑州汽车产业由规模扩张向品质跃升转型。一是聚焦旗舰大六座SUV智己LS9，对原有产线实施智能化升级，全面导入上汽恒星超级增程技术、数字底盘架构及高阶智能座舱系统。二是投产科技旗舰SUV智己LS8，为30万元级别中少数全线标配线控转向、高阶智驾硬件与800V高压平台的高端量产车型。三是依托高端车型本地化量产需求，带动高附加值核心配套资源向郑州集聚，完善区域全链条产业布局。四是构建双车型并行生产体系，生产端完成LS9稳定量产与LS8快速产能爬坡。五是研发端坚持一年一迭代，LS9出口车型已启动产业化筹备，高端“郑州智造”加速迈向海外市场。</p>
+        <p class="source">信息来源：河南日报8月28日《打造高端新能源汽车智造高地》</p>
+      </article>
+      <article class="card">
+        <h2>丰粮护航：中原农险全链条织密粮食安全“保障网”</h2>
+        <p class="summary">中原农险全面展开贯穿粮食生产全周期的“丰粮护航”行动，把风险防线前移、保障服务下沉。一是构建“四体一网”风险管理体系及“保防救赔助”五位一体综合服务体系。二是启动“丰粮护航”行动，通过服务、生产、生态、科技四大护航体系，对备播、整地、施肥、播种、管护、生长、收获七个环节提供全链条服务。三是备播期推广抗湿晚播技术和“机种肥药”一体化服务，印发60万份宣传页，创新全国首单商业性小麦出苗率保险。四是生长季“一喷三防”统防统治覆盖近72万亩小麦，创新“保险+维修”机井保障模式为20万眼机井提供89亿元风险保障。五是汛期开辟理赔绿色通道，运用卫星遥感、无人机航拍精准查勘，紧急调拨抽水泵446台等物资降低灾害损失。</p>
+        <p class="source">信息来源：河南日报8月28日《丰粮护航：中原农险全链条织密粮食安全“保障网”》</p>
+      </article>
+      <article class="card">
+        <h2>5000万元惠民福利来袭！江西启动2026年文旅消费券发放活动</h2>
+        <p class="summary">江西省文旅厅启动2026年全省文旅消费券发放活动，投放5000万元文旅惠民消费券。一是活动自8月28日起至11月30日结束，依托“游江西”微信小程序每天上午10:00发放，通过云闪付核销。二是覆盖全省700多家A级景区、星级旅游饭店、等级旅游民宿，A级景区门票五折（单笔上限50元）、住宿满200减30元。三是分轮次发放，每位游客单轮可领景区门票券、住宿券各一张，一次性专属权益不找零不兑现。四是线上凭身份证件登录“游江西”小程序领券，携程、去哪儿、同程、飞猪、美团、抖音等OTA同步开通领券入口。五是线下所有参与主体设专属领券二维码，游客到店扫码核销使用。</p>
+        <p class="source">信息来源：江西日报8月28日《5000万元惠民福利来袭！江西启动2026年文旅消费券发放活动》</p>
+      </article>
+      <article class="card">
+        <h2>隆福寺老街“潮”起来</h2>
+        <p class="summary">隆福寺街区自2025年9月二期全面开业以来，持续深化业态创新与场景升级，将老字号、非遗技艺、文化演艺植入城市更新空间。一是北京稻香村“零号寻宝馆”以传统饮食文化为主题体验式门店，将地标元素融入糕点造型，推出盲盒礼盒，把传统糕点变为文化体验。二是“隆福非遗里”集合10多家非遗特色店铺，设体验区供游客亲手制作，非遗从静态陈列变为可触摸、可参与、可带走。三是中国书店隆福寺店重装开业为“城市文化书房”，设古籍残页装帧文创专区盘活古旧书业。四是开心麻花A99剧场采用无柱设计，与10多家餐饮商户推票根联动优惠。五是街区文化业态占比近30%，日均客流约6万人次，夜间经济强势崛起。</p>
+        <p class="source">信息来源：北京日报8月28日《隆福寺老街“潮”起来》</p>
+      </article>
+      <article class="card">
+        <h2>HICOOL为全球创客搭起北京舞台</h2>
+        <p class="summary">HICOOL 2026全球创业者峰会正在北京举行，五大展区同步开放，为全球创客搭建创新生态舞台。一是设置服务首都高质量发展成果展区、创新创业展区、世界一流高校展区、国际合作展区、创投机构展区。二是获奖项目展位“标配”展示融资需求与合作意向，配合路演环节提升项目关注度。三是国际合作展区200多个创业项目来自全球各地，超90%在本届大赛亮相并依托平台接触中国市场。四是政府引导基金与市场化投资机构提供资本支持，顶尖高校科研机构展示前沿成果打通转化通道。五是为获奖团队提供全创新生态支持，包括办公场地、产业基金对接、展览展示及管理培训课程。</p>
+        <p class="source">信息来源：北京日报8月28日《HICOOL为全球创客搭起北京舞台》</p>
+      </article>
+</main>
+<div class="dl"><a href="https://etking668.github.io/media-briefing/8.28%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx">下载 Word 版（8.28媒体信息摘报.docx）</a></div>
+<footer>本页由每日媒体信息摘报自动化流程生成 · GitHub Pages 永久托管</footer>
 </body>
 </html>
