@@ -1,32 +1,94 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>媒体信息摘报 · 2026年9月2日</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>媒体信息摘报</title>
 <style>
-  body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:#f5f6f8;margin:0;color:#222;}
-  .wrap{max-width:760px;margin:40px auto;background:#fff;padding:36px 40px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);}
-  h1{font-size:26px;margin:0 0 4px;color:#1a4f8b;}
-  .date{color:#888;margin:0 0 24px;font-size:15px;}
-  ol{line-height:2;font-size:16px;padding-left:22px;}
-  ol a{color:#1a4f8b;text-decoration:none;}
-  ol a:hover{text-decoration:underline;}
-  .btn{display:inline-block;margin-top:28px;padding:12px 26px;background:#1a4f8b;color:#fff;border-radius:8px;text-decoration:none;font-size:16px;}
+  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
+    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
+    color: var(--text); line-height: 1.8; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white; padding: 40px 20px; text-align: center; }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+  .header .date { font-size: 14px; opacity: 0.85; }
+  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
+  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
+    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
+    cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-download { background: var(--accent); color: white; }
+  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
+  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
+  .btn-refresh:hover { border-color: var(--primary); }
+  .news-list { display: flex; flex-direction: column; gap: 16px; }
+  .news-card { background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
+    transition: box-shadow 0.2s; }
+  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
+    color: white; border-radius: 50%; text-align: center; line-height: 28px;
+    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
+  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .news-card .source { font-size: 12px; color: var(--text-secondary); }
+  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
+    color: var(--primary); border-radius: 12px; font-size: 12px; }
+  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
+    border-top: 1px solid var(--border); margin-top: 32px; }
+  @media (max-width: 600px) { .header { padding: 28px 16px; }
+    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
+    .news-card { padding: 16px 18px; } }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="header">
   <h1>媒体信息摘报</h1>
-  <p class="date">2026年9月2日</p>
-  <ol>
-    <li><a href="9.2媒体信息摘报.docx">1、北京：36项改革举措融入和服务全国统一大市场</a></li>
-    <li><a href="9.2媒体信息摘报.docx">2、天津：9条措施打造“一人公司”创新创业生态</a></li>
-    <li><a href="9.2媒体信息摘报.docx">3、湖北：千亿“产业舰队”扩容至19个</a></li>
-    <li><a href="9.2媒体信息摘报.docx">4、陕西：对电动汽车大功率充电设施给予补贴</a></li>
-    <li><a href="9.2媒体信息摘报.docx">5、陕西：政府投资基金重点投资29个领域</a></li>
-  </ol>
-  <a class="btn" href="9.2媒体信息摘报.docx">下载 Word 版（9.2媒体信息摘报.docx）</a>
+  <div class="date">2026年9月3日</div>
+  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
+</div>
+<div class="container">
+  <div class="action-bar">
+    <a href="9.3%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+  <div class="title"><span class="num">1</span>2030年北京市外资研发中心将达500家</div>
+  <div class="summary">北京市商务局9月2日发布《北京市“十五五”时期高水平开放型经济发展规划》。一是提升外资研发中心与总部能级，到2030年外资研发中心由332家提升至500家左右、跨国公司地区总部由284家增至300家左右。二是构建全域开放格局，深化国家服务业扩大开放综合示范区、完善自贸试验区政策体系，提档升级服贸会、中关村论坛、金融街论坛、北京文化论坛四大国际化开放平台，推动建设50个左右标志性开放项目。三是建强重点产业园区，中德经济技术合作先行示范区聚焦智能网联新能源汽车、智能装备，中欧创新产业园聚焦医药健康，中关村朝阳园发展人工智能、产业互联网、元宇宙、数字医疗。四是升级国际化配套服务，探索建立一站式外籍人士服务中心，优化签证、停居留、证件办理便利化。五是培育数字贸易新引擎，建设数据跨境服务中心，拓展数字人民币在数字贸易中的应用场景。</div>
+  <div class="meta"><span class="source">北京日报 9月3日</span><span class="tag">开放经济</span><span class="tag">外资研发中心</span></div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">2</span>最高1500元/类！这笔补贴12月底截止</div>
+  <div class="summary">江苏省发展改革委、江苏省财政厅、江苏省商务厅日前联合发布通告，优化调整江苏消费品以旧换新地方自主品类补贴政策。一是扩大补贴品类，将补贴范围优化调整为十大类智能家电、家居及数码产品。二是明确补贴标准，消费者购买十大类产品在享受商家优惠后，政府再按最终销售价格15%给予补贴，每人每个细分品类可补贴1件，每件不超过1500元。三是限定实施期限，政策自2026年8月29日起实施至12月31日结束，资金限额管理、用完即止。四是强化资金闭环管理，采取“商家优惠+政府补贴”两段式兑付，在最终销售价格基础上核算补贴基数，既放大财政杠杆效应又防范套补风险，持续释放智能消费新动能。</div>
+  <div class="meta"><span class="source">常州发布 9月3日</span><span class="tag">以旧换新</span><span class="tag">消费补贴</span></div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">3</span>逛展领消费券，这届中原文博会太会了！</div>
+  <div class="summary">9月2日，河南省委宣传部举行新闻发布会，介绍第十三届中原文化产业博览交易会有关情况，推出一系列惠民措施。一是发放专属消费福利，中原文博会期间市民和游客可登录“鹤壁促消费”微信小程序或云闪付平台，领取零售、住宿、餐饮、景区、影院、体育健身等领域电子优惠券，平台组织线上抽奖抽取商品消费券，严禁先涨价后打折。二是打造“文博+”消费新场景，组织多业态商家促销，策划商圈市集、网红带货，打造“文博+赛事+商圈+文旅”融合消费场景。三是拓展夜间消费场景，核心商圈展示国潮文创、非遗技艺、本地老字号，古城老街推出音乐夜场、戏曲专场、廊桥音乐会、美食集市、啤酒节。四是培育特色消费品牌，将商户、本土文创企业纳入促消费资源库，结合中秋国庆持续开展常态化惠民活动。</div>
+  <div class="meta"><span class="source">河南日报 9月3日</span><span class="tag">文旅消费</span><span class="tag">消费券</span></div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">4</span>重磅 | 天津最新方案发布！</div>
+  <div class="summary">9月1日，天津市交通运输委员会会同天津市文化和旅游局印发《天津市交通运输与旅游融合高质量发展实施方案（2026—2028年）》。一是构建“5+N”品牌体系，做强海河游船、游艇邮轮、公交巴士、“最美印蓟”自驾、铁路文旅5大品牌，拓展邮政文旅、航空文旅、水上运动等新场景，明确88项任务举措。二是设定量化目标，到2028年培育40个以上交旅融合特色产品，年直接服务人次突破470万、年均增长10%以上。三是擦亮5张名片，海河游船营造“水上观津城、下游看大海”新场景，游艇邮轮建成北方国际邮轮旅游中心，公交文旅打造滨海观光主题，自驾路完善配套设施，铁路文旅常态化运营“津旅时光号”旅游专列。四是培育N个新场景，开展水上运动、邮政博物馆夜游、研学线路、红色研学示范基地、精品自驾路。五是夯实政策与设施支撑，推出联票套票，加速津潍高铁、京滨城际南段等建设。</div>
+  <div class="meta"><span class="source">天津日报 9月3日</span><span class="tag">交旅融合</span><span class="tag">文旅消费</span></div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">5</span>天津出台2026年营商环境“施工图” 部署五大行动</div>
+  <div class="summary">9月2日，天津市政府新闻办举行政策吹风会，解读《2026年天津市推进营商环境提质升级行动计划》，提出五项行动、23项任务。一是强化要素供给，实施小微企业首笔信用普惠贷款风险补偿，适度提高科技创新类小微企业风险补偿比例，实施“海河英才”行动计划，建立“企业创新积分制”。二是优化市场环境，开展公平竞争审查抽查、反垄断“执法护企”和反不正当竞争专项行动，开展“人工智能+登记”试点。三是法治护企，全面推行“扫码入企”“一表通查”，更新行政执法免罚清单，依法实施“首违不罚、轻微免罚”。四是开放创新，依托东疆自贸助企出海综合服务港打造8个特色服务中心，推进智慧口岸“数智港”建设。五是升级政务服务，建设电子签名系统，推动高频事项“网上办、掌上办、码上办、一次办”。</div>
+  <div class="meta"><span class="source">天津日报 9月2日</span><span class="tag">营商环境</span><span class="tag">数智政务</span></div>
+</div>
+  </div>
+  <div class="footer">
+    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
+  </div>
 </div>
 </body>
 </html>
