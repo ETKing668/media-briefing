@@ -37,16 +37,15 @@
     font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
   .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
   .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
-  .news-card .summary .para { margin: 0 0 6px 0; text-align: justify; }
-  .news-card .src-link { background: #f7f9fc; border-left: 3px solid var(--primary);
-    padding: 10px 14px; margin: 10px 0; font-size: 13px; color: var(--text-secondary); }
-  .news-card .src-link-media { margin-bottom: 4px; }
-  .news-card .src-link-label { margin-bottom: 4px; }
-  .news-card .src-link-url a { color: var(--primary-light); word-break: break-all; }
+  .news-card .summary p { margin-bottom: 6px; }
   .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); }
   .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
     color: var(--primary); border-radius: 12px; font-size: 12px; }
+  .src-link { margin-top: 10px; padding-top: 10px;
+    border-top: 1px dashed var(--border); font-size: 12px; color: var(--text-secondary); }
+  .src-link-media { margin-bottom: 4px; }
+  .src-link-label { font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+  .src-link-url a { word-break: break-all; color: var(--primary-light); }
   .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
     border-top: 1px solid var(--border); margin-top: 32px; }
   @media (max-width: 600px) { .header { padding: 28px 16px; }
@@ -57,80 +56,65 @@
 <body>
 <div class="header">
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年9月16日</div>
+  <div class="date">2026年9月17日</div>
   <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
 </div>
 <div class="container">
   <div class="action-bar">
-    <a href="9.16%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="9.17%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
     <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
   </div>
   <div class="news-list">
-      <div class="news-card">
-        <div class="title"><span class="num">1</span>兴化乡镇"共建园区"谋"共富"</div>
-        <div class="summary"><p class="para">江苏兴化市把乡镇作为县域经济发展的根本，以"强镇"项目建设为引领，打通乡镇从"节点"到"引擎"的跃升路径，主要做法如下。</p><p class="para">一是深化"飞地"招商模式。通过构建协同招商队伍、深化飞地收益返还机制，促进优质项目向开发区集聚、发展收益向乡镇辐射传导，千垛镇招引的乾阳车业落户兴化经济开发区。</p><p class="para">二是深化"两区"带动机制。戴南镇（兴化高新区）联动沈伦、陶庄、周庄、竹泓四镇探索共建园区路径，明确"优势互补、产业外溢、链条共建"导向，引导周庄重点承接合金新材料、精密铸造项目，陶庄聚焦电热电气、电力装备特色产业，沈伦聚焦不锈钢及金属新材料细分赛道、发展林果产业深加工，竹泓布局食品加工等配套产业。</p><p class="para">三是构建"市投、镇管、民营"机制统筹推进分布式光伏项目，把"阳光收益"变成"强镇红利"。目前已建成运营项目装机容量25兆瓦，在建55兆瓦，另有约30兆瓦开展项目前期准备。</p><p class="para">四是实施"十镇、百点、千人"富民计划。依托朵爱鞋业在10个乡镇设立100个村级富民工坊、吸纳1000名灵活就业人员，实现兴企、强镇、兴村、富民良性循环，全市已建成"共富工坊"近50个。</p><p class="para">五是强化园区服务保障。由园区组建项目服务专班，跟进企业手续办理与建设推进，推动优质项目如期竣工投产，为乡镇共建园区提供支撑。</p></div>
-        <div class="src-link">
-          <div class="src-link-media">（信息来源：新华日报 2026年9月16日）</div>
-          <div class="src-link-label">原文标题及链接：兴化乡镇"共建园区"谋"共富"</div>
-          <div class="src-link-url"><a href="https://xh.xhby.net/pc/con/202609/16/content_1590067.html" target="_blank" rel="noopener">https://xh.xhby.net/pc/con/202609/16/content_1590067.html</a></div>
-        </div>
-        <div class="meta">
-          <span class="source">新华日报  9月16日</span>
-          <span class="tag">园区共建</span><span class="tag">飞地招商</span><span class="tag">强镇富民</span>
-        </div>
+    <div class="news-card">
+      <div class="title"><span class="num">1</span>江苏出台新措施推动“票根经济”全域贯通</div>
+      <div class="summary"><p>江苏省文化和旅游厅会同省发展改革委、省商务厅、省市场监管局、省体育局等五部门联合印发《文旅体商联合推动“票根经济”全域全链贯通的若干措施》，围绕“票根在手·江苏惠游”主题，构建“以演聚客、以赛引流、以客促消、以消兴产”融合发展格局。</p><p>一是拉长票根权益使用周期。票根权益有效期覆盖赛事演出当日及前后15天，适配群众跨市出游、周末度假的出行习惯，拉长消费转化链条；后续适时将航空机票、高铁火车票、长三角区域优质演艺赛事票根纳入权益体系。</p><p>二是打破地域隔阂。建立省级统筹、省市联动、部门协同工作机制，统筹整合全省文旅、体育、商贸资源，推动各地业态互补、客源互导互通，优惠权益跨设区市有效，实现“一票通行、全省惠享”。</p><p>三是建设全省统一商户资源库。按照政府引导、商户自愿、择优入库、动态管理原则，首期入库优质商户不少于5000家，覆盖景区景点、酒店民宿、餐饮购物、交通出行、文娱休闲等领域；围绕文娱票务、景区游览、酒店住宿、特色美食、商圈购物、便捷交通六大核心惠民场景，引导入库商户推出门票折扣、住宿升级、餐饮立减、购物满减、出行补贴等专属权益。</p><p>四是构建宣传触达与监管闭环。线上以“苏心游”平台为省级总入口，联动OTA、本地生活、票务出行平台开设专题专区；线下统一宣传物料、优惠清单和核销规则，优惠实行线上预订、线下核销。建立多部门协同会商机制，实行事前合规核查、事中动态监管、事后复盘优化的全流程闭环管理。</p></div>
+      <div class="meta"><span class="tag">消费促进</span><span class="tag">文旅体商融合</span></div>
+      <div class="src-link">
+        <div class="src-link-media">（信息来源：江苏经济报 2026年9月17日）</div>
+        <div class="src-link-label">原文标题及链接：江苏出台新措施推动“票根经济”全域贯通</div>
+        <div class="src-link-url"><a href="https://jsjjb.xhby.net/pad/con/202609/17/content_1590711.html" target="_blank" rel="noopener">https://jsjjb.xhby.net/pad/con/202609/17/content_1590711.html</a></div>
       </div>
-      <div class="news-card">
-        <div class="title"><span class="num">2</span>"制器之器"升级，关键在链上——看江苏工业母机产业如何进阶提升</div>
-        <div class="summary"><p class="para">江苏围绕需求、研发、制造、应用、资本全链条，系统性探索工业母机产业进阶提升的路径，主要做法如下。</p><p class="para">一是走"软硬协同"破局路线。企业一边深耕航空发动机加工工业软件，一边自建70台五轴加工中心零部件产线，形成软件研发与零部件制造双向迭代闭环，并与省内30余家机床企业协同开发绘图式工艺系统、数字孪生配套软件，降低本土整机企业智能化改造成本。</p><p class="para">二是建设工业母机数据集与公共数据底座。智能制造龙城实验室发布工业母机中试验证高质量数据集建设项目，牵头组建省内先行先试联合体，参与国家行业数据标准制定；南京理工大学启动工业母机功能部件高质量数据集联合体计划，聚焦丝杠、导轨、主轴、刀库等七大核心部件搭建国产数据库，两大平台错位互补，打通行业数据壁垒。</p><p class="para">三是依托专利导航开展规避设计、二次创新。专利导航报告明确研发热点集中于滚动导轨、高精度主轴、直线电机、滚珠丝杠、智能控制五大方向，引导企业在细分领域持续攻关。</p><p class="para">四是构建"需—研—制—验"省内闭环。终端企业与机床企业共建实验室、联合攻关特种加工装备，形成"本地场景、本地验证、本地迭代"模式。</p><p class="para">五是强化协同机制。省级工业母机产业联盟揭牌，汇聚17家副理事长单位，覆盖重点企业、高校、实验室、投资机构，并组建专家委员会；组建首期规模150亿元的国家级工业母机产业投资基金。</p></div>
-        <div class="src-link">
-          <div class="src-link-media">（信息来源：新华日报 2026年9月16日）</div>
-          <div class="src-link-label">原文标题及链接："制器之器"升级，关键在链上——看江苏工业母机产业如何进阶提升</div>
-          <div class="src-link-url"><a href="https://xh.xhby.net/pad/con/202609/16/content_1590108.html" target="_blank" rel="noopener">https://xh.xhby.net/pad/con/202609/16/content_1590108.html</a></div>
-        </div>
-        <div class="meta">
-          <span class="source">新华日报  9月16日</span>
-          <span class="tag">产业联盟</span><span class="tag">数据要素</span><span class="tag">全链协同</span>
-        </div>
+    </div>
+    <div class="news-card">
+      <div class="title"><span class="num">2</span>南京智能建造走向“常态落地”</div>
+      <div class="summary"><p>南京市城乡建设委员会9月初印发《关于进一步加强智能建造技术应用的通知》，打通从项目策划、招标发包到实施监管的全链条制度，推动智能建造由试点示范转入常态化落地。</p><p>一是明确三大技术方向同步推进。《通知》围绕技术应用、工作举措、保障措施三大板块构建实施体系，明确工业化技术、信息化管理、智能化装备三大方向互为支撑、一体实施，鼓励项目结合工程类型、规模和投资性质选用适配技术。</p><p>二是划定应用场景与发包要求。全市新开工总建筑面积2万平方米以上的政府投资房建项目、工程造价2000万元以上的政府投资市政项目，须在可研、项目策划、施工图设计、招标文件中明确智能建造应用要求；技术应用达标项目，预制装配率及“三板”应用比例可不作强制要求；公开招标项目可将智能建造专项方案列入技术标专篇作为评分内容。</p><p>三是落实资金与责任保障。政府及国企投资项目须依据省、市相关定额和计价参考足额编列智能建造费用，鼓励在施工合同中增设应用奖励条款；厘清建设、设计、施工、监理、技术服务五方主体职责，由建设单位牵头编制专项技术方案，形成责任闭环。</p><p>四是推进用工转型与监管激励。针对危、繁、脏、重工序推行人机协同作业，推动传统劳务向“建筑机器人+产业工人”模式转型；对照技术目录和评分细则开展监测评估，达标项目可在试点培育、工地差别化管理、评优推优等方面获得激励；对建筑机器人、无人塔吊等新装备设置先行先试条款，细化培训、持证上岗和维保要求。</p></div>
+      <div class="meta"><span class="tag">智能建造</span><span class="tag">城市建设</span></div>
+      <div class="src-link">
+        <div class="src-link-media">（信息来源：新华日报 2026年9月17日）</div>
+        <div class="src-link-label">原文标题及链接：南京智能建造走向“常态落地”</div>
+        <div class="src-link-url"><a href="https://xh.xhby.net/pad/con/202609/17/content_1590527.html" target="_blank" rel="noopener">https://xh.xhby.net/pad/con/202609/17/content_1590527.html</a></div>
       </div>
-      <div class="news-card">
-        <div class="title"><span class="num">3</span>当重力场遇见轻代码 制造与AI的"双向奔赴"在长沙经开区落地生金</div>
-        <div class="summary"><p class="para">湖南长沙经开区围绕"人工智能+制造"双向赋能，以制度化场景开放和扶持机制与企业结成"创新共同体"，主要做法如下。</p><p class="para">一是制度化开放应用场景。今年印发《关于拓展"人工智能+"应用场景的实施方案（2026—2028年）》，持续采用"揭榜挂帅"机制，把场景需求清单化、项目化，鼓励特色优势企业牵头建设场景；八大揭榜方向覆盖从底层技术到终端应用的全链条，验收通过的项目享受政策优先、基金优先、场景优先、订单优先、人才优先。</p><p class="para">二是推动企业从小切口切入真实产线。以无人挖掘机为例，从港口相对规整的装卸作业起步，先远程控制、再到部分场景半自主施工。</p><p class="para">三是构建梯次化培育体系。智能工厂按基础级、先进级、卓越级、领航级四个梯度培育，企业可对号入座；依托前期数字化转型资源池聚集的60家省级智能制造服务商，带动一批新势力成为AI应用服务商，与中小企业协同推进。</p><p class="para">四是打通"研发—制造—测试—场景"全链条。中国信通院中南研究院、湖南具身智能创新中心、湖南国重智联工程机械研究院、上海技术交易所中南中心、中南大学人工智能产业基地等公共服务平台相继启用，在鸿蒙+人工智能、人工智能+应急装备、具身智能重型装备等细分赛道发力。</p><p class="para">五是深化协同攻关与人才培养。龙头企业联合通信企业攻关"鸿蒙+矿山"场景，计划与省内矿山企业合作打造真实测试场；"星火铸芯·鸿蒙聚才"计划力争通过政校企协同培养鸿蒙开发人才10000人以上。</p></div>
-        <div class="src-link">
-          <div class="src-link-media">（信息来源：湖南日报 2026年9月16日）</div>
-          <div class="src-link-label">原文标题及链接：当重力场遇见轻代码 制造与AI的"双向奔赴"在长沙经开区落地生金</div>
-          <div class="src-link-url"><a href="https://changsha.voc.com.cn/news/202609/33762800.html" target="_blank" rel="noopener">https://changsha.voc.com.cn/news/202609/33762800.html</a></div>
-        </div>
-        <div class="meta">
-          <span class="source">湖南日报  9月16日</span>
-          <span class="tag">人工智能+</span><span class="tag">场景开放</span><span class="tag">梯次培育</span>
-        </div>
+    </div>
+    <div class="news-card">
+      <div class="title"><span class="num">3</span>安徽让“单人成军”照进现实</div>
+      <div class="summary"><p>安徽省科技厅近日先后印发《安徽省科技创新券管理办法（试行）》《安徽省推进人工智能OPC创新创业发展行动方案（2026—2028年）》，分别着眼财政科技投入方式改革和人工智能时代创业形态布局。</p><p>一是创新券聚焦“给服务”不“撒胡椒面”。办法明确以“企业购买服务、政府事后兑付”方式运行，将财政资金使用权交还企业，让中小企业自主选择所需技术服务，推动投入方式从“给钱”转向“给服务”、从“撒胡椒面”转向“精准撬动”；高校院所科研能力也有了向中小企业流动的市场通道，降低中小微企业获取外部科技服务的门槛。</p><p>二是明确OPC发展目标。行动方案提出大力发展“人工智能一人公司”（简称OPC），即以大模型、智能体为核心技术驱动、依托产业场景开展专业化服务的轻量型创业实体；到2028年，建成省级OPC社区不少于30个，集聚OPC团队不少于3000个，带动就业创业超1万人，新增智能算力不少于1.7万P，培育行业高质量数据集不少于50个，开发“小巧灵”人工智能解决方案不少于100个，打造具有全国影响力的OPC典型案例不少于3个。</p><p>三是构建全周期发展生态。方案构建“空间有载体、技术有底座、创业有支撑、市场有机会、风险有保障”的全周期发展生态；个体创业者可通过创新券购买高校算法测试或科研院所数据处理服务，在OPC社区获得算力支持和创业辅导，进而开发面向特定产业的“小巧灵”解决方案。</p></div>
+      <div class="meta"><span class="tag">人工智能</span><span class="tag">创新创业</span></div>
+      <div class="src-link">
+        <div class="src-link-media">（信息来源：市场星报 2026年9月17日）</div>
+        <div class="src-link-label">原文标题及链接：安徽让“单人成军”照进现实</div>
+        <div class="src-link-url"><a href="https://finance.sina.com.cn/jjxw/2026-09-17/doc-inirzwqx0500711.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/jjxw/2026-09-17/doc-inirzwqx0500711.shtml</a></div>
       </div>
-      <div class="news-card">
-        <div class="title"><span class="num">4</span>"轻嵩办"服务落到产业链</div>
-        <div class="summary"><p class="para">云南嵩明县创新实施"轻嵩办"专员行动，把服务落在产业链上，以服务提速护航项目落地与产业集聚，主要做法如下。</p><p class="para">一是依托产业链专班工作机制配置服务专员。由各产业链链长、副链长、专班组长及成员担任"轻嵩办"服务专员，按照一链专人、定岗定责原则配置，全程专职服务对应产业链；专员常态化走访链内企业，动态更新企业台账与产业链信息库。</p><p class="para">二是推行服务前置。在企业尚在意向洽谈、还未拿地的阶段，服务专员即联合属地供电所提前介入，召开用电保障前置服务现场解答会，提前给出电源接入点初步方案。</p><p class="para">三是把监督哨设到产业链上。县纪委监委搭建诉求直达通道，针对企业产能缺口、配套协作难题下发工作提示函，压实部门责任、划定整改时限、细化任务台账；对生物医药、康养文旅等特色产业开展营商环境专项监督，聚焦项目落地、要素保障、供需对接、惠企政策兑现四大关键环节。</p><p class="para">四是窗口既接件也"吹哨"。将政务服务中心综合窗口和惠企服务专区人员纳入专员队伍，记录企业反映的流程堵点、材料难点并推送审批部门，推动住建、自然资源、水务等部门整合分散验收环节，实行一次申请、统一踏勘、并联审批。</p><p class="para">五是推进流程再造。推行"验登合一"改革，把权籍调查、测绘落宗前置到施工收尾阶段；落实首席服务专员制度，对重大项目实行从签约、选址、建设到投产的全生命周期包联服务；编制《"一码导航"政策汇编》，公布60余项"免申即享"政策，发布两批"立等可取"事项清单累计214项。</p></div>
-        <div class="src-link">
-          <div class="src-link-media">（信息来源：云南日报 2026年9月16日）</div>
-          <div class="src-link-label">原文标题及链接："轻嵩办"服务落到产业链</div>
-          <div class="src-link-url"><a href="https://k.sina.com.cn/article_7517400647_1c0126e47059098mfu.html" target="_blank" rel="noopener">https://k.sina.com.cn/article_7517400647_1c0126e47059098mfu.html</a></div>
-        </div>
-        <div class="meta">
-          <span class="source">云南日报  9月16日</span>
-          <span class="tag">营商环境</span><span class="tag">产业链服务</span><span class="tag">流程再造</span>
-        </div>
+    </div>
+    <div class="news-card">
+      <div class="title"><span class="num">4</span>事关城市供水安全工作，浙江11部门联合印发指导意见</div>
+      <div class="summary"><p>浙江省建设厅等11部门近日联合印发《关于进一步加强城市供水安全工作的指导意见》，提出到2028年实现水源风险评估、设施隐患排查、取水智慧监测全覆盖，到2030年全面构建城市供水安全保障体系。</p><p>一是构建多源互补水源格局。单一水源城市按照“一源一备、多源互补”原则明确应急备用水源建设目标任务，衔接国土空间、水利等相关规划，加快推进跨流域跨区域引调水工程；已有备用水源城市建立常态化管护机制，确保应急状态下可迅速启动供水。</p><p>二是加强水源地风险管控与藻情防控。2026年12月底前完成饮用水水源地环境状况和污染风险调查评估；以县级行政区域或水源地为单元修订完善集中式地表水饮用水水源地突发环境事件应急预案，实现水源地全覆盖；蓝藻水华发生期间及时采取生态调水等应急处置措施。</p><p>三是加快设施隐患排查与管网改造。2026年12月底前启动运行年限15年以上城市供水厂安全评估，2027年12月底前全面完成既有城市供水厂安全评估；2027年12月底前完成重点片区老旧供水管网提升改造，2028年12月底前实现老旧问题供水管网改造全覆盖。</p><p>四是提升水质检测与智慧预警能力。单一水源、河网供水区域按需加强嗅味、浊度等指标检测频率，水厂并网供水前须完成全面水质检测；2026年12月底前基本实现取水口常规水质指标监测全覆盖，推动供水厂应用水质安全生物辅助示警装置，构建供水安全预警处置平台，2026年9月底前全省贯通应用。</p></div>
+      <div class="meta"><span class="tag">城市建设</span><span class="tag">供水安全</span></div>
+      <div class="src-link">
+        <div class="src-link-media">（信息来源：浙江发布 2026年9月17日）</div>
+        <div class="src-link-label">原文标题及链接：事关城市供水安全工作，浙江11部门联合印发指导意见</div>
+        <div class="src-link-url"><a href="https://www.163.com/dy/article/L704JQME0514FDFN.html" target="_blank" rel="noopener">https://www.163.com/dy/article/L704JQME0514FDFN.html</a></div>
       </div>
-      <div class="news-card">
-        <div class="title"><span class="num">5</span>靶向招商蓄势能 服务提质启新程</div>
-        <div class="summary"><p class="para">云南蒙自经开区、红河综保区以"一号工程""一把手工程"抓招商引资，建立项目全生命周期管理服务工作机制，推动招商引资从重签约向重落地、重投产、重运营转变，主要做法如下。</p><p class="para">一是链式培育产业。深入分析梳理园区产业基础、核心优势与发展短板，细化各产业主攻方向，持续完善产业链图谱，靶向引进龙头型、配套型、创新型项目，采取驻点招商、小分队招商等模式，推动招商工作从单点招引的点状突破转向产业培育的链式发展。</p><p class="para">二是明确"一主三新一辅"产业体系。以有色金属及新材料为主导，以消费电子及零部件、先进装备制造、生物制造三个战略性新兴产业为支撑，以商贸物流等生产性服务业为辅助，并谋划布局锡铟材料产业园、PCB产业园、绿色铝精深加工产业园等园中园。</p><p class="para">三是发挥链主企业引领作用。依托云锡股份、云铝股份、深圳惠科等链主企业，持续完善上下游配套，延链、补链、强链，逐步形成锡、铟、铜、铝、铅锌等多条有色金属及新材料产业链。</p><p class="para">四是组建专属项目服务专班。坚持"政府围着企业转、企业有事马上办"，全面落实预审前置、要素前置、解难前置，联动自然资源、政务服务、市场监管、金融机构等部门开通审批绿色通道，推行并联审批、全程帮办代办，对重点签约项目实行专人跟踪、每周调度、每月通报。</p><p class="para">五是开展"访企业送政策听诉求解难题促发展"主题活动，全面摸排企业发展实情，建立企业诉求问题交办机制，分类完善企业服务清单，开展闭环式办理服务。</p></div>
-        <div class="src-link">
-          <div class="src-link-media">（信息来源：云南日报 2026年9月16日）</div>
-          <div class="src-link-label">原文标题及链接：靶向招商蓄势能 服务提质启新程</div>
-          <div class="src-link-url"><a href="https://k.sina.com.cn/article_7517400647_1c0126e47059098mdg.html" target="_blank" rel="noopener">https://k.sina.com.cn/article_7517400647_1c0126e47059098mdg.html</a></div>
-        </div>
-        <div class="meta">
-          <span class="source">云南日报  9月16日</span>
-          <span class="tag">链式招商</span><span class="tag">全生命周期服务</span><span class="tag">园中园</span>
-        </div>
+    </div>
+    <div class="news-card">
+      <div class="title"><span class="num">5</span>山东发布人力资源和社会保障事业“十五五”规划</div>
+      <div class="summary"><p>山东省印发实施《山东省“十五五”人力资源和社会保障事业发展规划》，明确“十五五”期间全省开展补贴性职业技能培训200万人次，高技能人才总量达到560万人，城镇调查失业率控制在5.5%左右。</p><p>一是深入实施就业优先战略。全面建设高质量充分就业省份，在构建就业友好型发展方式、加大重点群体就业支持、推进城乡就业高质量统筹发展、推进自主创业和灵活就业健康发展、完善就业支持和服务体系等方面明确具体措施，“十五五”期间城镇新增就业保持相当规模。</p><p>二是深入实施“技能兴鲁”行动。加快塑造现代化人力资源，塑强高技能领军人才队伍，完善终身职业技能培训体系，推动技工教育高质量特色发展，构建评价激励使用协同联动的技能人才发展体系，加快培育知识型、技能型、创新型劳动者大军。</p><p>三是健全社会保障制度。完善养老保险制度，进一步扩大企业年金、个人养老金制度覆盖范围，有序扩大新就业形态人员职业伤害保障试点，“十五五”期间基本养老保险参保率稳定在96%以上；持续提升公共服务标准化数智化一体化水平，申领电子社保卡人口覆盖率达到90%。</p><p>四是强化人才引育与收入分配改革。培育壮大战略人才力量，加快引育高层次人才，打造北方优秀青年人才集聚区，“十五五”期间新增取得专业技术人员职业资格证书人数60万人，博士后年招收3000人；实施新一轮青年人才集聚齐鲁行动，力争每年吸引集聚100万青年人才来鲁兴学兴业。</p></div>
+      <div class="meta"><span class="tag">人才引育</span><span class="tag">就业社保</span></div>
+      <div class="src-link">
+        <div class="src-link-media">（信息来源：济南日报 2026年9月17日）</div>
+        <div class="src-link-label">原文标题及链接：山东发布人力资源和社会保障事业“十五五”规划</div>
+        <div class="src-link-url"><a href="https://news.e23.cn/shandong/2026-09-17/2026091700035.html" target="_blank" rel="noopener">https://news.e23.cn/shandong/2026-09-17/2026091700035.html</a></div>
       </div>
+    </div>
   </div>
   <div class="footer">
     每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
