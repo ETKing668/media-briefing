@@ -5,102 +5,101 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>媒体信息摘报</title>
 <style>
-  :root {{ --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
     --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
     --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }}
-  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-  body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }}
-  .header {{ background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }}
-  .header h1 {{ font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }}
-  .header .date {{ font-size: 14px; opacity: 0.85; }}
-  .header .subtitle {{ font-size: 14px; opacity: 0.7; margin-top: 4px; }}
-  .container {{ max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }}
-  .action-bar {{ display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }}
-  .btn {{ display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
+    color: var(--text); line-height: 1.8; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white; padding: 40px 20px; text-align: center; }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+  .header .date { font-size: 14px; opacity: 0.85; }
+  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
+  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
     border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }}
-  .btn-download {{ background: var(--accent); color: white; }}
-  .btn-download:hover {{ background: #a00e26; transform: translateY(-1px); }}
-  .btn-refresh {{ background: white; color: var(--primary); border: 1.5px solid var(--border); }}
-  .btn-refresh:hover {{ border-color: var(--primary); }}
-  .news-list {{ display: flex; flex-direction: column; gap: 16px; }}
-  .news-card {{ background: var(--card-bg); border: 1px solid var(--border);
+    cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-download { background: var(--accent); color: white; }
+  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
+  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
+  .btn-refresh:hover { border-color: var(--primary); }
+  .news-list { display: flex; flex-direction: column; gap: 16px; }
+  .news-card { background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }}
-  .news-card:hover {{ box-shadow: 0 4px 20px rgba(0,0,0,0.1); }}
-  .news-card .num {{ display: inline-block; width: 28px; height: 28px; background: var(--primary);
+    transition: box-shadow 0.2s; }
+  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
     color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }}
-  .news-card .title {{ font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }}
-  .news-card .summary {{ font-size: 14px; color: var(--text); margin-bottom: 10px; }}
-  .news-card .meta {{ display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }}
-  .news-card .source {{ font-size: 12px; color: var(--text-secondary); }}
-  .news-card .tag {{ display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }}
-  .footer {{ text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }}
-  @media (max-width: 600px) {{ .header {{ padding: 28px 16px; }}
-    .header h1 {{ font-size: 22px; }} .container {{ padding: 16px 12px 40px; }}
-    .news-card {{ padding: 16px 18px; }} }}
+    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
+  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .news-card .source { font-size: 12px; color: var(--text-secondary); }
+  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
+    color: var(--primary); border-radius: 12px; font-size: 12px; }
+  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
+    border-top: 1px solid var(--border); margin-top: 32px; }
+  @media (max-width: 600px) { .header { padding: 28px 16px; }
+    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
+    .news-card { padding: 16px 18px; } }
 </style>
 </head>
 <body>
 <div class="header">
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年9月23日</div>
+  <div class="date">2026年9月24日 星期四</div>
   <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
 </div>
 <div class="container">
   <div class="action-bar">
-    <a href="9.23%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="9.24%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
     <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
   </div>
   <div class="news-list">
-    <div class="news-card">
-  <div class="title"><span class="num">1</span>“实体”很能打的江苏，“网感”也是杠杠滴</div>
-  <div class="summary">9月22日，由省电子商务协会、苏豪控股集团共同主办的江苏电商创新发展大会在南京开幕，700余名电商平台、AI服务商、产业带代表等参会。会上发布国内首个聚焦“人工智能+电商”的省级专项政策，并公布10亿元专项基金，一批电商平台区域总部、AI服务、跨境电商项目集中签约。江苏2025年网络零售额1.37万亿元，拥有123个电商特色产业带、42个县域电商产业集聚区，15家国家电子商务示范基地数量居全国第一。<br>一是出台专项行动方案。发布《江苏省“人工智能+电商”创新发展行动方案（2026—2028年）》，提出12条具体举措，包括每年动态发布10个以上适配工业品B2B全链路应用场景的优质模型服务项目；到2028年打造300个高质量电商数据集、培育20个“人工智能+电商”特色产业园区；实施电商人才培训“繁星计划”；打造专业化OPC社区，集成政策服务、技术研发、品牌孵化、数字营销等综合服务能力。<br>二是建成一批电商数据集。首批发布163个高质量电商数据集、166个智能体，覆盖跨境电商、智能客服、AIGC营销、选品分析、供应链管理等9大应用方向。<br>三是设立专项基金。由苏豪控股集团联合江苏省战略性新兴产业母基金、南京江北新区共同组建，首期规模10亿元，重点聚焦工业品B2B电商、跨境电商、老字号数字化转型、AI赋能电商四大方向。<br>四是共建校企合作平台。苏豪控股携手南京大学共建新型电商研究院，携手南京财经大学共建数智电商学院，本硕博贯通积蓄电商人才。<br>五是组建产业生态联盟。由苏豪控股和省电商协会发起江苏电商发展生态联盟，意向入盟单位近200家；自今年6月以来全省落地各类电商合作项目超110个。</div>
-  <div class="meta">
-    <span class="source">新华日报 9月23日</span>
-    <span class="tag">AI+电商</span><span class="tag">数字商务</span>
+  <div class="news-card">
+    <div class="title"><span class="num">1</span>江宁“基金矩阵”力争三年破千亿</div>
+    <div class="summary">9月23日，南京市江宁区举办“百家宁聚、基业长青”百家湖基金沙龙，发布上市企业五大领航行动计划并亮相“江宁创投八条”。一是发布上市企业五大领航行动计划，涵盖基金资本赋能、应用场景开放、产学研协同创新、上市培育提质、人才共育建设。二是出台“江宁创投八条”，明确白名单免尽调跟投、以赛代评、容错免责等条款，引导机构“投早、投小”。三是发布基金产品、融资需求两张清单，400余家企业融资需求总规模达225亿元。四是一站式平台“帮宁办”上线“基金超市”，依托政务数据实现需求线上归集、常态对接。五是做强基金矩阵，现有4只母基金、下设子基金82只、总规模超800亿元，未来3年力争突破1000亿元。</div>
+    <div class="meta">
+      <span class="source">新华日报 9月24日</span>
+      <span class="tag">产业基金</span><span class="tag">可复制</span>
+    </div>
   </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">2</span>链接全球商机，订单“云上”生长</div>
-  <div class="summary">9月22日，2026江苏数智电商展览会在南京国际展览中心开幕，由苏豪控股集团、江苏省电商协会联合主办，为期两天，设人工智能、特色工业品B2B、产业带+电商、电商创新创业生态四大主题展区，吸引超140家企业参展。展会集中呈现数智技术赋能江苏制造与全球商机精准对接的新路径。<br>一是搭建AI设计协同平台。面向纺织服装产业的苏豪智尚云平台，用AI把创意、设计、打样和业务协同连成一体，“云知画布”可生成不同模特、场景的上身效果图，依托3D数字仿真呈现数字面料库，过去反复拍摄打样的环节转瞬即成。<br>二是推广数智化仓储与履约。人形机器人按单取货、快速分拣已在电商场景落地；便携式焊接机器人带轮可推走，用于钢结构和船舶焊接，国内售价约7万元，借助阿里巴巴和独立站等电商平台已销往俄罗斯、西班牙、巴西、美国等国。<br>三是建设跨境出海服务平台。苏豪通打造一站式跨境出海服务商，帮客户搭建营销型独立站、做运营推广，提供“9710模式”报关通关、外贸商道AI和大数据分析，已服务超200家企业；苏豪云商发布“苏豪云”跨境服务2.0，以跨境代销、创业孵化、出海服务、产业带运营为抓手，B2C业务覆盖19国。<br>四是创新B2B跨境电商全托管模式。中国—中亚贸易畅通合作平台设中亚五国国家馆，已吸引50余家中亚及相关国家机构企业入驻，推动300余项合作事项对接、带动700余家省内中小企业开拓中亚市场；依托连云港国家物流枢纽，中亚班列年开行近千列，构建“班列+电商+海外仓”流通体系。<br>五是布局海外仓网络。全省13个设区市已全部成为国家级跨境电商综试区，在全球40多个国家和地区布局超300个、合计400多万平方米海外仓。</div>
-  <div class="meta">
-    <span class="source">新华日报 9月23日</span>
-    <span class="tag">跨境电商</span><span class="tag">海外仓</span>
+  <div class="news-card">
+    <div class="title"><span class="num">2</span>扬州广陵新城跨境OPC助力个体创业者零门槛“闯全球”</div>
+    <div class="summary">针对传统外贸对个人创业者门槛高的问题，盘古集团依托广陵新城推出“跨境+OPC”项目，以资源共享降低创业门槛。一是整合选品、国际物流、报关、AI工具、创业指导、办公空间等资源，提供“一站式”服务，入驻主体即驻即用、不用自建重资产。二是首期提供300平方米场地、20至30个工位，可先试运营半个月、园区陪跑指导，通过后再签约。三是建立常态化培训机制，专家团队提供“0到1”孵化及一对一辅导，每月至少1场专题实操、每季度1次主题讲座。四是到2030年建成全省标杆级跨境超级个体孵化平台，探索可复制的“盘古OPC经验”；该项目已服务对接企业近200家，50多家企业实现出海。</div>
+    <div class="meta">
+      <span class="source">新华日报 9月24日</span>
+      <span class="tag">跨境电商</span><span class="tag">个体创业</span>
+    </div>
   </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">3</span>好物云集开好“市” “苏品苏货”耀金秋</div>
-  <div class="summary">9月22日，由江苏省商务厅、淮安市人民政府共同主办的2026“苏新消费·金秋惠购”主题促消费系列活动暨乐购淮安·金秋好“市”启动仪式在淮安万象城举行。现场设六大主题消费市集，汇聚全省十三城苏品苏货和长三角区域潮流IP。<br>一是设置六大主题消费场景市集。围绕中秋主题打造金秋好潮·潮流IP消费集、金秋好物·甄选风物集、金秋好味·“百县千味”美食集、金秋好玩·服务消费体验集、金秋好智·“苏品苏货”AI未来商店等6个主题消费场景市集，设置超200个展位，以好潮、好物、好味、好智串联金秋消费。<br>二是创新互动打卡消费。设计“金秋听风”打卡线串联六大展区，市民领取护照或活动地图，完成体验、消费或互动后集齐6枚印章可兑换秋日小礼品及现金优惠券。<br>三是政银企联动发放消费券。活动期间全省商务系统累计开展2600余场“一市一特色”促消费活动，政银企联动发放超7亿元惠民消费券，组织超2.5万家商贸企业参与。<br>四是打造AI未来商店新场景。金秋好智·“苏品苏货”AI未来商店集中展示消费级机器人、AI玩具与陪伴产品、智能家居、智能穿戴、智能办公设备；蔚蓝科技BabyAlpha系列机器人累计销量突破2.5万台，覆盖全国295座城市。<br>五是平台专项扶持源头好店。快手电商发布专项扶持政策，全年计划挖掘1万家区域特色好店，选品及商家服务中心落地淮安，对符合条件的源头好店、品质商家、潜力商户给予“老铁好店”“老铁甄选”官方认证标识和强曝光。</div>
-  <div class="meta">
-    <span class="source">新华日报 9月23日</span>
-    <span class="tag">促消费</span><span class="tag">苏新消费</span>
+  <div class="news-card">
+    <div class="title"><span class="num">3</span>“双节”期间全省推出4900多项文旅活动</div>
+    <div class="summary">中秋、国庆“双节”期间，全省联动推出4900多项文旅活动。一是开展1770余场群众文化活动、300余项非遗主题活动，130多个非遗项目齐聚常州青果巷、淮安河下古镇。二是全省营业性演出1196场，其中5000人以上大型演出44场，周杰伦、华晨宇等演唱会及太湖湾音乐节等重磅上演。三是74家博物馆延长开放，推出近200个精品展览、1100余场社教研学及夜游夜演。四是推出66条特色研学线路、735项休闲活动，夜间文旅消费集聚区推出61项主题活动。五是真金白银惠民让利：全省统筹发放上亿元文旅消费券，联动携程、同程、途牛投放酒店补贴，盐城、苏州、常州加码地方券，扬州发券包，南通送新生礼包，175家景区推门票优惠，多地机关企事业单位停车场向游客开放。</div>
+    <div class="meta">
+      <span class="source">新华日报 9月24日</span>
+      <span class="tag">消费券</span><span class="tag">文旅</span>
+    </div>
   </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">4</span>江苏“J-TOP创新挑战季”船舶海工专场举行</div>
-  <div class="summary">9月22日，2026年江苏省“J-TOP创新挑战季”船舶与海洋工程装备产业专场活动在镇江高新区举行，聚焦产业真需求、高校真成果、金融真支持，旨在打通科技成果转化“最后一公里”。<br>一是发布“揭榜挂帅”需求榜。面向全省征集船舶海工有效技术需求102项，企业意向投入达1.06亿元；镇江船厂、常熟国瑞等企业代表发布技术难题，江苏科技大学等高校团队现场路演揭榜方案。<br>二是集中推介前沿科技成果。江苏科技大学、江苏大学、哈尔滨工业大学（威海）、哈尔滨工程大学长三角高等研究院等高校和研究院所集中推介193项前沿科技成果。<br>三是强化金融配套支撑。组织金融机构推介相关金融产品，为校企合作降低成果转化风险、保驾护航。<br>四是揭牌区域技术转移转化中心。先进船舶海工区域技术转移转化中心管委会等平台现场揭牌，5个产学研合作项目现场签约。<br>五是建立常态化对接机制。自今年4月启动以来，该专场活动已累计促成9个项目成交，项目总金额818万元，推动创新链与产业链深度融合。</div>
-  <div class="meta">
-    <span class="source">新华日报 9月23日</span>
-    <span class="tag">揭榜挂帅</span><span class="tag">成果转化</span>
+  <div class="news-card">
+    <div class="title"><span class="num">4</span>活动管够 安逸管饱</div>
+    <div class="summary">四川围绕“马上入川·蜀你好玩”，推出4层自然秋色、5重人文秋色、7种秋趣玩法、42条安逸游线、92处秋色打卡地，铺开596项、4412场文旅活动。一是9月28日启动第三季文旅消费活动，全省统筹发放超5000万元文旅消费券，联动平台推特惠礼包、景区让利。二是推出“暖客计划”：西岭雪山“码上办”、大熊猫基地留言板，宜宾升级“一码游宜宾”，广元剑门关设14处志愿服务点。三是释放公共空间：遂宁开放党政机关5000余个免费停车位及1万余个潮汐车位，泸州凭身份证免费乘主城区117条公交。四是启动旅游市场“雷霆”行动百日攻坚，8个市州签跨区域执法协议，对“黑社”“黑导”“黑购物店”“黑车”顶格处罚。五是赛事联动消费，新津赛艇公开赛设展销区，全区商圈、酒店、餐饮、家电、汽车同步优惠促销。</div>
+    <div class="meta">
+      <span class="source">四川日报 9月24日</span>
+      <span class="tag">消费券</span><span class="tag">文旅</span>
+    </div>
   </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">5</span>AI+农业，解锁新“丰”景</div>
-  <div class="summary">今年省委一号文件明确提出“推动‘人工智能+农业’发展”，省政府出台《关于科技强农的若干政策措施》，全省深入实施“人工智能+农业141”行动，一套调度系统、四类产业模型、一套装备支撑体系落地生根，人工智能加速渗透种植业、养殖业、园艺产业、农产品加工全链条。<br>一是建设“天空地人机”五位一体智慧农田。盐城盐都区七星农场以多光谱无人机遥感和智能机巢为核心，整合卫星遥感、田间物联网多源信息，研发出苗识别、长势监测、变量施肥、产量预估、倒伏预警5类AI算法模型，打通“装备监测—智能分析—处方生成—植保无人机执行”全链路，化肥农药减量15%以上，稻麦增产8%—12%，已在盐都打造万亩智慧示范片区。<br>二是搭建大闸蟹智慧养殖平台。昆山建设大闸蟹智慧养殖平台，通过生长预测模型和视频监测模型算法预测生长态势，依托水下实时视频校正个体规格、输出饲养策略，联动自动化硬件按预设时间、投喂量实现自动投料；全市养殖面积3.225万亩，产业链年产值接近60亿元。<br>三是发展智能温室与植物工厂。南通海门A+温室工场投资6300万元，采用椰糠无土栽培、数字农业平台实时监测；正余镇叶菜工厂一年可收获12茬生菜，平时仅需一人值守，两小时从大棚直达餐桌。<br>四是攻关农业机器人。海门本土企业调试多款采摘、巡检、靶向喷施机器人，可识别番茄、草莓、吊瓜等果蔬成熟状态与病虫害点位，并在采摘时最大限度保护果实完好，为设施农业“机器换人”探路。<br>五是推动AI全链加工。省级农业龙头企业上首生物主攻“人工智能+农业深加工”，引入AI算法与识别系统实现从农产品原料处理到终端产品入库全链路智能化，通过村企联建订单化供应红豆等原料，每年带动农户增收数万元。</div>
-  <div class="meta">
-    <span class="source">新华日报 9月23日</span>
-    <span class="tag">智慧农业</span><span class="tag">AI+农业</span>
+  <div class="news-card">
+    <div class="title"><span class="num">5</span>江苏印发“十五五”农业农村现代化规划</div>
+    <div class="summary">省政府办公厅印发《江苏省“十五五”农业农村现代化规划》，对今后五年“三农”工作系统部署，推进农业现代化走在前、高水平建设农业强省。一是锚定目标，到2030年乡村全面振兴取得显著成效，设置16项主要指标，粮食综合生产能力约束性指标稳定在760亿斤以上。二是突出7项重点任务，坚持产量产能、生产生态、增产增收一起抓，推进优土、优种、优产、优储、优销“五优联动”，培育农业新质生产力，以县域为切入点推进城乡融合。三是部署重大工程和行动，实施耕地质量提升行动、设施农业现代化提升工程、“人工智能+农业”141行动、宜居宜业和美乡村示范建设、“新农人”队伍培育等。四是加强党对“三农”工作领导，强化乡村振兴统筹推进机制，统筹发展科技农业、绿色农业、质量农业、品牌农业，拓宽农民增收渠道。</div>
+    <div class="meta">
+      <span class="source">新华日报 9月24日</span>
+      <span class="tag">农业科技</span><span class="tag">规划</span>
+    </div>
   </div>
-</div>
-
   </div>
   <div class="footer">
     每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
