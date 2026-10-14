@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>媒体信息摘报</title>
 <style>
-:root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
-  --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
-  --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-  --shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
+    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
-    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: var(--bg);
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
     color: var(--text); line-height: 1.8; min-height: 100vh; }
   .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: white; padding: 40px 20px; text-align: center; }
@@ -36,9 +36,8 @@
     color: white; border-radius: 50%; text-align: center; line-height: 28px;
     font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
   .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; white-space: pre-wrap; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
   .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); }
   .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
     color: var(--primary); border-radius: 12px; font-size: 12px; }
   .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
@@ -46,77 +45,85 @@
   @media (max-width: 600px) { .header { padding: 28px 16px; }
     .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
     .news-card { padding: 16px 18px; } }
+  
+  .src-link { margin-top: 10px; padding-top: 10px;
+    border-top: 1px dashed var(--border); font-size: 12px; color: var(--text-secondary); }
+  .src-link-media { margin-bottom: 4px; }
+  .src-link-label { font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+  .src-link-url a { word-break: break-all; color: var(--primary-light); }
+
 </style>
 </head>
 <body>
 <div class="header">
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年10月13日</div>
-  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
+  <div class="date">2026年10月14日</div>
+  <div class="subtitle">省级党报政策出台精选（福建省除外）</div>
 </div>
 <div class="container">
   <div class="action-bar">
-    <a href="10.13%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="10.14%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
     <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
   </div>
   <div class="news-list">
-<div class="news-card">
-  <div class="title"><span class="num">1</span>江苏十部门统一上线“惠企政策明白卡”</div>
-  <div class="summary">江苏省发展改革委、省科技厅、省商务厅、省市场监管局、省知识产权局等10个部门，统一在江苏省“一企来办”企业综合服务平台上线“惠企政策明白卡”，以卡片条目式展现，让企业简简单单、明明白白看懂享受惠企政策，将2026年度省级惠企财政资金项目支持政策拆解，推动惠企财政资金直达快享。具体举措如下：
-一是上线“政策明白卡”专栏。此次上线涉及10家省级部门14个惠企财政资金直达快享项目，共19张“明白卡”，包含“质量强省”“生物质发电”2个“免申即享”项目，“省级贸促计划内展会”“前沿技术研发计划”等4个“限时快享”项目和“苏体贷”“苏旅贷”等8个贴息项目。
-二是条目式展示核心要素。每张“明白卡”按奖补类型，分类展示奖励政策、申报对象、申报条件、申报流程、申报时间、办理部门、咨询电话和申报入口等核心要素，让企业对“能拿多少、是否符合条件、如何办理、找谁咨询、去哪申报”等问题一目了然、快速办理。
-三是统一入口便捷查询。企业登录江苏政务服务网“一企来办”平台，进入“惠企财政资金‘一平台直达企业’”，即可查看“政策明白卡”；如在政策查询、项目申报、资金兑付过程中遇到问题，企业可拨打12345热线反映。
-四是动态扩容与市县联动。省数据局将会同相关部门根据省级直达快享项目扩容情况，增加上线更多“惠企政策明白卡”，并组织各设区市在“一企来办”平台发布本地“惠企政策明白卡”，更大范围、更加高效服务企业。</div>
+    <div class="news-card">
+  <div class="title"><span class="num">1</span>山东锚定“人工智能+制造”主赛道 以垂直大模型“专而精”推动产业落地</div>
+  <div class="summary">山东锚定“人工智能+制造”主赛道，发布“双百清单”（100个AI+制造场景+100个垂直大模型），三年统筹超100亿元，设“模型券”“场景券”，建立“揭榜挂帅+赛马”机制，推动垂直大模型覆盖41个工业大类。</div>
   <div class="meta">
-    <span class="source">新华日报  10月13日</span>
-    <span class="tag">营商环境</span><span class="tag">政策直达</span>
+    <span class="tag">人工智能+制造</span><span class="tag">垂直大模型</span>
+  </div>
+  <div class="src-link">
+    <div class="src-link-media">（信息来源：大众日报 2026年10月14日）</div>
+    <div class="src-link-label">原文标题及链接：不追“通用”风口，山东大模型为何一头扎进矿井和码头？</div>
+    <div class="src-link-url"><a href="https://www.toutiao.com/article/7696298020459135488/" target="_blank" rel="noopener">https://www.toutiao.com/article/7696298020459135488/</a></div>
   </div>
 </div>
-<div class="news-card">
-  <div class="title"><span class="num">2</span>我省印发深入实施“人工智能+”三年行动方案</div>
-  <div class="summary">湖北省印发《湖北省深入实施“人工智能+”三年行动方案（2026—2028年）》，铺开制造、科技、城市治理、交通物流、重点民生、商品与服务消费等六大专项行动。具体举措如下：
-一是设定量化目标。提出到2028年，培育100个智能体标杆应用，拓展500个高价值应用场景，新一代智能终端及智能体普及率超过80%。
-二是实施六大专项行动。制造领域聚焦光电子信息、汽车、装备制造、生物制造，推动“闪存、内存、存算一体、智能终端”全产业链发展，打造世界级存算一体产业基地，加快智能驾驶、智能座舱上车，推动30款以上创新药进入临床测试；科研端深化AI for Science在数学、生物、材料等领域应用；民生领域推出AI云陪诊、智慧药房、护理床式与情感陪伴类养老机器人示范推广、“名师AI课堂”“双师智慧课堂”、商圈虚拟试穿与无人结算、景区沉浸式文旅体验；城市安全嵌入燃气供水AI监测、建设“空天地”一体化智慧应急系统，试点消防灭火机器人、水下搜救机器人、应急通信无人机；交通物流依托阳逻港、天河机场、花湖机场打造多式联运“超级场景”和全省“智慧物流大脑”。
-三是强化算力与要素保障。持续壮大“武、宜、襄·十”三大算力圈，发放“算力券”降低中小企业用算成本，建设省级模型智能体资源池。
-四是转变财政支持方式。发挥楚天凤鸣科创母基金等引导作用，推动财政支持从“直接补贴”转向“投、贷、保、补、担、采”协同联动，构建覆盖算力、数据、算法、人才、安全全要素的保障体系。</div>
+    <div class="news-card">
+  <div class="title"><span class="num">2</span>浙江台州以数智技术赋能传统缝制设备 探索“老树发新芽”升级路径</div>
+  <div class="summary">浙江台州以自研芯片、AI视觉、人形机器人赋能传统缝制设备，效率提升30%，依托1500余家企业集群从卖产品转向卖解决方案、“集群出海”，探索传统产业数智焕新路径。</div>
   <div class="meta">
-    <span class="source">湖北日报  10月13日</span>
-    <span class="tag">科技创新</span><span class="tag">人工智能</span>
+    <span class="tag">传统产业焕新</span><span class="tag">智能装备</span>
+  </div>
+  <div class="src-link">
+    <div class="src-link-media">（信息来源：浙江日报 2026年10月14日）</div>
+    <div class="src-link-label">原文标题及链接：把新技术“缝”进传统产业中</div>
+    <div class="src-link-url"><a href="https://www.toutiao.com/article/7696297626832011839/" target="_blank" rel="noopener">https://www.toutiao.com/article/7696297626832011839/</a></div>
   </div>
 </div>
-<div class="news-card">
-  <div class="title"><span class="num">3</span>江西省工业推动新质生产力培育走深走实</div>
-  <div class="summary">江西省工业和信息化厅明确，全省工业将坚持科技创新与产业创新深度融合，围绕高技术、高效能、高质量要求，从三个方面集中发力，推动新质生产力培育走深走实。具体举措如下：
-一是聚焦高技术增强创新驱动力。支持链主企业联合中小企业、高校、资本共建市场化创新平台，完善“创新型—专精特新—小巨人”企业梯度培育体系，力争在旋翼飞行器领域创建国家级制造业创新中心；鼓励开发区、链主企业、高校及科研院所高标准建设中试平台，推广“中试+投资+孵化”运营模式，推动中试平台开放提供试验验证、工艺优化等公共服务；依托高新区、经开区打造一批创新型产业集群。
-二是聚焦高效能厚植数智竞争力。深入实施新一轮制造业数智化转型行动，采取“赛马制”推动企业由单点改造向全流程改造跃升；设立“数转券”引导中小企业接入工业互联网平台体系，推进“1+N”产业大脑体系建设，开展省级产业数字化转型先行区建设；分行业建立数字化转型场景图谱，挖掘、梳理、发布各地及重点行业AI应用需求，为揭榜AI企业提供从数据、验证到首单采购的全链条服务；推进数字化绿色化协同转型，加快零碳工厂、零碳园区创建。
-三是聚焦高质量提升体系支撑力。实施“千企技改”“万企上云”行动，建设一批“黑灯工厂”和绿色工厂；纵深推进“1269”行动计划，推动电子信息、锂电和光伏新能源、航空、钨和稀土金属新材料等先进制造业集群从“量的集聚”走向“质的领跑”；围绕“选种子、开场景、引项目”精准施策，创建一批未来产业先导区，以市场估值为导向优化其考核体制机制。</div>
+    <div class="news-card">
+  <div class="title"><span class="num">3</span>江苏发挥“一带一路”交汇点优势 推动企业从“产品出海”向“全链出海”跃升</div>
+  <div class="summary">江苏发挥“一带一路”交汇点优势，设江苏中亚中心等双向平台，推动企业从“产品出海”向“品牌出海”“全链出海”跃升，并出台外贸稳增长22条等，编制内外贸标准衔接指南，政策主动找企业。</div>
   <div class="meta">
-    <span class="source">江西日报  10月13日</span>
-    <span class="tag">产业数字化</span><span class="tag">新质生产力</span>
+    <span class="tag">开放型经济</span><span class="tag">品牌出海</span>
+  </div>
+  <div class="src-link">
+    <div class="src-link-media">（信息来源：新华日报 2026年10月14日）</div>
+    <div class="src-link-label">原文标题及链接：苏企全球化新叙事：单点突破到全链出海</div>
+    <div class="src-link-url"><a href="https://xh.xhby.net/pc/con/202610/14/content_1596932.html" target="_blank" rel="noopener">https://xh.xhby.net/pc/con/202610/14/content_1596932.html</a></div>
   </div>
 </div>
-<div class="news-card">
-  <div class="title"><span class="num">4</span>穿越地产周期，重回制造当家，三乡为什么能？｜镇街再发现</div>
-  <div class="summary">中山市三乡镇创新推行“1+4+N”土地整备模式，将经济重心从房地产转向制造业，构建“核心园区引领、连片片区支撑、多点宗地提质”的分层改造体系。具体举措如下：
-一是工改整备拓展产业空间。三乡创新推行“1+4+N”土地整备模式，累计整备土地3780亩；在琅环湖片区腾出连片熟地，高标准建设中山半导体产业园，总规划约6156亩，核心区获批省级产业园，为三乡历史上第一个省级产业平台。
-二是重新定价要素投向制造。把土地、政策、财政的优先级全部倒向制造业，压减房地产比重、提升制造业比重，把土地从一次性消费品改回长期生产资料，从源头为新兴产业腾出承载空间。
-三是常态化企业服务体系托举落地。建立全流程企业服务机制，为落户企业提供从签约、供地、建设到投产的闭环服务保障，以“拿地即开工”式服务效率支撑企业快速加码布局；同时设立内地首个港澳人士服务中心，推出28项“跨境服务包”，落地全国首个地级市与澳门联合设立的“粤澳社保一窗通”社区专窗、全省首个中国委托公证（香港）服务窗口，把近6万港澳同胞从置业客转化为通向大湾区的接口与窗口。
-四是侨房活化与城乡融合留人。全镇292间侨房建立“一房一档”，104间完成保护活化，落地民宿、轻餐饮、非遗文创等新业态21个，建成9条典型示范村；系统构建“上截山洪—中蓄涝水—下设强排”防洪排涝体系，新建污水管网389公里，把生态、便利度、人文从成本项变成竞争项。</div>
+    <div class="news-card">
+  <div class="title"><span class="num">4</span>陕西“专精特新”专板咸阳专区上线 探索资本市场服务下沉新模式</div>
+  <div class="summary">陕西“专精特新”专板咸阳专区上线，为全省首个地市专属专区，确立政策汇聚、资本对接、规范培育、上市孵化功能，探索资本市场服务下沉、属地化企业培育新模式。</div>
   <div class="meta">
-    <span class="source">南方日报  10月13日</span>
-    <span class="tag">土地整备</span><span class="tag">制造业当家</span>
+    <span class="tag">专精特新</span><span class="tag">资本市场下沉</span>
+  </div>
+  <div class="src-link">
+    <div class="src-link-media">（信息来源：陕西日报 2026年10月14日）</div>
+    <div class="src-link-label">原文标题及链接：陕西“专精特新”专板咸阳专区上线</div>
+    <div class="src-link-url"><a href="https://k.sina.com.cn/article_7517400647_1c0126e4705909c3jk.html" target="_blank" rel="noopener">https://k.sina.com.cn/article_7517400647_1c0126e4705909c3jk.html</a></div>
   </div>
 </div>
-<div class="news-card">
-  <div class="title"><span class="num">5</span>我省九成基础研究选题科研人员说了算</div>
-  <div class="summary">贵州省近日印发《贵州省基础研究计划2026—2027年联合基金项目实施工作方案》，启动省级基础研究联合基金，把选题权交给科研人员。具体举措如下：
-一是扩展计划类别赋予选题权。省级基础研究计划由“一般”“重点”两类扩展为青年引导、面上、重点、重大、人才团队托举、联合六类，超90%的项目可由科研人员自主选题，让研究真正跟着科学问题走，而不是跟着计划书走。
-二是设立青年专项支持挑大梁。省级青年A、B类项目已支持两批26人，让青年“挑大梁、当主角”，由科研人员自主确定研究方向、目标和技术路线，给予青年科技工作者信任与尊重。
-三是多元出资设立联合基金。联合基金由省科技厅联合市州省属高校、医疗卫生机构、科研院所、企业等共同出资设立，聚焦主攻方向布局，开展基础研究和应用基础研究，助力培养基础研究人才，夯实科研基础。
-四是加强有组织科研与长效保障。在基础研究领域加强有组织的科研，让更多青年科研人员安心做长周期、原创性工作，推动研究路径的设计和动态调整体现“自己说了算”；通过扩大科研人员自主权与多元联合投入，构建从青年培养到团队托举的基础研究人才梯次支持体系，夯实贵州源头创新根基。</div>
+    <div class="news-card">
+  <div class="title"><span class="num">5</span>广州印发“园区贷”实施方案 打造可复制园区金融服务样板</div>
+  <div class="summary">广州印发《广州推行“园区贷”实施方案》，突出主办银行作用，构建“贷股债担保租”六位一体园区金融服务体系，依托“信易贷”平台推动从“看砖头”向“看人头”“看势头”转变，破解轻资产科创企业融资难。</div>
   <div class="meta">
-    <span class="source">贵州日报  10月13日</span>
-    <span class="tag">科技体制改革</span><span class="tag">科研自主权</span>
+    <span class="tag">园区金融</span><span class="tag">科技赋能</span>
+  </div>
+  <div class="src-link">
+    <div class="src-link-media">（信息来源：南方都市报 2026年10月14日）</div>
+    <div class="src-link-label">原文标题及链接：四大方向10项任务赋能发展</div>
+    <div class="src-link-url"><a href="https://epaper.oeeee.com/epaper/G/html/2026-10/14/content_8936.htm" target="_blank" rel="noopener">https://epaper.oeeee.com/epaper/G/html/2026-10/14/content_8936.htm</a></div>
   </div>
 </div>
   </div>
