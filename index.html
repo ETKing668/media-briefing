@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>媒体信息摘报</title>
 <style>
-  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
-    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
-    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
+:root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+  --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
+  --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: var(--bg);
     color: var(--text); line-height: 1.8; min-height: 100vh; }
   .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: white; padding: 40px 20px; text-align: center; }
@@ -36,8 +36,9 @@
     color: white; border-radius: 50%; text-align: center; line-height: 28px;
     font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
   .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; white-space: pre-wrap; }
   .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .news-card .source { font-size: 12px; color: var(--text-secondary); }
   .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
     color: var(--primary); border-radius: 12px; font-size: 12px; }
   .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
@@ -45,85 +46,58 @@
   @media (max-width: 600px) { .header { padding: 28px 16px; }
     .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
     .news-card { padding: 16px 18px; } }
-  
-  .src-link { margin-top: 10px; padding-top: 10px;
-    border-top: 1px dashed var(--border); font-size: 12px; color: var(--text-secondary); }
-  .src-link-media { margin-bottom: 4px; }
-  .src-link-label { font-weight: 600; color: var(--primary); margin-bottom: 4px; }
-  .src-link-url a { word-break: break-all; color: var(--primary-light); }
-
 </style>
 </head>
 <body>
 <div class="header">
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年10月14日</div>
-  <div class="subtitle">省级党报政策出台精选（福建省除外）</div>
+  <div class="date">2026年10月15日</div>
+  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
 </div>
 <div class="container">
   <div class="action-bar">
-    <a href="10.14%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="10.15%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
     <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
   </div>
   <div class="news-list">
-    <div class="news-card">
-  <div class="title"><span class="num">1</span>山东锚定“人工智能+制造”主赛道 以垂直大模型“专而精”推动产业落地</div>
-  <div class="summary">山东锚定“人工智能+制造”主赛道，发布“双百清单”（100个AI+制造场景+100个垂直大模型），三年统筹超100亿元，设“模型券”“场景券”，建立“揭榜挂帅+赛马”机制，推动垂直大模型覆盖41个工业大类。</div>
+<div class="news-card">
+  <div class="title"><span class="num">1</span>码头会思考，星港大模型让港口有了“行业大脑”</div>
+  <div class="summary">全国首个港口行业大模型“星港大模型”由方舟智能港航口岸服务（青岛）有限公司打造，参数规模350亿，覆盖生产、安全、港航服务等80余个业务场景。针对港口生产调度中码头生产计划制定难、实时信息传递难、多设备作业协同难、老师傅经验传承难等痛点，构建行业首个“老师傅”经验语料库，训练泊位、堆场、设备三大计划智能体，统筹调度码头生产作业180多个要素。一是数据汇聚。船舶预抵信息、泊位状态、设备工况等132维数据由模型自动汇聚，无需人工跨系统调取整理。二是组合优化推演。泊位分配属多约束优化问题，模型结合港口调度专家经验，快速推演多套可行方案并逐一校验现实约束、排除不可行解。三是方案生成与动态更新。模型在一两分钟内输出完整调度方案，遇船舶晚点、设备故障等扰动立即重新推演、快速更新；输出方案仍由调度专家确认后下发执行，形成“模型推演、专家把关”的人机协同而非替代。星港大模型构建起码头生产、港航协同、全域安全、具身智能、经营管控五大垂域能力体系，落地19个业务智能体、覆盖80余个主流业务场景，并依托该模型为沿黄流域2.7万家企业、57万名个人用户提供行业问答、智行问价等9个智能体服务，服务半径从码头围墙内向港航全产业链延伸。</div>
   <div class="meta">
-    <span class="tag">人工智能+制造</span><span class="tag">垂直大模型</span>
-  </div>
-  <div class="src-link">
-    <div class="src-link-media">（信息来源：大众日报 2026年10月14日）</div>
-    <div class="src-link-label">原文标题及链接：不追“通用”风口，山东大模型为何一头扎进矿井和码头？</div>
-    <div class="src-link-url"><a href="https://www.toutiao.com/article/7696298020459135488/" target="_blank" rel="noopener">https://www.toutiao.com/article/7696298020459135488/</a></div>
+    <span class="source">大众日报  10月15日</span>
+    <span class="tag">人工智能</span><span class="tag">智慧港口</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">2</span>浙江台州以数智技术赋能传统缝制设备 探索“老树发新芽”升级路径</div>
-  <div class="summary">浙江台州以自研芯片、AI视觉、人形机器人赋能传统缝制设备，效率提升30%，依托1500余家企业集群从卖产品转向卖解决方案、“集群出海”，探索传统产业数智焕新路径。</div>
+<div class="news-card">
+  <div class="title"><span class="num">2</span>贵阳“新三饮”释放消费活力</div>
+  <div class="summary">咖啡、新茶饮、精酿啤酒被贵阳市民和游客称作“新三饮”，正嵌入城市日常消费。贵阳市观山湖区阿云朵仓由城市旧广场改造而成，集聚一批主打本地风味特色的新业态，以“早咖午茶晚精酿”为代表，成为年轻人的社交新聚点、市民的潮流新地标。一是引入多元品牌矩阵。阿云朵仓引入Tripsmith、Tapstar、大圣等精酿品牌，嘉秋堂、高山3班等新茶饮品牌，形成咖啡、精酿、茶饮高密度、长营业时间的消费集聚。二是打造城市与在地文化IP活动。举办“爽爽贵阳咖啡飘香”“贵阳精酿·世界味道”等城市IP活动，以及面包节、发酵艺术节、土豆节等在地文化IP活动，通过品牌主理人与客人的互动稳定客流。三是推动农产品与文化融合。高山3班助农茶饮将永乐艳红桃、毕节纳雍猕猴桃、铜仁抹茶等地方农产融入饮品，并尝试将贵州苗绣等文化元素与产品包装、伴手礼融合，使新茶饮成为在地文化表达与农户联结的载体。四是延长停留与提升复购。咖啡和精酿延长客人停留时间，新茶饮拉高复购率，三者叠加将活动客流转化为日常消费，并吸引游客专程为“新三饮”来贵阳游玩。今年1至9月，阿云朵仓累计接待客流515万人次、实现营业收入1.27亿元；国庆假期接待客流31万人次、营业收入756万元。</div>
   <div class="meta">
-    <span class="tag">传统产业焕新</span><span class="tag">智能装备</span>
-  </div>
-  <div class="src-link">
-    <div class="src-link-media">（信息来源：浙江日报 2026年10月14日）</div>
-    <div class="src-link-label">原文标题及链接：把新技术“缝”进传统产业中</div>
-    <div class="src-link-url"><a href="https://www.toutiao.com/article/7696297626832011839/" target="_blank" rel="noopener">https://www.toutiao.com/article/7696297626832011839/</a></div>
+    <span class="source">贵州日报  10月15日</span>
+    <span class="tag">消费新场景</span><span class="tag">城市烟火</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">3</span>江苏发挥“一带一路”交汇点优势 推动企业从“产品出海”向“全链出海”跃升</div>
-  <div class="summary">江苏发挥“一带一路”交汇点优势，设江苏中亚中心等双向平台，推动企业从“产品出海”向“品牌出海”“全链出海”跃升，并出台外贸稳增长22条等，编制内外贸标准衔接指南，政策主动找企业。</div>
+<div class="news-card">
+  <div class="title"><span class="num">3</span>沿着这条大走廊，更多创新力将迸发</div>
+  <div class="summary">《天府大道科创大走廊建设方案》已于近日印发，这是继《成渝中线科创大走廊建设方案》后四川对科创大走廊建设的再部署。一是明确空间主轴与功能布局。天府大道科创大走廊以成绵乐城际铁路为主轴，将原天府大道科创走廊北向拓展至绵阳、南向拓展至乐山，推动成都、绵阳联动打造高质量发展创新策源地，促进创新资源向成绵乐沿线德阳、眉山、乐山、资阳四市功能组团集聚，形成分工合理、优势互补、各具特色的空间发展格局。二是设定“两步走”目标。到2030年基本建成具有区域影响力的科创大走廊，提升创新资源集聚、原始创新策源、创新成果转化、产业创新协作能力；到2035年建成具有全国影响力的科创大走廊，实现区域间创新资源要素高效便捷流动、创新政策协同高效，形成若干具有全球竞争力的战略性新兴产业和未来产业集群。三是部署7项任务与6项机制。部署协同集聚高端创新资源、培育创新主体、攻克关键核心技术等7项任务，建立健全创新资源开放共享、应用场景共建共用、跨区域人才流动等6项机制。四是建强创新资源承载。以西部（成都）科学城、中国（绵阳）科技城等为主要承载区，培育全国重点实验室、国家技术创新中心、重大科技基础设施，布局涪江、旌湖、永安湖、万安等实验室及6G、量子科技、高端装备、前沿生物等领域创新平台；建立创新资源开放共享机制，强化政府引导与市场化运营双轮驱动，推动重大科研基础设施、大型科研仪器开放共享。</div>
   <div class="meta">
-    <span class="tag">开放型经济</span><span class="tag">品牌出海</span>
-  </div>
-  <div class="src-link">
-    <div class="src-link-media">（信息来源：新华日报 2026年10月14日）</div>
-    <div class="src-link-label">原文标题及链接：苏企全球化新叙事：单点突破到全链出海</div>
-    <div class="src-link-url"><a href="https://xh.xhby.net/pc/con/202610/14/content_1596932.html" target="_blank" rel="noopener">https://xh.xhby.net/pc/con/202610/14/content_1596932.html</a></div>
+    <span class="source">四川日报  10月15日</span>
+    <span class="tag">科创走廊</span><span class="tag">区域协同</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">4</span>陕西“专精特新”专板咸阳专区上线 探索资本市场服务下沉新模式</div>
-  <div class="summary">陕西“专精特新”专板咸阳专区上线，为全省首个地市专属专区，确立政策汇聚、资本对接、规范培育、上市孵化功能，探索资本市场服务下沉、属地化企业培育新模式。</div>
+<div class="news-card">
+  <div class="title"><span class="num">4</span>校地携手，数字赋能助秋收</div>
+  <div class="summary">面对眉县猕猴桃、洛川苹果等农产品集中上市期销路不畅、品牌偏弱、营销能力不足等难题，高校发挥学科优势、地方主动对接搭台，深化校地协同探索数字助农路径。一是共建直播产业研究院。西安邮电大学联合陕西联通共建陕西直播产业研究院，立足西部数字经济发展现实，围绕直播赋能乡村振兴开展研究与实践。二是把实景直播间建到基地。在眉县当地政府、涉农经营主体对接支持下，研究院乡村振兴实践队走进眉县，把实景直播间直接搭建在猕猴桃种植基地，提供校地联动助农样本。三是定制县域短视频与直播体系。研究院实践团队依托计算机、新媒体等学科积淀，在地方产业部门配合下深入调研猕猴桃种植管护、智能分拣、产销流通完整产业链，针对农户旺季引流难、品牌塑造能力弱、物流成本偏高等痛点，定制适配县域的短视频运营体系，搭建标准化直播脚本资源库，助力经营主体构建长效销售渠道。四是构建双向赋能与可持续机制。对涉农经营主体，高校实践力量补齐农产品数字化营销短板，地方配套政策资源做好支撑；对青年学生，把广袤田野作为实践课堂，形成“实践助农—能力成长—反哺产业”良性循环。地方立足产业禀赋统筹规划，高校输出技术与人才方案，团队围绕产业链痛点开展系统性调研，形成品牌传播、标准化生产、物流体系优化一体化解决方案，推动数字技术在乡村扎根落地。</div>
   <div class="meta">
-    <span class="tag">专精特新</span><span class="tag">资本市场下沉</span>
-  </div>
-  <div class="src-link">
-    <div class="src-link-media">（信息来源：陕西日报 2026年10月14日）</div>
-    <div class="src-link-label">原文标题及链接：陕西“专精特新”专板咸阳专区上线</div>
-    <div class="src-link-url"><a href="https://k.sina.com.cn/article_7517400647_1c0126e4705909c3jk.html" target="_blank" rel="noopener">https://k.sina.com.cn/article_7517400647_1c0126e4705909c3jk.html</a></div>
+    <span class="source">陕西日报  10月15日</span>
+    <span class="tag">数字乡村</span><span class="tag">校地协同</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">5</span>广州印发“园区贷”实施方案 打造可复制园区金融服务样板</div>
-  <div class="summary">广州印发《广州推行“园区贷”实施方案》，突出主办银行作用，构建“贷股债担保租”六位一体园区金融服务体系，依托“信易贷”平台推动从“看砖头”向“看人头”“看势头”转变，破解轻资产科创企业融资难。</div>
+<div class="news-card">
+  <div class="title"><span class="num">5</span>3000万元消费券来了 首届贵州体育消费季启动</div>
+  <div class="summary">10月11日，首届贵州体育消费季启动仪式在贵阳市观山湖区喀斯特城市广场举行，贵州体彩直营展示体验中心同步正式亮相，活动现场发布了消费季系列活动安排及惠民体育消费券发放政策。一是全省联动办季。10月1日至12月31日，消费季以“1+N”模式，在贵阳设立省级主会场，全省9个市（州）同步设置分会场，实现全省联动、全域推进，即1个省级主场联动9个市州分场，形成横向到边、纵向到底的办季格局。二是发放惠民体育消费券。消费季期间发放3000万元“多彩贵州·活力体育”惠民体育消费券，覆盖体育场馆、体育运动装备、体育培训、体育赛事、户外运动五大领域。三是打造特色消费场景。全省统筹组织群众体育、竞技体育、青少年体育等各类赛事活动，持续放大“村超”“村BA”等本土IP赛事影响力，着力打造赛事进景区、体育+街区、体育+商圈、体育+数字AI四大特色消费场景，推动赛事走进景区、商圈、社区、村寨。四是强化资金与票根联动。争取2000万元服务业发展专项资金，用于补助国际级、国家级、省级及县级特色体育赛事，以赛事集聚人气、拉长消费链条；同时推行“票根经济”联动机制，持体育赛事门票可享受省内国有A级旅游景区门票优惠，实现“一张票根游遍贵州”。</div>
   <div class="meta">
-    <span class="tag">园区金融</span><span class="tag">科技赋能</span>
-  </div>
-  <div class="src-link">
-    <div class="src-link-media">（信息来源：南方都市报 2026年10月14日）</div>
-    <div class="src-link-label">原文标题及链接：四大方向10项任务赋能发展</div>
-    <div class="src-link-url"><a href="https://epaper.oeeee.com/epaper/G/html/2026-10/14/content_8936.htm" target="_blank" rel="noopener">https://epaper.oeeee.com/epaper/G/html/2026-10/14/content_8936.htm</a></div>
+    <span class="source">贵州日报  10月15日</span>
+    <span class="tag">体育消费</span><span class="tag">消费券</span>
   </div>
 </div>
   </div>
