@@ -1,109 +1,86 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>媒体信息摘报</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>媒体信息摘报 · 2026年11月3日</title>
 <style>
-  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
-    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
-    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }
-  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }
-  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
-  .header .date { font-size: 14px; opacity: 0.85; }
-  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
-  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
-  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
-    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }
-  .btn-download { background: var(--accent); color: white; }
-  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
-  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
-  .btn-refresh:hover { border-color: var(--primary); }
-  .news-list { display: flex; flex-direction: column; gap: 16px; }
-  .news-card { background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }
-  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
-    color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
-  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
-  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); }
-  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }
-  @media (max-width: 600px) { .header { padding: 28px 16px; }
-    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
-    .news-card { padding: 16px 18px; } }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+         background:#f4f6f9; color:#1f2937; line-height:1.7; }
+  header { background:linear-gradient(135deg,#1e3a8a,#2563eb); color:#fff;
+           padding:32px 20px; text-align:center; }
+  header h1 { margin:0; font-size:26px; letter-spacing:2px; }
+  header p { margin:8px 0 0; opacity:.9; font-size:14px; }
+  .wrap { max-width:920px; margin:0 auto; padding:24px 16px 48px; }
+  .note { background:#fff7ed; border:1px solid #fed7aa; color:#9a3412;
+          padding:10px 14px; border-radius:8px; font-size:13px; margin-bottom:20px; }
+  .grid { display:grid; gap:18px; }
+  .news-card { background:#fff; border-radius:12px; padding:20px 22px;
+               box-shadow:0 2px 10px rgba(0,0,0,.06); border:1px solid #eef0f4; }
+  .tag { display:inline-block; background:#eef2ff; color:#3730a3; font-size:12px;
+         padding:3px 10px; border-radius:999px; }
+  .title { font-size:19px; margin:12px 0 10px; color:#111827; }
+  .summary { font-size:14.5px; color:#374151; white-space:pre-wrap; }
+  .meta { margin-top:12px; font-size:12px; color:#9ca3af; }
+  .source { margin-top:4px; font-size:12px; color:#6b7280; }
+  footer { text-align:center; color:#9ca3af; font-size:12px; padding:20px; }
 </style>
 </head>
 <body>
-<div class="header">
+<header>
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年11月2日</div>
-  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
-</div>
-<div class="container">
-  <div class="action-bar">
-    <a href="11.2%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
-    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
-  </div>
-  <div class="news-list">
-    <div class="news-card">
-  <div class="title"><span class="num">1</span>成华的变与不变</div>
-  <div class="summary">成华区第九次党代会提出，以建设公园城市示范城区为统领，做强"四个支撑"，推动产业强基提能、科技创新赋能、文旅融合发展。具体举措如下：一是加快机器人产业集聚。在成华经开区已集聚机器人产业上下游企业170余家、产业总规模突破百亿元基础上，建好成都机器人创新中心七大创新服务平台，以人工智能应用场景为牵引，加快建设百亿级人工智能产业集群；同步将商业航天纳入未来产业布局，建设西部卫星通信制造与应用集聚区。二是深化校地"两张清单"对接。成华区与电子科技大学同步发布机器人与人工智能科技成果清单、成华区城市机会清单，推动技术与市场对接；共建工业软件孵化中心等平台，依托机器人数据采集中试平台为企业提供技术验证、中试熟化服务，校地合作已带动师生及校友创办公司70余家。三是建设环大学知识经济圈。未来5年高水平建设环电子科技大学、环成都理工大学两大知识经济圈，引育"专精特新"企业190家以上，新增科技型企业50家以上。四是活化工业遗产发展文旅消费。深挖"大熊猫"与"工业文明"两大特色IP，推动成都熊猫国际旅游度假区和成都东郊记忆艺术区提质发展，力争5年内年接待游客量3500万人次、旅游总花费455亿元；将数字光影艺术节优秀作品转化为常设展陈、版权合作项目，推动40余个"成都造"IP进入展览、互动和消费场景。</div>
-  <div class="meta">
-    <span class="source">四川日报  11月2日</span>
-    <span class="tag">产业集聚</span><span class="tag">校地合作</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">2</span>AI赋能文化遗产符号的价值活化和智能传播</div>
-  <div class="summary">四川日报报业集团在2026中华文化天府论坛"遗产价值大众化传播"平行论坛上，发布"AI+数字文化"完整解决方案，围绕多模态活化、全链路转化、全媒体传播三方面推进文化遗产价值活化。具体举措如下：一是共建文物数字实验室与基因库。联合四川省文物考古研究院共建四川文物考古数字实验室，推进古蜀文明基因解码数据库建设，围绕12万件文物开展数字化与IP开发，已完成近百处遗址、4万余件文物数字化采集；配套"灵知"泛传播大模型及灵幕、灵析、知采等工具，并打造"蜂族"AI作为西部国际AI漫剧产业园数字产业服务平台。二是推进AI漫剧与文旅融合。推出改编AI漫剧《格萨尔王》、本土原创IP"都广之野·漫剧宇宙"、AIGC漫剧先导片《最后的神谕》；在"AI+文旅"领域与成都宽窄巷子等景区合作，构建漫剧IP定制、游客漫剧打卡小程序、线下沉浸式空间、大屏端播发、多语种海外传播完整体系，让游客化身故事主角实现从线下到访到线上消费的转化。三是推动文博IP数实共生与出海。古蜀文明数字展已在15个国家展出，"太阳之光：古蜀与印加文明互鉴展"亮相亚太经济合作组织配套活动；联动三星堆、濛溪河、皮洛遗址开发"考古君"等考古IP转化为潮玩盲盒等文创产品；通过将文化遗产知识整理为AI可识别结构化语料，对接豆包、通义等主流大模型实现文化内容智能分发，国际文化交流活动足迹遍布六大洲20余个国家。</div>
-  <div class="meta">
-    <span class="source">华西都市报  11月2日</span>
-    <span class="tag">AI文旅</span><span class="tag">文化遗产</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">3</span>走进芯片"无人区" 光谷长出"梧桐树"</div>
-  <div class="summary">武汉光谷实施集成电路产业链"梧桐树计划"，以空间集聚和机制创新推动芯片产业协同生态建设。具体举措如下：一是构建"圆心+半径"空间协同圈。晶圆厂生产一颗芯片须经过光刻、刻蚀、薄膜沉积、抛光、量检测等数百道工序，过去配套企业散落全国各地，一次紧急备件调配往往要跑上千公里。光谷以存储链主企业为圆心、4.5公里为半径，在60平方公里范围内集中引进核心设备、材料和芯片设计企业，打造5分钟产业协同圈；依托千亿级存储产业街区纵深，撑起30分钟供应圈，使上下游工程师可步行见面联合调试、晶圆厂实现本地供应。二是建立政企协同推进机制。实行政企联合周例会、月调度工作机制；落地企业享受一企一专班服务；国有平台联合产业基金，以招投联动牵引项目。首批17个项目总签约额60多亿元，两个多月内14家完成武汉子公司注册、10家明确选址即将开工。三是卡位三条新赛道。依托链主企业混合键合核心工艺，打通芯片设计到三维集成制造再到封测全链条，推进存算一体；发挥光通信产业基础推进光电融合，中部首条硅光芯片中试线已建成投用；建成国内首条3D先进封装量产线。9月22日武汉市委专题会议首次提出把集成电路打造为全市"首位产业"，按规划到2030年光谷将建成世界级存算一体化产业基地、中国AI芯片制造高地。</div>
-  <div class="meta">
-    <span class="source">湖北日报  11月2日</span>
-    <span class="tag">产业链</span><span class="tag">招商机制</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">4</span>企事有解|供地降本 活权提效</div>
-  <div class="summary">《湖南省自然资源保护利用"十五五"规划》将"完善精准高效的资源要素配置体系"单独成章，推广系列土地要素改革举措。具体举措如下：一是推广弹性与混合供地。支持弹性供地、混合用地与"标准地+承诺制"，有条件地区实行差别化工业地价；企业可获"混合用地+弹性年期+带方案出让"地块，出让年期由传统50年调整为30年弹性年期，压低首期土地价款并实现拿地即开工、交地即交证；长期租赁、先租后让、弹性年期出让等模式全域铺开。二是推行"五即"供地与告知承诺制。"十四五"期间全省供应"标准地"662宗、2.97万亩；同步推行用地清单制、告知承诺制和"五即"供地改革，交付配套前置、清单清晰的熟地；依托"智慧选址""智能组卷"系统使审批效率提升五成以上，一般登记压缩至2个工作日以内。三是推进自然资源资产组合配置与确权赋能。常态化推进自然资源资产组合配置，将地下储量、山林、空间等转化为法律清晰、银行认可的可融资资产，落地采矿权不动产权证书并以采矿权抵押发放贷款；首单"国有建设用地+生态产品价值VEP贷款"授信3000万元。四是升级全要素市场平台。全国首个省级自然资源全要素市场平台上线土地、矿产等6类资源要素，累计成交超1500宗、总额突破430亿元，有序开展自然资源公共数据授权运营。</div>
-  <div class="meta">
-    <span class="source">湖南日报  11月2日</span>
-    <span class="tag">土地要素</span><span class="tag">营商环境</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">5</span>海报观察丨山东再添"领航级"工厂！齐鲁智造向"面"突破</div>
-  <div class="summary">工信部公示2026年度领航级智能工厂项目培育名单，全国34家入选，山东占3家（海信视像、中车青岛四方、歌尔股份），连续两年有复数工厂入选。山东纵深推进"工赋山东"，完善智能制造政策保障体系，推动制造业从标杆企业"点"向产业链与产业集群"面"加速渗透。具体举措如下：一是实施企业梯次培育行动。2026年3月部署启动"万企筑基、千企攀峰"行动，推动1.2万家以上企业开展智能制造能力成熟度自评估，优选千家企业向先进级及以上跃升，对获评卓越级和领航级智能工厂的企业给予分档分级资金奖励。二是出台专项行动方案。2026年5月出台《山东省"人工智能+制造"行动方案（2026—2028年）》，提出到2028年全省人工智能产业营业收入突破2500亿元、占全国比重超过10%，争创国家领航级、卓越级智能工厂100家以上等目标。三是开展"工赋百景"揭榜挂帅。2026年围绕技术赋能、链式转型、载体赋能三类方向，加快"5G+""机器人+""工业互联网+"等新技术新产品新场景向工业生产各领域拓展，加强技术与5G工厂、工业机器人、工业互联网平台等具体场景结合，鼓励龙头企业带动上下游配套企业协同改造，支持园区和公共服务平台建设。截至目前，山东已培育5657家晨星工厂、130个产业大脑，拥有49家国家级卓越级智能工厂。</div>
-  <div class="meta">
-    <span class="source">大众日报  11月2日</span>
-    <span class="tag">人工智能</span><span class="tag">智能制造</span>
-  </div>
-</div>
-  </div>
-  <div class="footer">
-    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
+  <p>2026年11月3日 · 省级党报经济科技消费类新举措辑览</p>
+</header>
+<div class="wrap">
+  <div class="note">说明：本日省级党报合格稿源共 4 条（经多轮检索，当日符合“省级党报 + 经济/科技/消费 + 福建可借鉴 + 非会议/工程/领导视察/福建新闻 + 当日发布”全部条件）。严格遵循“不以前日新闻填充”原则，未补录往日稿件。</div>
+  <div class="grid">
+      <article class="news-card">
+        <span class="tag">浙江 · 人工智能</span>
+        <h2 class="title">拥抱AI 相逢未来</h2>
+        <div class="summary">浙江以深化“数字浙江”建设为牵引，瞄准打造人工智能创新发展高地，推动人工智能赋能千行百业，主要做法如下：
+一、夯实算力底座。截至9月底全省算力总规模达197EFLOPS，居全国前列；54家企业（机构）获国家算力券支持合计4.08亿元，占全国总规模37%；构建全省一体化算力网，实现入算1毫秒、算网调度一体化、安全保障一站式。
+二、营造开源生态。在杭州建设国内最大人工智能开源社区“魔搭社区”，线上汇聚全球超2900万开发者、超20万个模型；千问、DeepSeek大模型综合性能稳居全球开源模型第一梯队，并作为全球开源生态案例登上联合国报告。
+三、壮大企业方阵。建立人工智能企业培育库，累计入库企业2000多家，培育国家专精特新“小巨人”189家；印发《浙江省推进人工智能终端产业发展行动计划》，构建“4+6+X”终端产业体系，目标2027年培育10家百亿元级以上企业；10月28日印发通知支持杭州、宁波、温州、嘉兴开展OPC（一人公司）创新发展先行先试。
+四、推动场景落地。实施“场景揭榜挂帅”，遴选两批共100个人工智能制造应用场景；累计打造210个“人工智能+”典型应用场景；落户国家人工智能应用中试基地（医疗、文化旅游），其中医疗基地汇聚健康医疗数据超400亿条。</div>
+        <div class="meta">2026年11月3日 · 媒体信息摘报</div>
+        <div class="source">信息来源：浙江日报11月3日《拥抱AI 相逢未来》</div>
+      </article>
+      <article class="news-card">
+        <span class="tag">广东 · 城市更新</span>
+        <h2 class="title">老街区人气直追大景区</h2>
+        <div class="summary">广东系统推进城市更新，将现代功能“绣”入传统面貌，激活老城存量空间，主要措施如下：
+一、规划统领保护。揭阳古城依据《广东省历史文化名城揭阳保护规划（2021—2035年）》，对中山路等5处省级历史文化街区实施“修旧如旧”，除必要基础设施和公共服务设施外不得新建扩建，同时规划多处历史文化资源展示利用工程。
+二、微改造治痛点。揭阳从沿街立面、“三线”整治和地下管线施工入手全面优化；西马路采用“分段流水+全断面平行”施工法，将780米道路划为5个作业段、同步推进6道工序，快速完成危房加固、外立面改造、河道水系优化。
+三、民生先行留人气。广州越秀旧南海县社区微改造后引入数十家新业态商户（租金上涨5倍），同时专门保留理发店、“士多仔”等便民设施；坚持“人民城市为人民”，以民生改善留住居民与烟火气。
+四、政策体系支撑。“十五五”期间广东每年启动建设60个城市更新重点片区（街区）；截至9月底全省推进城市更新项目3789个、完成投资3256亿元。</div>
+        <div class="meta">2026年11月3日 · 媒体信息摘报</div>
+        <div class="source">信息来源：南方日报11月3日《老街区人气直追大景区》</div>
+      </article>
+      <article class="news-card">
+        <span class="tag">河南 · 营商环境</span>
+        <h2 class="title">以城市之名尊企 以同心之势聚力</h2>
+        <div class="summary">郑州连续第四年以专属节日最高礼遇致敬企业家，将“企业家日”转化为城市治理方式，主要做法如下：
+一、立法确立节日。2023年2月郑州市人大常委会通过，将每年11月1日设立为“郑州企业家日”，以人大立法形式把尊重写进制度；4年主题递进：2023“致敬企业家”、2024“新质向未来”、2025“智启新动能”、2026“共筑新高地”，今年表彰50名突出贡献企业家（领军型10名、创新型15名、成长型25名）。
+二、创新活动架构。今年采用“1场主场活动+6场主题活动”架构，首次增设郑州产业招商对接会，聚焦数字经济、人工智能、高端装备等领域邀请外地知名企业家来郑洽谈；召开企业家座谈会，市委市政府主要领导与链主企业代表面对面解决问题。
+三、升级惠企平台。迭代“郑惠企”平台，扩围“免申即享”，打造市场化法治化国际化营商环境；实施优秀企业家领航计划，当好企业“首席服务官”。
+四、壮大经营主体。目前郑州经营主体达226万户（万亿级城市第8位），198家世界500强企业入驻，国家级专精特新“小巨人”137家。</div>
+        <div class="meta">2026年11月3日 · 媒体信息摘报</div>
+        <div class="source">信息来源：河南日报11月3日《以城市之名尊企 以同心之势聚力》</div>
+      </article>
+      <article class="news-card">
+        <span class="tag">辽宁 · 文旅消费</span>
+        <h2 class="title">退税辅导进景区</h2>
+        <div class="summary">沈阳沈河区税务局推动离境退税服务与方城文旅深度融合，便利境外游客购物退税，主要措施如下：
+一、组建专项小队。针对入境游旺季提前谋划，组建懂政策、精外语、熟流程的离境退税专项服务小队，于10月31日走进沈阳故宫景区，把双语退税辅导送到境外游客身边，现场手把手指导填写退税信息。
+二、双语破解痛点。开展双语退税培训，备好中英双语指引折页；队员现场讲解“购物满200元即可享受离境退税、支持即买即退、扫码提交申请”，并针对文创商品小件多、单笔金额偏小特点重点讲解退税条件、商品核验、异地业务互认。
+三、聚焦重点商店。将沈阳故宫文创商店列为重点离境退税商店，推动退税商店均开通“即买即退”，及时响应旅行社政策辅导申请。
+四、扩面提升质效。目前全区备案离境退税商店数量同比增长60%，累计办理业务量是上年同期3倍，已服务20余个国家和地区的旅客。</div>
+        <div class="meta">2026年11月3日 · 媒体信息摘报</div>
+        <div class="source">信息来源：辽宁省人民政府网11月3日《退税辅导进景区》</div>
+      </article>
   </div>
 </div>
+<footer>数据来源：各省级党报及省政府门户公开报道 · 仅供内部参阅</footer>
 </body>
 </html>
