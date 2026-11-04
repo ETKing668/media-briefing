@@ -1,86 +1,109 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>媒体信息摘报 · 2026年11月3日</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>媒体信息摘报</title>
 <style>
-  * { box-sizing: border-box; }
-  body { margin:0; font-family:"Microsoft YaHei","PingFang SC",sans-serif;
-         background:#f4f6f9; color:#1f2937; line-height:1.7; }
-  header { background:linear-gradient(135deg,#1e3a8a,#2563eb); color:#fff;
-           padding:32px 20px; text-align:center; }
-  header h1 { margin:0; font-size:26px; letter-spacing:2px; }
-  header p { margin:8px 0 0; opacity:.9; font-size:14px; }
-  .wrap { max-width:920px; margin:0 auto; padding:24px 16px 48px; }
-  .note { background:#fff7ed; border:1px solid #fed7aa; color:#9a3412;
-          padding:10px 14px; border-radius:8px; font-size:13px; margin-bottom:20px; }
-  .grid { display:grid; gap:18px; }
-  .news-card { background:#fff; border-radius:12px; padding:20px 22px;
-               box-shadow:0 2px 10px rgba(0,0,0,.06); border:1px solid #eef0f4; }
-  .tag { display:inline-block; background:#eef2ff; color:#3730a3; font-size:12px;
-         padding:3px 10px; border-radius:999px; }
-  .title { font-size:19px; margin:12px 0 10px; color:#111827; }
-  .summary { font-size:14.5px; color:#374151; white-space:pre-wrap; }
-  .meta { margin-top:12px; font-size:12px; color:#9ca3af; }
-  .source { margin-top:4px; font-size:12px; color:#6b7280; }
-  footer { text-align:center; color:#9ca3af; font-size:12px; padding:20px; }
+  :root {{ --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
+    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); }}
+  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+  body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
+    color: var(--text); line-height: 1.8; min-height: 100vh; }}
+  .header {{ background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white; padding: 40px 20px; text-align: center; }}
+  .header h1 {{ font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }}
+  .header .date {{ font-size: 14px; opacity: 0.85; }}
+  .header .subtitle {{ font-size: 14px; opacity: 0.7; margin-top: 4px; }}
+  .container {{ max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }}
+  .action-bar {{ display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }}
+  .btn {{ display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
+    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
+    cursor: pointer; border: none; transition: all 0.2s; }}
+  .btn-download {{ background: var(--accent); color: white; }}
+  .btn-download:hover {{ background: #a00e26; transform: translateY(-1px); }}
+  .btn-refresh {{ background: white; color: var(--primary); border: 1.5px solid var(--border); }}
+  .btn-refresh:hover {{ border-color: var(--primary); }}
+  .news-list {{ display: flex; flex-direction: column; gap: 16px; }}
+  .news-card {{ background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
+    transition: box-shadow 0.2s; }}
+  .news-card:hover {{ box-shadow: 0 4px 20px rgba(0,0,0,0.1); }}
+  .news-card .num {{ display: inline-block; width: 28px; height: 28px; background: var(--primary);
+    color: white; border-radius: 50%; text-align: center; line-height: 28px;
+    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }}
+  .news-card .title {{ font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }}
+  .news-card .summary {{ font-size: 14px; color: var(--text); margin-bottom: 10px; }}
+  .news-card .meta {{ display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }}
+  .news-card .source {{ font-size: 12px; color: var(--text-secondary); }}
+  .news-card .tag {{ display: inline-block; padding: 2px 10px; background: var(--tag-bg);
+    color: var(--primary); border-radius: 12px; font-size: 12px; }}
+  .footer {{ text-align: center; padding: 20px; color: #999; font-size: 12px;
+    border-top: 1px solid var(--border); margin-top: 32px; }}
+  @media (max-width: 600px) {{ .header {{ padding: 28px 16px; }}
+    .header h1 {{ font-size: 22px; }} .container {{ padding: 16px 12px 40px; }}
+    .news-card {{ padding: 16px 18px; }} }}
 </style>
 </head>
 <body>
-<header>
+<div class="header">
   <h1>媒体信息摘报</h1>
-  <p>2026年11月3日 · 省级党报经济科技消费类新举措辑览</p>
-</header>
-<div class="wrap">
-  <div class="note">说明：本日省级党报合格稿源共 4 条（经多轮检索，当日符合“省级党报 + 经济/科技/消费 + 福建可借鉴 + 非会议/工程/领导视察/福建新闻 + 当日发布”全部条件）。严格遵循“不以前日新闻填充”原则，未补录往日稿件。</div>
-  <div class="grid">
-      <article class="news-card">
-        <span class="tag">浙江 · 人工智能</span>
-        <h2 class="title">拥抱AI 相逢未来</h2>
-        <div class="summary">浙江以深化“数字浙江”建设为牵引，瞄准打造人工智能创新发展高地，推动人工智能赋能千行百业，主要做法如下：
-一、夯实算力底座。截至9月底全省算力总规模达197EFLOPS，居全国前列；54家企业（机构）获国家算力券支持合计4.08亿元，占全国总规模37%；构建全省一体化算力网，实现入算1毫秒、算网调度一体化、安全保障一站式。
-二、营造开源生态。在杭州建设国内最大人工智能开源社区“魔搭社区”，线上汇聚全球超2900万开发者、超20万个模型；千问、DeepSeek大模型综合性能稳居全球开源模型第一梯队，并作为全球开源生态案例登上联合国报告。
-三、壮大企业方阵。建立人工智能企业培育库，累计入库企业2000多家，培育国家专精特新“小巨人”189家；印发《浙江省推进人工智能终端产业发展行动计划》，构建“4+6+X”终端产业体系，目标2027年培育10家百亿元级以上企业；10月28日印发通知支持杭州、宁波、温州、嘉兴开展OPC（一人公司）创新发展先行先试。
-四、推动场景落地。实施“场景揭榜挂帅”，遴选两批共100个人工智能制造应用场景；累计打造210个“人工智能+”典型应用场景；落户国家人工智能应用中试基地（医疗、文化旅游），其中医疗基地汇聚健康医疗数据超400亿条。</div>
-        <div class="meta">2026年11月3日 · 媒体信息摘报</div>
-        <div class="source">信息来源：浙江日报11月3日《拥抱AI 相逢未来》</div>
-      </article>
-      <article class="news-card">
-        <span class="tag">广东 · 城市更新</span>
-        <h2 class="title">老街区人气直追大景区</h2>
-        <div class="summary">广东系统推进城市更新，将现代功能“绣”入传统面貌，激活老城存量空间，主要措施如下：
-一、规划统领保护。揭阳古城依据《广东省历史文化名城揭阳保护规划（2021—2035年）》，对中山路等5处省级历史文化街区实施“修旧如旧”，除必要基础设施和公共服务设施外不得新建扩建，同时规划多处历史文化资源展示利用工程。
-二、微改造治痛点。揭阳从沿街立面、“三线”整治和地下管线施工入手全面优化；西马路采用“分段流水+全断面平行”施工法，将780米道路划为5个作业段、同步推进6道工序，快速完成危房加固、外立面改造、河道水系优化。
-三、民生先行留人气。广州越秀旧南海县社区微改造后引入数十家新业态商户（租金上涨5倍），同时专门保留理发店、“士多仔”等便民设施；坚持“人民城市为人民”，以民生改善留住居民与烟火气。
-四、政策体系支撑。“十五五”期间广东每年启动建设60个城市更新重点片区（街区）；截至9月底全省推进城市更新项目3789个、完成投资3256亿元。</div>
-        <div class="meta">2026年11月3日 · 媒体信息摘报</div>
-        <div class="source">信息来源：南方日报11月3日《老街区人气直追大景区》</div>
-      </article>
-      <article class="news-card">
-        <span class="tag">河南 · 营商环境</span>
-        <h2 class="title">以城市之名尊企 以同心之势聚力</h2>
-        <div class="summary">郑州连续第四年以专属节日最高礼遇致敬企业家，将“企业家日”转化为城市治理方式，主要做法如下：
-一、立法确立节日。2023年2月郑州市人大常委会通过，将每年11月1日设立为“郑州企业家日”，以人大立法形式把尊重写进制度；4年主题递进：2023“致敬企业家”、2024“新质向未来”、2025“智启新动能”、2026“共筑新高地”，今年表彰50名突出贡献企业家（领军型10名、创新型15名、成长型25名）。
-二、创新活动架构。今年采用“1场主场活动+6场主题活动”架构，首次增设郑州产业招商对接会，聚焦数字经济、人工智能、高端装备等领域邀请外地知名企业家来郑洽谈；召开企业家座谈会，市委市政府主要领导与链主企业代表面对面解决问题。
-三、升级惠企平台。迭代“郑惠企”平台，扩围“免申即享”，打造市场化法治化国际化营商环境；实施优秀企业家领航计划，当好企业“首席服务官”。
-四、壮大经营主体。目前郑州经营主体达226万户（万亿级城市第8位），198家世界500强企业入驻，国家级专精特新“小巨人”137家。</div>
-        <div class="meta">2026年11月3日 · 媒体信息摘报</div>
-        <div class="source">信息来源：河南日报11月3日《以城市之名尊企 以同心之势聚力》</div>
-      </article>
-      <article class="news-card">
-        <span class="tag">辽宁 · 文旅消费</span>
-        <h2 class="title">退税辅导进景区</h2>
-        <div class="summary">沈阳沈河区税务局推动离境退税服务与方城文旅深度融合，便利境外游客购物退税，主要措施如下：
-一、组建专项小队。针对入境游旺季提前谋划，组建懂政策、精外语、熟流程的离境退税专项服务小队，于10月31日走进沈阳故宫景区，把双语退税辅导送到境外游客身边，现场手把手指导填写退税信息。
-二、双语破解痛点。开展双语退税培训，备好中英双语指引折页；队员现场讲解“购物满200元即可享受离境退税、支持即买即退、扫码提交申请”，并针对文创商品小件多、单笔金额偏小特点重点讲解退税条件、商品核验、异地业务互认。
-三、聚焦重点商店。将沈阳故宫文创商店列为重点离境退税商店，推动退税商店均开通“即买即退”，及时响应旅行社政策辅导申请。
-四、扩面提升质效。目前全区备案离境退税商店数量同比增长60%，累计办理业务量是上年同期3倍，已服务20余个国家和地区的旅客。</div>
-        <div class="meta">2026年11月3日 · 媒体信息摘报</div>
-        <div class="source">信息来源：辽宁省人民政府网11月3日《退税辅导进景区》</div>
-      </article>
+  <div class="date">2026年11月4日</div>
+  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
+</div>
+<div class="container">
+  <div class="action-bar">
+    <a href="11.4%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+  <div class="title"><span class="num">1</span>平台聚“荔”向新，投资融“湾”兴产</div>
+  <div class="summary">荔湾区以“聚荔向新、融湾兴产”为主题，依托白鹅潭商务区、海龙围科创区、荔湾文商旅活力区三大平台协同发展，加快构建现代化产业体系。具体举措如下：<br>一是打造白鹅潭世界级地标商圈。以广州白鹅潭万象城、广州聚龙湾太古里两大标杆商业体为核心，联动高端商业、滨水文旅、品质消费场景迭代升级；聚龙湾首发中心12月开放运营，已吸引世界500强企业区域总部及研发数据中心落地，预招商率超50%。<br>二是建设海龙围科创区产业载体。片区核心含广州市激光与增材制造产业园、大参林运营中心、唯品会电商产业中心等，全市率先建设先进制造业楼宇（M0用地）；荔湾激光与增材制造2025年产业规模达67亿元，为广东省中小企业特色产业集群。<br>三是构建“一核两翼”产业空间格局。以东沙智造核、海龙围创新翼、中南服务翼为依托，成功申请省产业园区平台资质，获各60亩用地指标奖励。<br>四是落地“广州e采”数智采购平台。采取“京东搭建、工控运营”分工，覆盖货物、服务、小型工程、工会福利四大场景，助力税源扎根、社零纳统。<br>五是搭建“母基金+专项子基金+信贷联动”金融支撑体系。区产业投资基金实缴1亿元，现代中药与高端医疗器械子基金实缴1.2亿元，参与市级生物医药母基金首期4000万元出资。<br>六是推进老旧物业提质增效。2023年以来实施27个老旧物业改造项目、改造面积44.71万平方米，叠加街道自主改造累计推进64个项目、约143.81万平方米。</div>
+  <div class="meta">
+    <span class="source">南方日报  11月4日</span>
+    <span class="tag">产业载体</span><span class="tag">消费商圈</span>
   </div>
 </div>
-<footer>数据来源：各省级党报及省政府门户公开报道 · 仅供内部参阅</footer>
+<div class="news-card">
+  <div class="title"><span class="num">2</span>三湘时评丨词元上“双十一”“货架”，算力普惠迈出关键一步</div>
+  <div class="summary">湖南日报评论指出，词元（Token）作为大模型处理信息的基本计量单位，今年“双十一”首次作为独立品类在电商平台架，个人创作者、一人公司、中小企业都能浏览、选购、按需囤额度，算力消费第一次有了“货架感”。从“后台结算”到“货架下单”，变化的不仅是多了一个品类，更削低了中小企业用算的技术与成本门槛。湖南探索“词元经济”的具体举措如下：<br>一是夯实算力底座。依托省内绿电资源夯实算力底座，探索“绿电变算力、算力引产业”的路径，提升绿色算力供给能力，把能源优势转化为智能服务优势。<br>二是建强省算力调度平台。完善“四算一体”体系，打造具备跨模型、跨算力平台接入能力的词元调用“超级入口”和交易平台，做好资源汇聚、统一结算服务，把企业用算成本往下拉。<br>三是落实算力券政策。通过省算力调度平台与算力券等机制，对符合条件的企业按实际算力支出给予一定比例补贴，使部分中小企业得以较低门槛接入智能服务，打通从“买不起算力”到“用得起智能”的通道。<br>四是创新“Token贷”金融产品。湖南首笔“Token贷”已落地，依托算力调度平台记录的真实词元消耗，为一家能源智脑企业发放800万元信用贷款，使词元消耗从账面数字变为可核验的信用资产。<br>五是培育OPC市场主体。引导传统企业充分释放产能，输出智能能力与服务，推动算力从“出租机柜”转向“输出服务”，以机制手段降低中小企业用算的长久门槛。</div>
+  <div class="meta">
+    <span class="source">湖南日报  11月4日</span>
+    <span class="tag">算力普惠</span><span class="tag">金融科技</span>
+  </div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">3</span>“靠前”才能走在前 ——济宁产业生态培养“三个靠前”路径观察</div>
+  <div class="summary">济宁市以“靠前”思维重构产业生态，通过要素保障、营商环境、干部担当三个维度的系统性前置化介入，推动资源型城市从“被动转型”到“主动塑势”。具体举措如下：<br>一是要素保障靠前，让地等着项目。聚焦“232优势产业集群”和15条标志性产业链，提前在城镇开发边界内预留产业发展弹性空间，将70%以上新增土地指标投向工业项目、70%以上工业用地落在园区；每年年初提前摸排企业用地需求，前置介入项目选址论证；实施“标准地+”行动，先行完成区域评价、设定控制性指标、实现通水通电通路及土地平整等基本条件，让企业拿地即开工。<br>二是全要素保障前置。对水、电、气、金融等要素提前介入，供电部门在企业表达投资意向时即带着供电方案主动上门对接，项目落地后采集负荷特性数据，专门为项目拉出电源支撑。<br>三是营商环境靠前，提供“陪跑”服务。将审批权限、服务事项、政务资源下沉到产业园区，61名园区专职、120名项目管家提供全周期服务；建立多部门与园区联动的预审会商机制，推动项目从“先落地再磨合”向“先研判再落地”转变。<br>四是干部担当靠前，能力托底。将市对县综合绩效考核指标压减近五成，把企业评价纳入干部评分；围绕15条标志性产业链搭建专业化赋能体系，常态化开设产业专题讲堂、组织干部进园区实训；379名市县领导干部联系服务所有规上工业企业，通过“平台直报”渠道对企业诉求“接诉即办”，已为企业破解341件发展难题。</div>
+  <div class="meta">
+    <span class="source">大众日报  11月4日</span>
+    <span class="tag">要素保障</span><span class="tag">营商环境</span>
+  </div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">4</span>九江制造业数智化转型攀高向新</div>
+  <div class="summary">九江市纵深推进制造业数智化转型，以新质生产力赋能产业深度转型与产业高端化。具体举措如下：<br>一是建立奖补资金预拨机制。严格执行数字化转型既定奖补资金预拨机制，实行“先预拨、后清算”“每月滚动申拨”的管理模式，缓解企业转型资金压力。<br>二是出台专项行动计划。出台《九江市深化制造业数智化转型协同“人工智能+制造”行动计划（2026-2027年）》，组织重点企业争抢省级数转资金政策；动员148家重点企业启动L7级提档改造。<br>三是建设“产业大脑”与数字园区。加快石化化工、纺织服装、有机硅等省级“产业大脑”建设和运营，推动龙头企业搭建数智化供应链，加快推进9个省级产业集群数字化转型试点建设。<br>四是打造共享制造平台。在修水县模具数字产业园内建设研发、设计、制造、装配、冲压、检测等六大产业共享平台，设备共享率超70%，中小企业可轻资产入驻生产；联合华为共建模具云工厂，打造“中部模具工业大脑”，打通设计、排产、制造、质检全流程数据链路，全县模具产业数字化率超60%。<br>五是培育人工智能场景。开展算力、数据集、垂类模型、智能体及人工智能场景培育，入围首批省级高质量数据集、垂类模型、智能体共16个，初步摸排人工智能场景42个；推动人形机器人数据采集中心建设，探索人形机器人在制造业领域场景应用；推动知识产权大模型数转服务，帮助中小企业产出发明技术交底书462件、发明专利受理184件。</div>
+  <div class="meta">
+    <span class="source">江西日报  11月4日</span>
+    <span class="tag">数智化转型</span><span class="tag">人工智能+制造</span>
+  </div>
+</div>
+<div class="news-card">
+  <div class="title"><span class="num">5</span>通城26.5万亩油茶富了2.3万农户</div>
+  <div class="summary">通城县将26.5万亩油茶林作为富民产业，通过良种、良法、加工、品牌全链条发力，带动2.3万农户增收。具体举措如下：<br>一是良种筛选与规范栽植。县林业局请省林科院木本油料团队进山，收集14个油茶良种，用DNA分子指纹图谱给每批苗“验血”并反复试种，筛出长林53号、湘林210号两个适配品种；推广“油茶养护毯+保水剂”，落实“六个一”栽植规范，造林成活率拉到97.1%。<br>二是老林高接换种与精细管护。对老林不砍直接高接换种，嫁接第三年鲜果亩产涨25%、第四年涨105%；上马蜂机协同授粉、水肥一体化调控，亩均茶油多产15.3千克以上；建成100亩省级定点良种繁育基地、300亩采穗圃，年出100万株良种壮苗。<br>三是延伸加工与“六条赛道”。攻下油茶籽脱壳冷榨技术，出油率提高8个百分点、成品茶油不饱和脂肪酸含量超90%；将油茶树拆解为食用油脂、高端护肤、家居清洁、口服康养、林下经济、阳台农林六条赛道。<br>四是区域公用品牌统建统用。今年2月“通城油茶”区域公用品牌正式亮牌，请武汉大学质量发展战略研究院定做品牌方案，把分散企业牌子拢到“通城油茶”大伞下，按高、中、平价分产品梯度、定阶梯价格；线下进商超社区、线上开直播做社群团购，油茶采摘节办到第四届。<br>五是争取全链条奖补。2023年至2025年累计争取油茶扩面提质增效资金3297万元，2025年再拿下中央财政油茶产业示范奖补1.2亿元。</div>
+  <div class="meta">
+    <span class="source">湖北日报  11月4日</span>
+    <span class="tag">农业产业</span><span class="tag">乡村振兴</span>
+  </div>
+</div>
+  </div>
+  <div class="footer">
+    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
+  </div>
+</div>
 </body>
 </html>
