@@ -5,99 +5,99 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>媒体信息摘报</title>
 <style>
-  :root {{ --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
     --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
     --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }}
-  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-  body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }}
-  .header {{ background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }}
-  .header h1 {{ font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }}
-  .header .date {{ font-size: 14px; opacity: 0.85; }}
-  .header .subtitle {{ font-size: 14px; opacity: 0.7; margin-top: 4px; }}
-  .container {{ max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }}
-  .action-bar {{ display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }}
-  .btn {{ display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
+    color: var(--text); line-height: 1.8; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white; padding: 40px 20px; text-align: center; }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+  .header .date { font-size: 14px; opacity: 0.85; }
+  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
+  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
     border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }}
-  .btn-download {{ background: var(--accent); color: white; }}
-  .btn-download:hover {{ background: #a00e26; transform: translateY(-1px); }}
-  .btn-refresh {{ background: white; color: var(--primary); border: 1.5px solid var(--border); }}
-  .btn-refresh:hover {{ border-color: var(--primary); }}
-  .news-list {{ display: flex; flex-direction: column; gap: 16px; }}
-  .news-card {{ background: var(--card-bg); border: 1px solid var(--border);
+    cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-download { background: var(--accent); color: white; }
+  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
+  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
+  .btn-refresh:hover { border-color: var(--primary); }
+  .news-list { display: flex; flex-direction: column; gap: 16px; }
+  .news-card { background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }}
-  .news-card:hover {{ box-shadow: 0 4px 20px rgba(0,0,0,0.1); }}
-  .news-card .num {{ display: inline-block; width: 28px; height: 28px; background: var(--primary);
+    transition: box-shadow 0.2s; }
+  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
     color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }}
-  .news-card .title {{ font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }}
-  .news-card .summary {{ font-size: 14px; color: var(--text); margin-bottom: 10px; }}
-  .news-card .meta {{ display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }}
-  .news-card .source {{ font-size: 12px; color: var(--text-secondary); }}
-  .news-card .tag {{ display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }}
-  .footer {{ text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }}
-  @media (max-width: 600px) {{ .header {{ padding: 28px 16px; }}
-    .header h1 {{ font-size: 22px; }} .container {{ padding: 16px 12px 40px; }}
-    .news-card {{ padding: 16px 18px; }} }}
+    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
+  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .news-card .source { font-size: 12px; color: var(--text-secondary); }
+  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
+    color: var(--primary); border-radius: 12px; font-size: 12px; }
+  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
+    border-top: 1px solid var(--border); margin-top: 32px; }
+  @media (max-width: 600px) { .header { padding: 28px 16px; }
+    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
+    .news-card { padding: 16px 18px; } }
 </style>
 </head>
 <body>
 <div class="header">
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年11月4日</div>
+  <div class="date">2026年11月5日</div>
   <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
 </div>
 <div class="container">
   <div class="action-bar">
-    <a href="11.4%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="11.5%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
     <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
   </div>
   <div class="news-list">
     <div class="news-card">
-  <div class="title"><span class="num">1</span>平台聚“荔”向新，投资融“湾”兴产</div>
-  <div class="summary">荔湾区以“聚荔向新、融湾兴产”为主题，依托白鹅潭商务区、海龙围科创区、荔湾文商旅活力区三大平台协同发展，加快构建现代化产业体系。具体举措如下：<br>一是打造白鹅潭世界级地标商圈。以广州白鹅潭万象城、广州聚龙湾太古里两大标杆商业体为核心，联动高端商业、滨水文旅、品质消费场景迭代升级；聚龙湾首发中心12月开放运营，已吸引世界500强企业区域总部及研发数据中心落地，预招商率超50%。<br>二是建设海龙围科创区产业载体。片区核心含广州市激光与增材制造产业园、大参林运营中心、唯品会电商产业中心等，全市率先建设先进制造业楼宇（M0用地）；荔湾激光与增材制造2025年产业规模达67亿元，为广东省中小企业特色产业集群。<br>三是构建“一核两翼”产业空间格局。以东沙智造核、海龙围创新翼、中南服务翼为依托，成功申请省产业园区平台资质，获各60亩用地指标奖励。<br>四是落地“广州e采”数智采购平台。采取“京东搭建、工控运营”分工，覆盖货物、服务、小型工程、工会福利四大场景，助力税源扎根、社零纳统。<br>五是搭建“母基金+专项子基金+信贷联动”金融支撑体系。区产业投资基金实缴1亿元，现代中药与高端医疗器械子基金实缴1.2亿元，参与市级生物医药母基金首期4000万元出资。<br>六是推进老旧物业提质增效。2023年以来实施27个老旧物业改造项目、改造面积44.71万平方米，叠加街道自主改造累计推进64个项目、约143.81万平方米。</div>
+  <div class="title"><span class="num">1</span>人工智能，从炫技高手到实干伙伴</div>
+  <div class="summary">浙江立足“415X”先进制造业集群，以数据、算力、模型为核心支撑，以场景为牵引，推动人工智能在产业链全环节落地，探索可复制、可推广的“人工智能+制造”升级路径。一是建设“人工智能+制造”场景库与服务能力资源池。以企业需求为牵引，形成“需求收集—供需匹配—项目培育—发布宣传”场景全业务闭环，已梳理近千项场景需求清单；发布企业共性场景需求清单（如长三角（杭州）制造业数字化能力中心发布的45项决策智能、柔性巡检、人机协同等具身智能需求）。二是备案上线大模型夯实底座。目前已备案上线119个大模型，通义千问、DeepSeek等开源模型持续推出智能网联汽车、智能机器人、智能眼镜、智能安防等智能终端产品。三是构建覆盖科创项目全生命周期的基金投资矩阵。加大力度投小、投早、投长期、投硬科技，已累计培育规上人工智能核心产业企业2112家、国家专精特新“小巨人”企业189家。四是建设制造业人工智能公共服务平台。各地加快建设平台，探索Token计量、先用后付等新模式，为中小企业提供需求诊断、方案设计、项目落地等一站式服务。五是依托数字经济产业合作大会等平台推动项目签约落地。会上116个人工智能新项目签约，总投资额1163亿元，涵盖人工智能、智能机器人、低空经济、工业母机等核心领域；支持企业开源开放垂直大模型，为细分领域企业量身定制专用机器人。</div>
   <div class="meta">
-    <span class="source">南方日报  11月4日</span>
-    <span class="tag">产业载体</span><span class="tag">消费商圈</span>
+    <span class="source">浙江日报  11月5日</span>
+    <span class="tag">人工智能</span><span class="tag">产业升级</span>
   </div>
 </div>
 <div class="news-card">
-  <div class="title"><span class="num">2</span>三湘时评丨词元上“双十一”“货架”，算力普惠迈出关键一步</div>
-  <div class="summary">湖南日报评论指出，词元（Token）作为大模型处理信息的基本计量单位，今年“双十一”首次作为独立品类在电商平台架，个人创作者、一人公司、中小企业都能浏览、选购、按需囤额度，算力消费第一次有了“货架感”。从“后台结算”到“货架下单”，变化的不仅是多了一个品类，更削低了中小企业用算的技术与成本门槛。湖南探索“词元经济”的具体举措如下：<br>一是夯实算力底座。依托省内绿电资源夯实算力底座，探索“绿电变算力、算力引产业”的路径，提升绿色算力供给能力，把能源优势转化为智能服务优势。<br>二是建强省算力调度平台。完善“四算一体”体系，打造具备跨模型、跨算力平台接入能力的词元调用“超级入口”和交易平台，做好资源汇聚、统一结算服务，把企业用算成本往下拉。<br>三是落实算力券政策。通过省算力调度平台与算力券等机制，对符合条件的企业按实际算力支出给予一定比例补贴，使部分中小企业得以较低门槛接入智能服务，打通从“买不起算力”到“用得起智能”的通道。<br>四是创新“Token贷”金融产品。湖南首笔“Token贷”已落地，依托算力调度平台记录的真实词元消耗，为一家能源智脑企业发放800万元信用贷款，使词元消耗从账面数字变为可核验的信用资产。<br>五是培育OPC市场主体。引导传统企业充分释放产能，输出智能能力与服务，推动算力从“出租机柜”转向“输出服务”，以机制手段降低中小企业用算的长久门槛。</div>
+  <div class="title"><span class="num">2</span>贵州出台16条措施促经济稳中向好</div>
+  <div class="summary">近日，省政府办公厅印发《贵州省推动经济稳中向好若干政策举措》，围绕农业、工业、消费、金融等方面制定16条具体措施，推动四季度经济稳中向好。一是实施冬春蔬菜增量提质项目，支持发展茄果类、菜心（薹）、豌豆尖等高品质蔬菜，加快实施肉牛增量项目。二是推动重点产业稳定出力。全面落实金融支持白酒产业高质量发展系列措施，支持白酒企业建设数字化营销平台，围绕加油站、商超、专卖店等消费场景发放特色产品省级专项消费券，以销促产。三是加大促消费力度。新增省级财政资金接续实施促消费活动，重点支持汽车购新、商超、餐饮、住宿、“票根经济”等领域，将全省5A级景区门票及重大赛事、演艺、节庆展会纳入票根消费券覆盖。四是打造消费新业态新场景。大力发展首发经济，支持在黔新开设中国首店、西南首店、贵州首店；支持打造商文旅体融合消费场景，引入咖啡、新茶饮、精酿啤酒、文创产品等新业态；鼓励重点商圈、步行街、夜间消费集聚区开展整合运营试点（联盟经济）。五是支持大中型工业、农业企业开展产销分离，推进高校、医院、机关及大企业“四类食堂”建设与校园餐集采集配；探索设立数据产业专项风险资金池，推出数据资产质押、标注订单贷等专属产品，常态化发布场景机会清单。六是优化项目管理服务。制定《加强政府投资项目全生命周期管理的实施意见》，完善“谋、投、建、管、用”闭环；实施新型政策性金融工具贷款贴息，提前下达2027年资金支持争资项目前期工作。</div>
   <div class="meta">
-    <span class="source">湖南日报  11月4日</span>
-    <span class="tag">算力普惠</span><span class="tag">金融科技</span>
+    <span class="source">贵州日报  11月5日</span>
+    <span class="tag">扩消费</span><span class="tag">经济稳增</span>
   </div>
 </div>
 <div class="news-card">
-  <div class="title"><span class="num">3</span>“靠前”才能走在前 ——济宁产业生态培养“三个靠前”路径观察</div>
-  <div class="summary">济宁市以“靠前”思维重构产业生态，通过要素保障、营商环境、干部担当三个维度的系统性前置化介入，推动资源型城市从“被动转型”到“主动塑势”。具体举措如下：<br>一是要素保障靠前，让地等着项目。聚焦“232优势产业集群”和15条标志性产业链，提前在城镇开发边界内预留产业发展弹性空间，将70%以上新增土地指标投向工业项目、70%以上工业用地落在园区；每年年初提前摸排企业用地需求，前置介入项目选址论证；实施“标准地+”行动，先行完成区域评价、设定控制性指标、实现通水通电通路及土地平整等基本条件，让企业拿地即开工。<br>二是全要素保障前置。对水、电、气、金融等要素提前介入，供电部门在企业表达投资意向时即带着供电方案主动上门对接，项目落地后采集负荷特性数据，专门为项目拉出电源支撑。<br>三是营商环境靠前，提供“陪跑”服务。将审批权限、服务事项、政务资源下沉到产业园区，61名园区专职、120名项目管家提供全周期服务；建立多部门与园区联动的预审会商机制，推动项目从“先落地再磨合”向“先研判再落地”转变。<br>四是干部担当靠前，能力托底。将市对县综合绩效考核指标压减近五成，把企业评价纳入干部评分；围绕15条标志性产业链搭建专业化赋能体系，常态化开设产业专题讲堂、组织干部进园区实训；379名市县领导干部联系服务所有规上工业企业，通过“平台直报”渠道对企业诉求“接诉即办”，已为企业破解341件发展难题。</div>
+  <div class="title"><span class="num">3</span>科研仪器忙起来 企业创新跑起来</div>
+  <div class="summary">安阳市工业和信息化局发布《本地高校实验室及仪器设备对外开放清单》，来自安阳师范学院、安阳工学院、安阳职业技术学院、林州建筑职业技术学院4所院校的202台（套）仪器设备正式向中小企业开放，打通高校实验室赋能中小企业新通道。一是逐台标注设备开放信息。清单逐台标注仪器类别、可开放实验室、空闲使用时段、服务方向及对接联系人，企业可按图索骥、按需预约，把高校科研重器变成“外挂实验室”。二是构建“清单公开+平台预约+绩效激励”开放体系。从2017年启动市级共享平台数据采集，到2022年出台开放共享实施方案、完善补贴机制，逐步建立科研设施开放体系；企业可对照设备目录直接咨询预约。三是建立“校方供给—企业需求—预约使用”闭环机制。紧扣规划同频、人才同向、创新同步、机制同构的校地融合生态要求，开展资源摸排，逐校梳理可对外开放的实验室资源、大型仪器存量与空余机时。四是落实省级政策支撑。2025年印发的《河南省支持企业科技创新若干政策措施》提出支持企业使用共享的大型科研设施和仪器，安阳市的清单化开放是省市政策在基层落地的具体做法。五是探索“企业点单、高校接单、政府联单”常态化机制。推动高校博士团队进车间、把实验室建在产业链上，持续深化校地协同创新；下一步同步做好企业咨询对接、预约渠道畅通和供需匹配服务。</div>
   <div class="meta">
-    <span class="source">大众日报  11月4日</span>
-    <span class="tag">要素保障</span><span class="tag">营商环境</span>
+    <span class="source">河南日报  11月5日</span>
+    <span class="tag">科研共享</span><span class="tag">企业创新</span>
   </div>
 </div>
 <div class="news-card">
-  <div class="title"><span class="num">4</span>九江制造业数智化转型攀高向新</div>
-  <div class="summary">九江市纵深推进制造业数智化转型，以新质生产力赋能产业深度转型与产业高端化。具体举措如下：<br>一是建立奖补资金预拨机制。严格执行数字化转型既定奖补资金预拨机制，实行“先预拨、后清算”“每月滚动申拨”的管理模式，缓解企业转型资金压力。<br>二是出台专项行动计划。出台《九江市深化制造业数智化转型协同“人工智能+制造”行动计划（2026-2027年）》，组织重点企业争抢省级数转资金政策；动员148家重点企业启动L7级提档改造。<br>三是建设“产业大脑”与数字园区。加快石化化工、纺织服装、有机硅等省级“产业大脑”建设和运营，推动龙头企业搭建数智化供应链，加快推进9个省级产业集群数字化转型试点建设。<br>四是打造共享制造平台。在修水县模具数字产业园内建设研发、设计、制造、装配、冲压、检测等六大产业共享平台，设备共享率超70%，中小企业可轻资产入驻生产；联合华为共建模具云工厂，打造“中部模具工业大脑”，打通设计、排产、制造、质检全流程数据链路，全县模具产业数字化率超60%。<br>五是培育人工智能场景。开展算力、数据集、垂类模型、智能体及人工智能场景培育，入围首批省级高质量数据集、垂类模型、智能体共16个，初步摸排人工智能场景42个；推动人形机器人数据采集中心建设，探索人形机器人在制造业领域场景应用；推动知识产权大模型数转服务，帮助中小企业产出发明技术交底书462件、发明专利受理184件。</div>
+  <div class="title"><span class="num">4</span>一线看发展丨安宁市以科技创新引领产业升级——新产业成链 新模式破局 新动能蓄势</div>
+  <div class="summary">安宁市以科技创新引领产业全面升级，构建“企业研发平台+高校科研平台+公共服务平台”多层次创新平台体系，推动科技创新与产业创新加速融合。一是印发科技创新实施意见与三年行动方案。2026年2月召开科技创新推动县域经济高质量发展暨项目攻坚大会，印发实施意见和三年行动实施方案，明确产业、平台、主体、转化、引育“创新五要素”。二是聘任“首席科学家”强化智力支撑。昆明理工大学中国工程院院士杨斌受聘，发挥院士团队与学科资源，在人才培育、平台共建、成果转化等方面合作。三是发布首批科研仪器共享清单。清单内仪器来自高校、科研院所、企业技术中心，单台套价值20万元以上，覆盖绿色化工、冶金新材料、新能源电池等重点产业，使用价格远低于市场价。四是构建多点支撑的创新平台格局。云科安宁高新区科技企业孵化器创建为省级科技企业孵化器；与昆明理工大学共建特种冶金、有色金属真空冶金等9个重点实验室分中心，与昆明学院共建2个实验室；拥有省级以上研发平台47个。五是实施企业创新梯次培育。高新技术企业从36家增至118家（增幅227%），科技型中小企业131家；推动绿色石化延链补链，新能源电池从材料向电芯转型，布局生物合成制造、新材料、低空经济。</div>
   <div class="meta">
-    <span class="source">江西日报  11月4日</span>
-    <span class="tag">数智化转型</span><span class="tag">人工智能+制造</span>
+    <span class="source">云南日报  11月5日</span>
+    <span class="tag">科技创新</span><span class="tag">县域经济</span>
   </div>
 </div>
 <div class="news-card">
-  <div class="title"><span class="num">5</span>通城26.5万亩油茶富了2.3万农户</div>
-  <div class="summary">通城县将26.5万亩油茶林作为富民产业，通过良种、良法、加工、品牌全链条发力，带动2.3万农户增收。具体举措如下：<br>一是良种筛选与规范栽植。县林业局请省林科院木本油料团队进山，收集14个油茶良种，用DNA分子指纹图谱给每批苗“验血”并反复试种，筛出长林53号、湘林210号两个适配品种；推广“油茶养护毯+保水剂”，落实“六个一”栽植规范，造林成活率拉到97.1%。<br>二是老林高接换种与精细管护。对老林不砍直接高接换种，嫁接第三年鲜果亩产涨25%、第四年涨105%；上马蜂机协同授粉、水肥一体化调控，亩均茶油多产15.3千克以上；建成100亩省级定点良种繁育基地、300亩采穗圃，年出100万株良种壮苗。<br>三是延伸加工与“六条赛道”。攻下油茶籽脱壳冷榨技术，出油率提高8个百分点、成品茶油不饱和脂肪酸含量超90%；将油茶树拆解为食用油脂、高端护肤、家居清洁、口服康养、林下经济、阳台农林六条赛道。<br>四是区域公用品牌统建统用。今年2月“通城油茶”区域公用品牌正式亮牌，请武汉大学质量发展战略研究院定做品牌方案，把分散企业牌子拢到“通城油茶”大伞下，按高、中、平价分产品梯度、定阶梯价格；线下进商超社区、线上开直播做社群团购，油茶采摘节办到第四届。<br>五是争取全链条奖补。2023年至2025年累计争取油茶扩面提质增效资金3297万元，2025年再拿下中央财政油茶产业示范奖补1.2亿元。</div>
+  <div class="title"><span class="num">5</span>广东省扩大消费实施方案公布 从住到休 激活消费全链条</div>
+  <div class="summary">广东省发展改革委11月3日挂网公布《广东省扩大消费实施方案》，共37条举措、覆盖七大板块，是落实国家《扩大消费“十五五”规划》的“施工图”。一是拓宽住房公积金使用范围。支持提取公积金用于装修自住住房和支付物业费，用途从还贷延伸到家装、家居与物业；扩大物业服务覆盖面，支持物业企业发展居家养老、家政服务等增值服务。二是保障“久摇不中”无车家庭购车。广深优化小客车指标管理，分年限保障无车家庭购车需求；优化外地号牌限行；落地二手车“反向开票”、异地交易登记；支持房车营地、房车旅游线路、国际汽车赛事。三是推动粤菜“老字号”进机场、进车站、进景区。培育名店、打造美食街区、塑造餐饮IP，引入米其林、黑珍珠；紧抓节假日及APEC、广交会、高交会等举办餐饮促消费活动。四是扩大养老服务消费与普惠托育。向中度以上失能老人发养老服务消费补贴；县建平台、镇建中心、村设站点推进医养结合与社区嵌入式养老；托育综合服务中心地市及县区全覆盖，促进多模式托育发展。五是落实休假与消费结合。全面落实带薪年休假，鼓励年假与小长假连休、弹性错峰休假；鼓励有条件地方设中小学春秋假；鼓励工会经费用于节日慰问品、职工健身、文体旅游等消费。六是强化消费权益保护。推广“广信预”等预付资金监管平台，针对“跑路”、大数据“杀熟”、虚假宣传精准施策；推行放心消费承诺单位、线下无理由退货，终端推广“交易即开票”。</div>
   <div class="meta">
-    <span class="source">湖北日报  11月4日</span>
-    <span class="tag">农业产业</span><span class="tag">乡村振兴</span>
+    <span class="source">新快报  11月5日</span>
+    <span class="tag">扩大消费</span><span class="tag">民生保障</span>
   </div>
 </div>
   </div>
