@@ -1,109 +1,105 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>媒体信息摘报</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>媒体信息摘报 · 2026年11月6日</title>
 <style>
-  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
-    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
-    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }
-  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }
-  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
-  .header .date { font-size: 14px; opacity: 0.85; }
-  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
-  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
-  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
-    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }
-  .btn-download { background: var(--accent); color: white; }
-  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
-  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
-  .btn-refresh:hover { border-color: var(--primary); }
-  .news-list { display: flex; flex-direction: column; gap: 16px; }
-  .news-card { background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }
-  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
-    color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
-  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
-  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); }
-  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }
-  @media (max-width: 600px) { .header { padding: 28px 16px; }
-    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
-    .news-card { padding: 16px 18px; } }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+         background:#f4f6f9; color:#1f2937; line-height:1.7; }
+  header { background:linear-gradient(135deg,#1e3a8a,#2563eb); color:#fff;
+           padding:32px 20px; text-align:center; }
+  header h1 { margin:0; font-size:26px; letter-spacing:2px; }
+  header p { margin:8px 0 0; opacity:.9; font-size:14px; }
+  .wrap { max-width:920px; margin:0 auto; padding:24px 16px 48px; }
+  .note { background:#fff7ed; border:1px solid #fed7aa; color:#9a3412;
+          padding:10px 14px; border-radius:8px; font-size:13px; margin-bottom:20px; }
+  .dlbar { text-align:center; margin-bottom:18px; }
+  .dlbar a { display:inline-block; background:#2563eb; color:#fff; text-decoration:none;
+              padding:10px 20px; border-radius:8px; font-size:14px; }
+  .grid { display:grid; gap:18px; }
+  .news-card { background:#fff; border-radius:12px; padding:20px 22px;
+               box-shadow:0 2px 10px rgba(0,0,0,.06); border:1px solid #eef0f4; }
+  .tag { display:inline-block; background:#eef2ff; color:#3730a3; font-size:12px;
+         padding:3px 10px; border-radius:999px; }
+  .title { font-size:19px; margin:12px 0 10px; color:#111827; }
+  .summary { font-size:14.5px; color:#374151; white-space:pre-wrap; }
+  .meta { margin-top:12px; font-size:12px; color:#9ca3af; }
+  .source { margin-top:4px; font-size:12px; color:#6b7280; }
+  footer { text-align:center; color:#9ca3af; font-size:12px; padding:20px; }
 </style>
 </head>
 <body>
-<div class="header">
+<header>
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年11月5日</div>
-  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
+  <p>2026年11月6日 · 省级党报经济科技消费类新举措辑览</p>
+</header>
+<div class="wrap">
+  <div class="note">说明：本日省级党报合格稿源共 5 条（经多轮检索，当日符合“省级党报 + 经济/科技/消费 + 福建可借鉴 + 非会议/工程/领导视察/福建新闻 + 当日发布”全部条件）。严格遵循“不以前日新闻填充”原则，未补录往日稿件。</div>
+  <div class="dlbar"><a href="2026-11/11.6媒体信息摘报.docx">📥 下载 Word 全文</a></div>
+  <div class="grid">
+      <article class="news-card">
+        <span class="tag">云南 · 数字规划</span>
+        <h2 class="title">《数字云南建设“十五五”规划》印发</h2>
+        <div class="summary">云南省政府近日印发《数字云南建设“十五五”规划》，明确到2030年数字云南建设由局部突破迈向整体系统跃升，以“数”和“智”为动能，夯实数字基础设施、数据要素、数智技术“三大基础”，一体推进“五位一体”数智化，主要措施如下：
+一、适度超前建设数字基础设施。实施“信号升格”“宽带提质”，推进万兆光网、5G-A规模部署及6G试验网、卫星互联网、量子城域网；构建“一主两辅多点”算力体系，建省级算力监测调度平台，探索发放“算力券”。
+二、释放数据要素价值。规范数据产权登记与公共数据授权运营，探索发放“数据券”激发社会用数动力，推动数据资产评估、定价、入表、抵押、融资。
+三、培育数智产业新动能。科学布局“绿电+智算”，发展算力租赁及“模型即服务”“智能体即服务”；发展智能终端产业，加快昆明国家级数据产业集聚区与数据标注城市建设，打造“数据工厂”。
+四、深化“人工智能+”应用。实施“AI+科研”（异种器官移植、创新药、智能育种、半导体）、“AI+先进制造”（智能工厂）、“AI+文旅”（旅居数智化、高级别自动驾驶、数字人民币），实施数字消费提升行动（社交电商、即时零售）。
+五、打造面向南亚东南亚数字信息大通道。提升昆明国际通信出入口局跨境陆缆总带宽至12Tbps，建立数据跨境流动负面清单，搭建数字出海平台支持企业“走出去”。</div>
+        <div class="meta">2026年11月6日 · 媒体信息摘报</div>
+        <div class="source">信息来源：昆明日报/云南网11月6日《数字云南建设“十五五”规划》印发</div>
+      </article>
+      <article class="news-card">
+        <span class="tag">天津 · 生物制造</span>
+        <h2 class="title">全力培育生物制造新经济增长点</h2>
+        <div class="summary">天津市政府日前印发《天津市推动生物制造创新发展行动计划（2026—2030年）》，从提升创新策源、打造平台矩阵、加速转化应用、共建产业生态、拓展协同开放五方面提出18项重点任务，目标2027年产业规模突破300亿元、2030年突破700亿元，主要措施如下：
+一、提升创新策源能力。聚焦新型基因编辑、人工生命体系合成、生物智能设计工具、DNA数据存储等方向开展前瞻性基础研究，推进生物制造高质量数据集、数据中心、资源库建设。
+二、打造高能级平台矩阵。构建中试平台梯次培育体系，提供“中试熟化+产业落地”一站式服务；支持建设基因合成、测序、概念验证、小试中试、检测、生物安全评价、注册申报、AI模型等产业服务平台，鼓励开展生物制造领域合同定制研发及生产业务。
+三、加速新产品转化应用。优化产品审评备案时限与流程，完善提前介入和创新通道；面向医药、化工、材料、农业等行业搭建产业链供需对接平台，常态化开展成果征集、信息发布与场景发布对接。
+四、共建优良产业生态。建设保税区、武清区、经开区等标志性园区载体；推动知识产权快速审查授权，发挥政府投资基金导向作用打造生物制造基金群，精准引进顶尖科学家、工程师与产业服务团队。
+五、拓展协同开放格局。优化“京津研发、区域转化”格局，加快京津冀合作项目建设，组建京津冀生物制造联盟，探索“总部+基地”“研发+生产”跨区域合作模式，支持特色优势产品拓展国际市场。</div>
+        <div class="meta">2026年11月6日 · 媒体信息摘报</div>
+        <div class="source">信息来源：天津日报11月6日《全力培育生物制造新经济增长点》</div>
+      </article>
+      <article class="news-card">
+        <span class="tag">安徽 · 县域消费</span>
+        <h2 class="title">消费奔“县”：小城消费活力从何而来</h2>
+        <div class="summary">安徽日报聚焦太和县县域消费，2025年该县社会消费品零售总额482.8亿元、居全省县域第1，居民存款余额1037.4亿元亦居全省县域第1，主要做法如下：
+一、厚植民富底盘。全县聚集遍布全国的20万药商，发制品、筛网、发艺等特色产业齐头并进，40万农商大军撑起稳定收入，经营主体发展到12.4万户，社会消费品零售总额5年间由325.2亿元增至482.8亿元。
+二、推动高端业态下沉。一处商场开业首日客流33万人次、销售额1007万元，连锁品牌新品同步上市比例达70%，县城成为“品牌试炼场”。
+三、贯通城乡流通网。国家5A级华源物流园入驻企业超200家、年吞吐130万吨，县级配送中心、30个镇级商贸中心、6500余个村级网点闭环，“一件代发、仓配一体”畅通品牌下沉与好物上行。
+四、培育富民消费IP。太和板面全国商户超5万家、带动就业约20万人、年总收入超百亿元，出台高质量发展意见，注册公共品牌商标、制定地方标准、组建发展专班。
+五、政府精准发力。开展“徽动消费·乐享太和”活动，累计发惠民消费券950万元、叠加家电国补超3150万元，拉动消费超4.8亿元；推进“文旅+消费”将文庙老街、老粮仓1956等非遗、书画、康养融入商圈，今年1—8月线上零售同比增16.0%、连续7个月两位数增长。</div>
+        <div class="meta">2026年11月6日 · 媒体信息摘报</div>
+        <div class="source">信息来源：安徽日报/安徽新闻网11月6日《消费奔“县”：小城消费活力从何而来》</div>
+      </article>
+      <article class="news-card">
+        <span class="tag">江苏 · 产业培育</span>
+        <h2 class="title">多一些“与时间较劲”的耐心</h2>
+        <div class="summary">新华日报刊文剖析苏州工业园区生物医药产业二十年培育路径，其“长期主义”经验对福建培育新兴产业具借鉴意义，主要启示如下：
+一、锚定创新药赛道保持战略定力。当年园区外向型制造势头好、仿制药红利近在眼前，却未跟风追逐短期收益，而是选择研发投入大、周期长（一款新药往往需十年）的创新药赛道，第一个十年重点搭平台、建基金、引团队，愿意为一颗不确定的“种子”抵制短期诱惑。
+二、构建全链条产业生态。第二个十年，孵化、中试、产业化、临床服务、知识产权、产业资本一环扣一环，BioBAY逐步成长出国内辨识度高的创新药集群；一批早期团队推进到临床、申报、上市，一类新药临床批件持续增长，海外授权与产品出海渐成常态，配套体系持续向下扎根。
+三、把数字智能融入全链条。面对AI浪潮，着力将数字智能融入药物发现、临床试验、生产质控全链条，重塑创新范式、拓展增长空间，靠应变与重塑穿越周期。
+四、定力不变、打法常新。在守住原始创新主线的同时，紧跟技术变革持续优化机制、工具与产业生态；警惕把长期主义等同于“熬时间”（以为耐心等待产业就会自动生长）或“押单注”（窄化为对单个项目、单一技术路线孤注一掷），在坚守与求新之间走出符合自身实际的产业节奏。</div>
+        <div class="meta">2026年11月6日 · 媒体信息摘报</div>
+        <div class="source">信息来源：新华日报11月6日《多一些“与时间较劲”的耐心——苏州工业园区生物医药养成“产业森林”的启示》</div>
+      </article>
+      <article class="news-card">
+        <span class="tag">河南 · 城乡共富</span>
+        <h2 class="title">奋力谱写农业大省推动城乡共同富裕的新篇章</h2>
+        <div class="summary">河南日报理论文章系统阐述农业大省推动城乡共同富裕路径，提出多项可借鉴举措，主要措施如下：
+一、延展富民产业链条。做深“粮头食尾”“畜头肉尾”“农头工尾”，推动农产品由初加工向精深加工跃升；紧扣全省六大产业集群、18条乡村富民产业链实施补链强链延链，依托温县山药、信阳毛尖、临颍休闲食品等培育龙头企业，由“卖产品”向“卖品牌”“卖体验”拓展。
+二、实施品牌强农工程。用好“豫农优品”区域公用品牌，发展农村电商、直播带货、订单农业，完善从产地到餐桌的冷链物流网络，破解“种得好、卖不好”堵点。
+三、片区化组团发展。借鉴嵩县环陆浑湖6乡镇35村、淮阳区67村连片实践，以产业为纽带统筹跨村镇资源配置，推动基础设施联建共享、公共服务跨村延伸，破解“单村振兴”瓶颈。
+四、要素下沉惠民。持续推进“四好农村路”及冷链物流、供水供电、通信向乡村延伸，推动教育医疗养老等公共服务下沉，缩小城乡生活品质差距。
+五、健全联农带农机制。推广“保底收购+优质优价+二次返利”“龙头企业+合作社+农户”模式，通过订单收购、股份合作、托管服务让农户嵌入产业链；稳妥推进农村土地制度改革（承包地、宅基地、集体经营性建设用地入市）；发展新型农村集体经济（资源发包、物业经营、产业入股、服务创收），数字赋能基层治理。</div>
+        <div class="meta">2026年11月6日 · 媒体信息摘报</div>
+        <div class="source">信息来源：河南日报11月6日《奋力谱写农业大省推动城乡共同富裕的新篇章》</div>
+      </article>
+  </div>
 </div>
-<div class="container">
-  <div class="action-bar">
-    <a href="11.5%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
-    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
-  </div>
-  <div class="news-list">
-    <div class="news-card">
-  <div class="title"><span class="num">1</span>人工智能，从炫技高手到实干伙伴</div>
-  <div class="summary">浙江立足“415X”先进制造业集群，以数据、算力、模型为核心支撑，以场景为牵引，推动人工智能在产业链全环节落地，探索可复制、可推广的“人工智能+制造”升级路径。一是建设“人工智能+制造”场景库与服务能力资源池。以企业需求为牵引，形成“需求收集—供需匹配—项目培育—发布宣传”场景全业务闭环，已梳理近千项场景需求清单；发布企业共性场景需求清单（如长三角（杭州）制造业数字化能力中心发布的45项决策智能、柔性巡检、人机协同等具身智能需求）。二是备案上线大模型夯实底座。目前已备案上线119个大模型，通义千问、DeepSeek等开源模型持续推出智能网联汽车、智能机器人、智能眼镜、智能安防等智能终端产品。三是构建覆盖科创项目全生命周期的基金投资矩阵。加大力度投小、投早、投长期、投硬科技，已累计培育规上人工智能核心产业企业2112家、国家专精特新“小巨人”企业189家。四是建设制造业人工智能公共服务平台。各地加快建设平台，探索Token计量、先用后付等新模式，为中小企业提供需求诊断、方案设计、项目落地等一站式服务。五是依托数字经济产业合作大会等平台推动项目签约落地。会上116个人工智能新项目签约，总投资额1163亿元，涵盖人工智能、智能机器人、低空经济、工业母机等核心领域；支持企业开源开放垂直大模型，为细分领域企业量身定制专用机器人。</div>
-  <div class="meta">
-    <span class="source">浙江日报  11月5日</span>
-    <span class="tag">人工智能</span><span class="tag">产业升级</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">2</span>贵州出台16条措施促经济稳中向好</div>
-  <div class="summary">近日，省政府办公厅印发《贵州省推动经济稳中向好若干政策举措》，围绕农业、工业、消费、金融等方面制定16条具体措施，推动四季度经济稳中向好。一是实施冬春蔬菜增量提质项目，支持发展茄果类、菜心（薹）、豌豆尖等高品质蔬菜，加快实施肉牛增量项目。二是推动重点产业稳定出力。全面落实金融支持白酒产业高质量发展系列措施，支持白酒企业建设数字化营销平台，围绕加油站、商超、专卖店等消费场景发放特色产品省级专项消费券，以销促产。三是加大促消费力度。新增省级财政资金接续实施促消费活动，重点支持汽车购新、商超、餐饮、住宿、“票根经济”等领域，将全省5A级景区门票及重大赛事、演艺、节庆展会纳入票根消费券覆盖。四是打造消费新业态新场景。大力发展首发经济，支持在黔新开设中国首店、西南首店、贵州首店；支持打造商文旅体融合消费场景，引入咖啡、新茶饮、精酿啤酒、文创产品等新业态；鼓励重点商圈、步行街、夜间消费集聚区开展整合运营试点（联盟经济）。五是支持大中型工业、农业企业开展产销分离，推进高校、医院、机关及大企业“四类食堂”建设与校园餐集采集配；探索设立数据产业专项风险资金池，推出数据资产质押、标注订单贷等专属产品，常态化发布场景机会清单。六是优化项目管理服务。制定《加强政府投资项目全生命周期管理的实施意见》，完善“谋、投、建、管、用”闭环；实施新型政策性金融工具贷款贴息，提前下达2027年资金支持争资项目前期工作。</div>
-  <div class="meta">
-    <span class="source">贵州日报  11月5日</span>
-    <span class="tag">扩消费</span><span class="tag">经济稳增</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">3</span>科研仪器忙起来 企业创新跑起来</div>
-  <div class="summary">安阳市工业和信息化局发布《本地高校实验室及仪器设备对外开放清单》，来自安阳师范学院、安阳工学院、安阳职业技术学院、林州建筑职业技术学院4所院校的202台（套）仪器设备正式向中小企业开放，打通高校实验室赋能中小企业新通道。一是逐台标注设备开放信息。清单逐台标注仪器类别、可开放实验室、空闲使用时段、服务方向及对接联系人，企业可按图索骥、按需预约，把高校科研重器变成“外挂实验室”。二是构建“清单公开+平台预约+绩效激励”开放体系。从2017年启动市级共享平台数据采集，到2022年出台开放共享实施方案、完善补贴机制，逐步建立科研设施开放体系；企业可对照设备目录直接咨询预约。三是建立“校方供给—企业需求—预约使用”闭环机制。紧扣规划同频、人才同向、创新同步、机制同构的校地融合生态要求，开展资源摸排，逐校梳理可对外开放的实验室资源、大型仪器存量与空余机时。四是落实省级政策支撑。2025年印发的《河南省支持企业科技创新若干政策措施》提出支持企业使用共享的大型科研设施和仪器，安阳市的清单化开放是省市政策在基层落地的具体做法。五是探索“企业点单、高校接单、政府联单”常态化机制。推动高校博士团队进车间、把实验室建在产业链上，持续深化校地协同创新；下一步同步做好企业咨询对接、预约渠道畅通和供需匹配服务。</div>
-  <div class="meta">
-    <span class="source">河南日报  11月5日</span>
-    <span class="tag">科研共享</span><span class="tag">企业创新</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">4</span>一线看发展丨安宁市以科技创新引领产业升级——新产业成链 新模式破局 新动能蓄势</div>
-  <div class="summary">安宁市以科技创新引领产业全面升级，构建“企业研发平台+高校科研平台+公共服务平台”多层次创新平台体系，推动科技创新与产业创新加速融合。一是印发科技创新实施意见与三年行动方案。2026年2月召开科技创新推动县域经济高质量发展暨项目攻坚大会，印发实施意见和三年行动实施方案，明确产业、平台、主体、转化、引育“创新五要素”。二是聘任“首席科学家”强化智力支撑。昆明理工大学中国工程院院士杨斌受聘，发挥院士团队与学科资源，在人才培育、平台共建、成果转化等方面合作。三是发布首批科研仪器共享清单。清单内仪器来自高校、科研院所、企业技术中心，单台套价值20万元以上，覆盖绿色化工、冶金新材料、新能源电池等重点产业，使用价格远低于市场价。四是构建多点支撑的创新平台格局。云科安宁高新区科技企业孵化器创建为省级科技企业孵化器；与昆明理工大学共建特种冶金、有色金属真空冶金等9个重点实验室分中心，与昆明学院共建2个实验室；拥有省级以上研发平台47个。五是实施企业创新梯次培育。高新技术企业从36家增至118家（增幅227%），科技型中小企业131家；推动绿色石化延链补链，新能源电池从材料向电芯转型，布局生物合成制造、新材料、低空经济。</div>
-  <div class="meta">
-    <span class="source">云南日报  11月5日</span>
-    <span class="tag">科技创新</span><span class="tag">县域经济</span>
-  </div>
-</div>
-<div class="news-card">
-  <div class="title"><span class="num">5</span>广东省扩大消费实施方案公布 从住到休 激活消费全链条</div>
-  <div class="summary">广东省发展改革委11月3日挂网公布《广东省扩大消费实施方案》，共37条举措、覆盖七大板块，是落实国家《扩大消费“十五五”规划》的“施工图”。一是拓宽住房公积金使用范围。支持提取公积金用于装修自住住房和支付物业费，用途从还贷延伸到家装、家居与物业；扩大物业服务覆盖面，支持物业企业发展居家养老、家政服务等增值服务。二是保障“久摇不中”无车家庭购车。广深优化小客车指标管理，分年限保障无车家庭购车需求；优化外地号牌限行；落地二手车“反向开票”、异地交易登记；支持房车营地、房车旅游线路、国际汽车赛事。三是推动粤菜“老字号”进机场、进车站、进景区。培育名店、打造美食街区、塑造餐饮IP，引入米其林、黑珍珠；紧抓节假日及APEC、广交会、高交会等举办餐饮促消费活动。四是扩大养老服务消费与普惠托育。向中度以上失能老人发养老服务消费补贴；县建平台、镇建中心、村设站点推进医养结合与社区嵌入式养老；托育综合服务中心地市及县区全覆盖，促进多模式托育发展。五是落实休假与消费结合。全面落实带薪年休假，鼓励年假与小长假连休、弹性错峰休假；鼓励有条件地方设中小学春秋假；鼓励工会经费用于节日慰问品、职工健身、文体旅游等消费。六是强化消费权益保护。推广“广信预”等预付资金监管平台，针对“跑路”、大数据“杀熟”、虚假宣传精准施策；推行放心消费承诺单位、线下无理由退货，终端推广“交易即开票”。</div>
-  <div class="meta">
-    <span class="source">新快报  11月5日</span>
-    <span class="tag">扩大消费</span><span class="tag">民生保障</span>
-  </div>
-</div>
-  </div>
-  <div class="footer">
-    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
-  </div>
-</div>
+<footer>数据来源：各省级党报及省政府门户公开报道 · 仅供内部参阅</footer>
 </body>
 </html>
