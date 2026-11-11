@@ -1,101 +1,109 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>媒体信息摘报 · 2026年11月10日</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>媒体信息摘报</title>
 <style>
-  * { box-sizing: border-box; }
-  body { margin:0; font-family:"Microsoft YaHei","PingFang SC",sans-serif;
-         background:#f4f6f9; color:#1f2937; line-height:1.7; }
-  header { background:linear-gradient(135deg,#1e3a8a,#2563eb); color:#fff;
-           padding:32px 20px; text-align:center; }
-  header h1 { margin:0; font-size:26px; letter-spacing:2px; }
-  header p { margin:8px 0 0; opacity:.9; font-size:14px; }
-  .wrap { max-width:920px; margin:0 auto; padding:24px 16px 48px; }
-  .note { background:#fff7ed; border:1px solid #fed7aa; color:#9a3412;
-          padding:10px 14px; border-radius:8px; font-size:13px; margin-bottom:20px; }
-  .dlbar { text-align:center; margin-bottom:18px; }
-  .dlbar a { display:inline-block; background:#2563eb; color:#fff; text-decoration:none;
-              padding:10px 20px; border-radius:8px; font-size:14px; }
-  .grid { display:grid; gap:18px; }
-  .news-card { background:#fff; border-radius:12px; padding:20px 22px;
-               box-shadow:0 2px 10px rgba(0,0,0,.06); border:1px solid #eef0f4; }
-  .tag { display:inline-block; background:#eef2ff; color:#3730a3; font-size:12px;
-         padding:3px 10px; border-radius:999px; }
-  .title { font-size:19px; margin:12px 0 10px; color:#111827; }
-  .summary { font-size:14.5px; color:#374151; white-space:pre-wrap; }
-  .meta { margin-top:12px; font-size:12px; color:#9ca3af; }
-  .source { margin-top:4px; font-size:12px; color:#6b7280; }
-  footer { text-align:center; color:#9ca3af; font-size:12px; padding:20px; }
+  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
+    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
+    color: var(--text); line-height: 1.8; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white; padding: 40px 20px; text-align: center; }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+  .header .date { font-size: 14px; opacity: 0.85; }
+  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
+  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
+    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
+    cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-download { background: var(--accent); color: white; }
+  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
+  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
+  .btn-refresh:hover { border-color: var(--primary); }
+  .news-list { display: flex; flex-direction: column; gap: 16px; }
+  .news-card { background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
+    transition: box-shadow 0.2s; }
+  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
+    color: white; border-radius: 50%; text-align: center; line-height: 28px;
+    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
+  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .news-card .source { font-size: 12px; color: var(--text-secondary); }
+  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
+    color: var(--primary); border-radius: 12px; font-size: 12px; }
+  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
+    border-top: 1px solid var(--border); margin-top: 32px; }
+  @media (max-width: 600px) { .header { padding: 28px 16px; }
+    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
+    .news-card { padding: 16px 18px; } }
 </style>
 </head>
 <body>
-<header>
+<div class="header">
   <h1>媒体信息摘报</h1>
-  <p>2026年11月10日 · 省级党报经济科技消费类新举措辑览</p>
-</header>
-<div class="wrap">
-  <div class="note">说明：本日省级党报合格稿源共 5 条（经多轮检索，当日符合“省级党报 + 经济/科技/消费 + 福建可借鉴 + 非会议/工程/领导视察/福建新闻 + 当日发布”全部条件）。严格遵循“不以前日新闻填充”原则，未补录往日稿件。</div>
-  <div class="dlbar"><a href="2026-11/11.10媒体信息摘报.docx">📥 下载 Word 全文</a></div>
-  <div class="grid">
-      <article class="news-card">
-        <span class="tag">浙江 · 人工智能</span>
-        <h2 class="title">把核心变量变成发展增量</h2>
-        <div class="summary">近日第八届世界浙商大会首次与世界互联网大会乌镇峰会联动，释放浙商积极拥抱人工智能的明确信号。浙江把人工智能作为塑造未来竞争力的核心变量，前三季度全省规上人工智能核心产业营收5828.7亿元、同比增长26.9%，企业增至2112家，形成全产业链格局。报道聚焦浙江推动AI与民营经济结合的具体举措：
-一、开放应用场景。近期浙江梳理全省近200个重点人工智能场景，鼓励民营企业和中小企业积极参与，把技术嵌入车间、门店、仓库、物流、研发和服务等真实业务环节。
-二、支持“一人公司”先行先试。省级5个部门联合推出十条举措，支持杭州、宁波、温州、嘉兴四地率先开展“一人公司”创新发展试点。
-三、开放重大创新资源。浙江“民营经济新增13条”明确支持民营企业深度参与“人工智能+”，向民营企业开放大科学装置、超算中心、中试平台等高端创新基础设施。
-四、降低中小企业参与门槛。政策共同指向推动更多中小企业“进得去场景、用得起算力、接得住技术”。</div>
-        <div class="meta">2026年11月10日 · 媒体信息摘报</div>
-        <div class="source">信息来源：浙江日报11月10日《把核心变量变成发展增量》</div>
-      </article>
-      <article class="news-card">
-        <span class="tag">河南 · 具身智能</span>
-        <h2 class="title">河南缘何紧盯具身智能赛道</h2>
-        <div class="summary">河南是全国最早布局未来产业的省份之一，省第十二次党代会提出推动具身智能成为新的经济增长点。面对人形机器人前沿缺乏整机企业、核心研发依赖外部导入的短板，河南以“走出去”主动对接创新资源。报道梳理了具体举措：
-一、密集开展产业对接。今年已举办四场“走出去”具身智能产业恳谈会，4月上海、9月广州、10月北京、11月杭州，省工业和信息化厅带领地方政府、产业基金、场景清单和载体平台，与长三角、粤港澳大湾区、京津企业直接对话。
-二、建设机器人训练场。郑州中原科技城建成中部首个异构人形机器人训练场，常态化部署140余台机器人、27个应用场景，每天为机器人采集5万条训练数据。
-三、设立专项投资基金。河南发起设立2.5亿元具身智能股权投资基金，连同各类基金投资项目超20家；汇融基金已投资多家具身智能企业，搭建“本体—模型—数据”产业底座。
-四、提供“陪跑人”贴身服务。初创期帮理顺架构、搭建中试验证平台，成长期帮“找人、找钱、找订单”，成熟期对接供应链资源和定制化厂房。</div>
-        <div class="meta">2026年11月10日 · 媒体信息摘报</div>
-        <div class="source">信息来源：河南日报11月10日《河南缘何紧盯具身智能赛道》</div>
-      </article>
-      <article class="news-card">
-        <span class="tag">河南 · 消费场景</span>
-        <h2 class="title">老茶馆 慢生活 新消费</h2>
-        <div class="summary">郑州紫荆山公园旁一家老茶馆因烟火可亲的平民消费出圈，成为城市休闲业态新样本。茶馆主打中式慢生活，以极低门槛重新找回城市公共文化生活。报道梳理了其培育消费新场景的具体做法：
-一、亲民平价定价。各式茶水均9元一杯，特色茶饮定价12元一杯，每桌配备搪瓷杯、保温瓶均可无限续水，把实惠摆在明面上。
-二、多元业态融合。引入莲花落、快板书等曲艺表演，以及非遗展示、中医按摩、理疗采耳等多种业态，延长客人进店停留时间。
-三、茶咖相“豫”跨界。引入DUKAMOCOFFEE品牌临时展位，借助大众化平台将埃塞俄比亚咖啡带到市民身边，推动茶饮与咖啡融合。
-四、叠加文化生活。引进河南非遗展、举办读书会等活动，打造茶饮新空间而非单一喝茶场所；全时段留人。开业以来日均客流700人以上、高峰超1000人，日均销售额约2万元。</div>
-        <div class="meta">2026年11月10日 · 媒体信息摘报</div>
-        <div class="source">信息来源：河南日报11月10日《老茶馆 慢生活 新消费》</div>
-      </article>
-      <article class="news-card">
-        <span class="tag">江苏 · 产业经济</span>
-        <h2 class="title">工业经济“醒目”数字的背后——积厚成势，南通勤练“潜功夫”</h2>
-        <div class="summary">今年前三季度南通规上工业增加值、工业投资均增长7.8%、增速列全省第二，工业用电量增幅连续55个月快于全省平均。亮眼数字背后，是南通不显山露水的“潜功夫”。报道梳理其具体举措：
-一、厚植重大项目“富矿”。蓝海新材料通州湾工程47个主项高质量中交，总投资约60亿元奥士康智算PCB项目签约，计划投资百亿元华峰瑞讯生物基PTMEG一期投产；阿里云追加投资超200亿元、新增60000P智能算力共建国家级绿色智算中心。
-二、连续五年“招商引资突破年”。前三季度实施亿元以上投资项目1220个、50亿元以上项目29个，省重大完成率97.5%。
-三、密集导入高端科创资源。苏州国家实验室、蓝海新材料与南通三方共建新材料创新中心揭牌；东南大学南通校区启动建设；北大长三角光电科学研究院等一批高能级平台落地运营，高新技术企业突破5000家。
-四、淬炼干部“发展本领”。海门区每月举行招商引资“单挑会”一对一问答；建设3支专业招商队伍；推动“万事好通”营商环境25条提优举措条条兑现；创新“U形磁铁”临港开发模式。</div>
-        <div class="meta">2026年11月10日 · 媒体信息摘报</div>
-        <div class="source">信息来源：新华日报11月10日《工业经济“醒目”数字的背后——积厚成势，南通勤练“潜功夫”》</div>
-      </article>
-      <article class="news-card">
-        <span class="tag">江苏 · 文旅消费</span>
-        <h2 class="title">古景好物深体验，常来常新常出彩 镇江游“潮”起来</h2>
-        <div class="summary">镇江坚持“文旅+百业”，推动文旅体商融合发展，打响“宜游镇江”品牌。从“可游览”到“可体验、可消费”，镇江以新场景新体验激发文旅消费活力。报道梳理其具体举措：
-一、古景升级植入新业态。修缮一新的金山芙蓉楼国庆前重新开放，植入诗词文化展陈、沉浸式诵读体验，国庆日客流8000人次以上、10月4日破12000人次；北固楼亮相央视；西津渡国庆累计接待游客50万人次。
-二、深化“文艺播种计划”。面向56个乡镇征集基层文化需求226项，组织174名文艺志愿者辅导；市民文化夜校春季班开设课程82门；发布“我们身边的场馆”活动清单252项。
-三、全国首创“文化指导师”。2024年在全国率先推出，2026年入选全国公共文化服务高质量发展优秀案例；345名指导师结对124个新型文化空间，累计开展志愿服务5000余场、惠及超100万人次。
-四、推介“镇江好物”促消费。丹阳“配镜游”国庆接待游客近18万人次；“镇江好物馆”首批130余款产品入驻；“苏超”赛场设“阿镇直播间”，拉动销售额增长超15%。</div>
-        <div class="meta">2026年11月10日 · 媒体信息摘报</div>
-        <div class="source">信息来源：新华日报11月10日《古景好物深体验，常来常新常出彩 镇江游“潮”起来》</div>
-      </article>
+  <div class="date">2026年11月11日</div>
+  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
+</div>
+<div class="container">
+  <div class="action-bar">
+    <a href="11.11%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+  <div class="title"><span class="num">1</span>扬州生态科技新城构建“2+2+2+N”产业体系 新兴产业撑起“新的增长极”</div>
+  <div class="summary">扬州生态科技新城立足杭集牙刷日化等传统产业“大而不强、多而不优”的瓶颈，推动产业逻辑深层转换，以“2+2+2+N”产业体系培育新兴产业增长极。主要举措：<br>一是构建分层产业体系。做强高端日化、医美健康两大特色优势产业，培育壮大航空科技、智慧能源两大战略性新兴产业，推动生产性、生活性服务业提质扩容，前瞻布局具身智能、生命健康、前沿新材料等未来产业。<br>二是建设概念验证与中试平台。江苏智能电网概念验证中心及中试平台（占地109亩、“1+1+N”架构）贯通技术论证、概念验证、中试熟化到产业化落地全生命周期，产品在真型电网环境测试降低试错成本、提前匹配场景方向。<br>三是“拨投结合”引育硬科技。AR手术导航系统等硬科技项目获创新资金支持；孵化器联合新扬基金直投500万元并免费提供算力、声学数据，促成联合开发智能古筝并共建国家级乐器检验检测中心。<br>四是搭建企业服务场景。依托清华类脑研究中心落地具身智能企业，部署人形机器人、四足机器狗开展全闭环作业；招引科技型企业66家、备案科技型中小企业198家，以争创国家高新区为牵引推动蓝图转化。</div>
+  <div class="meta">
+    <span class="source">新华日报  11月11日</span>
+    <span class="tag">产业体系</span><span class="tag">中试平台</span>
   </div>
 </div>
-<footer>数据来源：各省级党报及省政府门户公开报道 · 仅供内部参阅</footer>
+    <div class="news-card">
+  <div class="title"><span class="num">2</span>滑县开发区以一流环境赋能高质量发展——营商环境“金钥匙”解锁发展加速度</div>
+  <div class="summary">滑县先进制造业开发区把优化营商环境作为撬动高质量发展的“金钥匙”，全力打造市场化、法治化、国际化一流营商环境。主要举措：<br>一是党建引领闭环服务。创新“党建+”服务模式，设立党员示范岗、责任区，包联干部下沉一线摸排问题；建立企业诉求“收集—研判—交办—反馈—评价”闭环机制，精准推送惠企政策，今年以来走访企业300余次、诉求解决率95%以上。<br>二是链主牵引招商育链。发挥链主企业牵引作用，推动能源新材料、农副产品深加工、智能装备三大主导产业延链补链；建设中原牙谷产业园（豫北唯一口腔全产业链基地）等特色园区，投资53.4亿元清洁制造气项目等相继开工。<br>三是要素供给直击痛点。组织银企对接6次、助企融资超1.62亿元；推进“洹泉涌流”人才招聘2865人次；组织产销对接4次、达成意向签约1.4亿元。<br>四是流程再造提速项目。拓展帮办代办，“成交确认、合同签订、四证联发”无缝衔接实现“拿地即开工”；今年以来亿元以上在建项目9个、投产项目5个。</div>
+  <div class="meta">
+    <span class="source">河南日报  11月11日</span>
+    <span class="tag">营商环境</span><span class="tag">开发区</span>
+  </div>
+</div>
+    <div class="news-card">
+  <div class="title"><span class="num">3</span>宠物经济“链”上直播间——郑州二七区培育消费新增长点</div>
+  <div class="summary">今年“双十一”，萌宠消费成为线上直播间亮眼风景线。《2026年中国宠物行业白皮书》显示城镇犬猫消费规模达3126亿元、同比增长4.1%，郑州市二七区把宠物经济、竖屏经济作为消费新增长点，构建线上线下融合的萌宠产业生态。主要举措：<br>一是壮大宠物用品直播赛道。依托电商基地，海一云商、致欧家居等头部企业多点布局宠物类直播间，开启24小时轮播；主推千元级智能猫砂盆等智能养宠设备，客单价千元左右、单直播间月售千余台，消费主力为愿为爱宠投入的年轻群体。<br>二是推动宠物用品“出海”。致欧家居国产猫爬架等宠物家居在海外平台广受认可，郑州研发设计的国货宠物家居成为宠物用品“出海”缩影。<br>三是布局宠物数字基础设施与萌宠文商旅项目。二七区持续完善宠物友好消费场景，构建“服务+零售+体验”一体化生态；依托电商基地集聚优势，力争到2027年打造成为中原地区乃至全国有影响力的宠物友好典范区和宠物产业新高地。</div>
+  <div class="meta">
+    <span class="source">河南日报  11月11日</span>
+    <span class="tag">消费</span><span class="tag">宠物经济</span>
+  </div>
+</div>
+    <div class="news-card">
+  <div class="title"><span class="num">4</span>产业结构优化孕育增长新动能——贵州以产业关联增强支撑体系质量</div>
+  <div class="summary">贵州前三季度地区生产总值增长4.3%，结构之变成为新动能生成逻辑。基于投入产出表测算，贵州明确从五个方向推动产业高质量增量突破。主要举措：<br>一是资源优势向材料制造升级。落实“富矿精开”到产业链深处，围绕磷、煤、氟、铝、锰推进矿产、化工、材料、制造耦合发展；资源项目评价由“看产量、看投资”转向“看转化、看增值、看带动”。<br>二是特色资源向消费产业升级。打破产业分割，推动茶叶、辣椒、中药材等特色资源由初级加工向精深加工和高附加值产品延伸，竞争重点由产品产量转向品牌、标准和渠道。<br>三是算力优势向数智生产力升级。由扩大算力规模转向提高转化效率，使算力从基础设施变为赋能产业升级的核心生产要素。<br>四是产业政策向“抓关联、抓乘数”升级。培育“规模不大但影响力较强”的产业，把产业带动能力纳入重大项目评价，以本地配套率、关联度、增加值贡献论高下；以“外部研发、贵州转化”等模式承接技术转化。</div>
+  <div class="meta">
+    <span class="source">贵州日报  11月11日</span>
+    <span class="tag">产业结构</span><span class="tag">算力</span>
+  </div>
+</div>
+    <div class="news-card">
+  <div class="title"><span class="num">5</span>许昌“再生列车”驶出绿色养护新路——旧路面100%原位再生</div>
+  <div class="summary">许昌德通万里交通科技集团自主研发路面“再生列车”，破解传统道路大修“旧路只能挖掉”的难题，实现旧路面材料100%原位再生利用。主要举措：<br>一是装备自主研发就地再生。铣刨、收料、拌合、摊铺、碾压同步推进，旧路面材料实现100%原位面层再生利用，单台每小时可处理400吨旧料，打破国外就地冷再生技术垄断。<br>二是产业融合提升性能。把道路再生与装备制造结合，以振动搅拌技术让水泥颗粒与骨料分散咬合、提高强度，与旧料再生相互配合，从实验室走到稳定量产的工业机。<br>三是远程监测可追溯。依托工业互联网平台建立远程技术服务中心，设备位置、运行速度、拌合量、级配、压实程度实时回传，数据异常预警、配合比可回溯、质量责任可追踪。<br>四是构建全产业链数字化服务。集团已孵化3家国家级专精特新“小巨人”企业，牵头建设路面养护工业互联网平台，研发多通道GPR综合检测车，提供全产业链数字化协同服务。</div>
+  <div class="meta">
+    <span class="source">河南日报  11月11日</span>
+    <span class="tag">绿色养护</span><span class="tag">专精特新</span>
+  </div>
+</div>
+  </div>
+  <div class="footer">
+    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
+  </div>
+</div>
 </body>
 </html>
