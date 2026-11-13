@@ -3,113 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>媒体信息摘报</title>
+<title>媒体信息摘报 · 2026年11月13日</title>
 <style>
-  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
-    --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
-    --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }
-  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }
-  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
-  .header .date { font-size: 14px; opacity: 0.85; }
-  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
-  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
-  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
-    border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }
-  .btn-download { background: var(--accent); color: white; }
-  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
-  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
-  .btn-refresh:hover { border-color: var(--primary); }
-  .news-list { display: flex; flex-direction: column; gap: 16px; }
-  .news-card { background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }
-  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
-    color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
-  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
-  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .news-card .source { font-size: 12px; color: var(--text-secondary); }
-  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }
-  .news-card .src { font-size: 12px; color: #888; margin-top: 8px; word-break: break-all; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }
-  @media (max-width: 600px) { .header { padding: 28px 16px; }
-    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
-    .news-card { padding: 16px 18px; } }
+  :root { --bg:#f5f7fa; --card:#ffffff; --ink:#1f2933; --muted:#6b7280; --line:#e5e7eb; --accent:#1f4e79; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif; line-height:1.8; }
+  header { background:linear-gradient(135deg,#1f4e79,#2c6aa0); color:#fff; padding:28px 20px; text-align:center; }
+  header h1 { margin:0; font-size:24px; letter-spacing:1px; }
+  header p { margin:6px 0 0; opacity:.85; font-size:14px; }
+  main { max-width:880px; margin:24px auto; padding:0 16px; }
+  .news-card { background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:22px 24px; margin-bottom:18px; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+  .news-title { font-size:19px; font-weight:700; color:var(--accent); margin:0 0 12px; line-height:1.5; }
+  .news-summary { font-size:15.5px; color:#374151; white-space:pre-wrap; }
+  .news-meta { margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);
+    font-size:13px; color:var(--muted); word-break:break-all; }
+  .action-bar { position:sticky; bottom:0; display:flex; gap:12px; justify-content:center;
+    padding:14px; background:rgba(245,247,250,.92); backdrop-filter:blur(6px);
+    border-top:1px solid var(--line); }
+  .btn { display:inline-flex; align-items:center; gap:6px; padding:10px 20px; border-radius:8px;
+    font-size:15px; font-weight:600; text-decoration:none; cursor:pointer; border:none; }
+  .btn-download { background:var(--accent); color:#fff; }
+  .btn-refresh { background:#e5e7eb; color:#374151; }
+  footer { text-align:center; color:var(--muted); font-size:12px; padding:18px; }
 </style>
 </head>
 <body>
-<div class="header">
+<header>
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年11月12日</div>
-  <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
+  <p>2026年11月13日 · 省级媒体创新做法集萃</p>
+</header>
+<main>
+
+    <article class="news-card">
+      <h2 class="news-title">一、一个码、一块牌、一张网——让维权跟着消费"跑"</h2>
+      <div class="news-summary">江苏省以"优化消费环境月"为抓手，系统构建"一个码、一块牌、一张网"放心消费治理体系，核心措施分三方面推进。<br>一是打通维权末梢。无锡惠山古镇开发"慧游惠山"小程序，游客扫码一键提交投诉并上传照片、视频、消费凭证等证据，破解"投诉难、举证难、反馈慢"痛点；平台上线后纠纷平均处置时长由2小时缩至30分钟内，简单纠纷15分钟现场办结，化解成功率达95%以上。南京"宁放心"平台实现大型综合体100%入驻；省局研发投诉举报处理"智能体"，推动调解向"数智驱动"转型。<br>二是擦亮产业"金字招牌"。苏州建成线下无理由退换货服务站127个、寄存点94个，累计受理退货约25万件，205个产品获"江苏精品"认证；如皋花木盆景打通"售前如实告知、售中标准履约、售后全程服务"闭环；东海县水晶珠宝推行电子诚信标签赋予可溯源"诚信身份证"；泰州25家早茶门店签署放心消费承诺书。全省培育放心消费单元24714家、集聚区397个。<br>三是织密全域"安心网"。溧阳1号公路布设52个12315维权站、1860家无理由退货承诺单位，并联合苏浙皖"一地六县"共建名优农产品销售联盟；省局联合抖音实施"放心消费商家"培育行动，点亮标识570家电商店铺；会同沪浙皖共建"满意消费长三角"，联合多部门印发优化消费环境三年行动62条措施；联合银行实施"放心消费贷"放款110余亿元。</div>
+      <div class="news-meta">（信息来源：新华日报 11月13日《一个码，一块牌，一张网 ——让维权跟着消费"跑"》 https://www.js.news.cn/20261113/39799a3d92324eb0b082de2e39b8eb18/c.html）</div>
+    </article>
+    <article class="news-card">
+      <h2 class="news-title">二、江苏国际法商服务港综合服务平台试运营 建邺打造全省"新质法商服务第一区"</h2>
+      <div class="news-summary">南京市建邺区于11月12日启用江苏国际法商服务港综合服务平台，以"法商融合"改革补齐高端生产性服务业短板，核心措施如下。<br>一是集成供给做优法商生态。平台设企业合规与风险化解、知识产权、商事仲裁、检验检测认证、跨境出海服务等18个服务窗口，统筹省药监局、省知识产权局、省市贸促会、南京仲裁委、市质检院、市律师协会等政务与专业资源，创新"一窗受理、一平台通办"模式；38楼布局法商机构与功能平台，已落地江苏知识产权数智创新赋能中心、数创实验室、江苏ESG双向开放服务中心，推动涉外法律服务平台化、集群化发展。<br>二是构建五大全生命周期体系。高水平双向开放投资服务体系依托长三角企业出海服务中心、亚马逊全球开店南京办公室等提供一体化全栈服务；全方位商事争议闭环解决机制构建调解、仲裁、诉讼三位一体协同解纷；全流程知识产权服务体系提供从申请、布局到维权"一站式"服务；全维度ESG评价与绿色低碳服务体系整合安永、德勤等机构提供碳足迹核算认证；<br>三是系统构建"1448"发展体系。空间上打造"一核两轴多园"，方向上坚守专业化、国际化、数智化、绿色化四大定位，功能上打造产业科创、双向开放、总部经济、要素配置四大赋能中心；力争2028年底集聚高端法商机构超70家，2030年汇聚国内外顶尖机构超100家，建成全省"新质法商服务第一区"。</div>
+      <div class="news-meta">（信息来源：新华日报 11月13日《江苏国际法商服务港综合服务平台试运营 建邺：打造全省"新质法商服务第一区"》 https://xh.xhby.net/pad/con/202611/13/content_1606011.html）</div>
+    </article>
+    <article class="news-card">
+      <h2 class="news-title">三、把创新写进产业链最前端——南昌筑基"动力之城"</h2>
+      <div class="news-summary">南昌以"动力之城"建设为抓手，把创新嵌入产业链最前端，核心措施分三方面。<br>一是算力下车间，AI从"概念"变"工具"。9月22日，南昌高新招商集团与中国移动南昌公司共建江西首个Token工厂，把底层算力封装成标准化智能服务；依托临空、白水湖、小蓝三大算力中心1892P先进算力与"1ms城市算力光网"，平台聚合300余款主流大模型，企业凭"算力券""Token券"按量取用。龙旗科技南昌工厂引入智元"精灵G2"人形机器人，执行视觉识别、柔性抓取、精密上下料。<br>二是长空写答卷，从"造机身"到"造动力"。洪都商飞C919部段铆接线与商飞江西公司累计交付C909飞机62架，大飞机部段产能达90架/年；大云智航无人机总部基地试投产，100台海外订单出海；红谷滩"一网统飞"平台统筹调度无人机机场，一次巡航可完成6平方公里智能巡查，效率较人工提升5倍以上；全市低空制造企业达36家。<br>三是老厂换新脑，数据替老师傅"把脉"。2025年南昌高新区研发投入强度升至5.37%，科技创新呈"4个90%"：90%研发机构设在企业、90%研发投入来源于企业、90%研发人员聚集于企业、90%科技项目来自企业；方大特钢智慧管控中心全流程可视可控可溯源，一线小改小革上半年立项1160项、落地840项、创效超860万元；全市高新技术企业达1957家、科技型中小企业4077家。</div>
+      <div class="news-meta">（信息来源：江西日报 11月13日《把创新写进产业链最前端》 https://k.sina.com.cn/article_7517400647_1c0126e4705909ekkm.html）</div>
+    </article>
+    <article class="news-card">
+      <h2 class="news-title">四、衡水市桃城区培育OPC新业态 打造"单人+AI"轻量化创业孵化新路</h2>
+      <div class="news-summary">衡水市桃城区以"单人+AI"模式培育OPC（一人公司）轻量化创业新业态，核心措施分三方面。<br>一是差异化布局创业阵地。雍乐家OPC社区扎根3万平方米全龄科教综合体，拿出30个免费共享工位、减免水电网络，推送基层宣传、本地企业营销等业务线索，带动19人灵活就业；衡水众成OPC创业基地近6000平方米，配套36节超级个体实训课程，通过公共订单池对接本地实体企业；天泰数智OPC孵化工场瞄准AI短剧、漫剧、数字人赛道，80个工位拎包入驻，自建算力中心提供补贴，配套自研"泰影"AI数字内容生成平台。<br>二是政务服务送到创业一线。衡水首批营业执照自助打印终端下沉进驻各OPC社区，创业者刷身份证、人脸识别当场取证；区政务服务大厅设OPC实体服务专区，推行一窗受理、帮办代办、现场指导；数字政务门牌系统上线OPC专区，扫码即可查阅材料清单，智能预审提前排查缺漏，实现全程网办。<br>三是全链支撑护航创业全程。开办"桃城区OPC创业大讲堂"，组织涉税辅导沙龙、AI创作实训、市场接单分享，线上咨询常年敞开；主动对接通信运营商筹备算力券，争取免费额度、优惠套餐、机房托管，以工场自有算力补贴分担成本；将市级12条扶持政策细化为区级26项落地实施细则，建立企业诉求动态台账；针对轻资产创业融资难，对接金融机构开设OPC金融专区，走访摸排资金需求。</div>
+      <div class="news-meta">（信息来源：河北日报 11月13日《衡水市桃城区：培育OPC新业态 打造"单人+AI"轻量化创业孵化新路》 https://hs.hebnews.cn/2026-11/13/content_9580169.htm）</div>
+    </article>
+    <article class="news-card">
+      <h2 class="news-title">五、"小而美"场景撬动文旅新消费</h2>
+      <div class="news-summary">贵州省以"小而美"场景创新撬动文旅新消费，推动消费引擎从"大项目"转向轻量场景，核心举措如下。<br>一是做热"新三饮"轻量消费。前三季度全省限额以上茶馆服务营业额同比增长41.8%，咖啡馆服务增长30.3%，其他饮料及冷饮服务增长7.6%；以"早咖午茶晚精酿"为代表的新潮消费持续火热，花江峡谷大桥、"大地指纹"音乐会等新潮消费IP备受青睐，消费市场保持烟火气、年轻态；轻量消费正成为拉动文旅增长的新引擎。<br>二是把茶馆、精酿店打造成开放式"城市客厅"。贵阳市青云市集、太平路、阿云朵仓将茶馆、精酿店营造为开放共享空间；曹状元街新式茶馆坐满本地人与游客，午后品茶听戏、拍照小憩；多家本土咖啡馆把山地地貌变成独特体验空间，有的扎根喀斯特溶洞，有的悬于百米悬崖，持续吸引年轻人专程打卡。<br>三是以场景创新延长停留、串联全链消费。把物产嵌进产品，让地方味道成为可带走的记忆；碎片化的休闲体验串联起一整天的行程，倒逼住宿、餐饮、零售配套同步承接客流，将单次打卡流量转化为全链条消费增量。专家提示，场景创新既要守住本土文化内核、留住市井烟火，也要克制同质化网红设计，打磨空间审美，将松弛感与在地体验转化为稳定服务，避免场景沦为一次性打卡布景。</div>
+      <div class="news-meta">（信息来源：贵州日报 11月13日《"小而美"场景撬动文旅新消费》 https://finance.sina.com.cn/jjxw/2026-11-13/doc-iniypqyr3760546.shtml）</div>
+    </article>
+</main>
+<div class="action-bar">
+  <a class="btn btn-download" href="https://raw.githubusercontent.com/ETKing668/media-briefing/main/11.13%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" download>下载 Word 文档</a>
+  <button class="btn btn-refresh" onclick="location.reload()">刷新</button>
 </div>
-<div class="container">
-  <div class="action-bar">
-    <a href="11.12%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
-    <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
-  </div>
-  <div class="news-list">
-  <div class="news-card">
-    <div class="title"><span class="num">1</span>技能培训课堂开进商圈社区</div>
-    <div class="summary">深圳把职业技能培训课堂搬进商圈、开进社区，以"AI+电子商务"为核心推行"一商圈一特色"定制授课，打通"培训—荐岗—就业"链路，构建"家门口"就业创业服务圈。<br>一是推行"一商圈一特色"定制课表。华强北聚焦跨境电商、AI提效、OPC（一人公司）运营；横岗围绕眼镜业态做短视频、AI剪辑、直播实操；水贝主攻珠宝直播、跨境出海、流量运营；荔秀侧重女装IP打造、场景拍摄、私域变现；梅沙紧扣滨海文旅、奥莱潮流消费开展游客服务、品牌直播、涉外营销培训；中英街围绕港式文创、特色伴手礼着力新媒体引流与文旅IP运营。<br>二是构建全链条服务模式。项目坚持"实战为王、技能增收"导向，构建定制授课、全景实战、上门陪跑、数据复盘全链条服务模式，破解传统培训"重理论、轻实效"痛点。<br>三是贯通"培训—荐岗—就业"链路。依托"深圳技能银行"积分体系，培训成果可认证、可转化；多个街道试点"技能商学院"与就业驿站联动，常态化推送招聘信息。2026年深圳"商圈技能商学院"春季已开设124班次、培训超4300人次，秋季班计划开设200班次、培训6000人次，全年合计将超1万人次。<br>四是织密职业培训实施体系。截至去年全市累计建成各类培训载体391家，构建"1+11+N"职业培训实施体系；"技能照亮前程·人才汇聚鹏城"行动计划3年开展补贴性及公益性职业技能培训超28万人次，新增取证24万人次以上。</div>
-    <div class="meta">
-      <span class="source">南方日报  11月12日</span>
-      <span class="tag">技能培训</span><span class="tag">商圈经济</span>
-    </div>
-    <div class="src">（信息来源：南方日报11月12日《技能培训课堂开进商圈社区》  https://epaper.nfnews.com/nfdaily/html/202611/12/content_10185977.html）</div>
-  </div>
-  <div class="news-card">
-    <div class="title"><span class="num">2</span>连云港全流程优化涉企服务厚植营商沃土 把企业的事当成自己的事来办</div>
-    <div class="summary">连云港把企业的事当成自己的事来办，从诉求响应、要素保障到融资纾困织密全流程涉企服务网。<br>一是建立一体化诉求收集网络。依托重点产业链政企座谈会、营商环境监测点等7条线下渠道，叠加12345热线、"一企来办"平台2个线上端口收集诉求；建立"1+1+N+督查"协同体系实行全链条管理；按非常紧急、紧急、非紧急三级和咨询、求助、投诉、举报、建议5类分流处置。<br>二是迭代重大项目全生命周期服务。实行市领导挂钩联系、主要领导月调度；迭代升级的重大项目全生命周期管理平台累计绘制审批流程图756张，认领开工前置事项3725条、办结率99.7%。<br>三是压缩审批与要素成本。市自然资源和规划局创新"多项论证合一"，以"一本报告、一次论证、一份意见"将审查周期从60天压缩至20天以内；推行"不对应审批"，44项标准化业务由系统智能随机派单；环评报告书、报告表审批时限由法定60日、30日分别压缩至17个、12个工作日；徐圩新区优化水电气热定价机制，每年为园区企业减负超2亿元。<br>四是强化融资与信用支撑。依托电子签章系统实现应急转贷跨县区线上全流程审批，最快当天申请当天放款；印发融资诉求分级分类处置闭环管理工作方案，今年以来走访小微主体1.9万户，授信1040亿元、放贷934.7亿元；率先将"信用代证"适用主体从3类拓展至6类，一份信用报告替代46个领域信用记录证明；推行"处罚即告知、期满即修复"服务。</div>
-    <div class="meta">
-      <span class="source">新华日报  11月12日</span>
-      <span class="tag">营商环境</span><span class="tag">涉企服务</span>
-    </div>
-    <div class="src">（信息来源：新华日报11月12日《连云港全流程优化涉企服务厚植营商沃土 把企业的事当成自己的事来办》  https://xh.xhby.net/pad/con/202611/12/content_1605519.html）</div>
-  </div>
-  <div class="news-card">
-    <div class="title"><span class="num">3</span>生产性服务业"育新强链" 生活性服务业"转型升级"</div>
-    <div class="summary">四川同日印发《推动生产性服务业育新强链融合发展行动方案（2026—2028年）》和《推动生活性服务业转型升级行动方案（2026—2028年）》，明确到2028年生产性服务业增加值达2万亿元左右、生活性服务业增加值超1.8万亿元。<br>一是育强生产性服务业六大领域。在科技研发服务、数字化服务等六大领域部署任务，布局卫星互联网等设施，按需布局城市边缘算力中心、模型即服务（MaaS）平台、"词元工厂"。<br>二是推广"三券"与综合金融服务。实施数字化转型工程，推广"算力券""场景券""模型券"助力制造业和农业"智改数转"；开展"股贷债保"科技金融试点，支持生产设备融资租赁贴息，探索"中试+保险+服务"综合金融服务模式；推广多式联运"一单制""一箱制"，建设省级"三网"融合智运平台，打造标杆应用场景10个以上。<br>三是推动两业融合式发展。支持电商、互联网企业采用用户直连制造（C2M）、原创设计制造（ODM）与制造业融合，支持物流企业采用"供应链平台+共享工厂"模式向制造端渗透。<br>四是实施生活性服务业六大行动。推进零售业标志性商圈"三级百圈"建设、扩围升级一刻钟便民生活圈，到2028年全省零售业销售额力争达2.7万亿元；餐饮住宿实施"千品万店"天府烟火小店提升计划、"蜀韵千宿"民宿焕新行动；养老托育明确到2028年乡镇（街道）养老服务中心覆盖率不低于60%，社区养老服务机构和设施覆盖率达65%。</div>
-    <div class="meta">
-      <span class="source">四川日报  11月12日</span>
-      <span class="tag">服务业</span><span class="tag">政策举措</span>
-    </div>
-    <div class="src">（信息来源：四川日报11月12日《生产性服务业"育新强链" 生活性服务业"转型升级"》  https://epaper.scdaily.cn/shtml/scrb/20261112/1094220.html）</div>
-  </div>
-  <div class="news-card">
-    <div class="title"><span class="num">4</span>拥抱AI，遂宁在工厂车间和创业社区找机遇</div>
-    <div class="summary">遂宁作为产业基础较薄弱的中小城市，以OPC（一人公司）为主抓手育动能、以算力数据为强支撑筑底座、以场景打造为突破口促产业，探索中小城市拥抱AI的可行路径。<br>一是推动AI进车间打造标杆场景。遂宁出台《加快推进人工智能场景先行以用促产实施方案》，首要任务为打造"人工智能+"主导产业标杆场景；天齐锂业安居数智工厂年产2万吨生产线中控室仅需3名工作人员，英创力电子钻孔车间30台激光钻孔机基本实现无人作业，AI视觉检测替代人工排查电路板外观缺陷、误判率下降60%。<br>二是培育轻量化OPC创业模式。今年6月出台《人工智能一人公司（OPC）培育发展行动方案（2026—2027年）》，通过开放本地应用场景、强化金融支撑吸引团队落户，搭建覆盖OPC全生命周期培育体系；已投用金融中心、遂数、京创等多个OPC创业社区，京东（遂宁）数字经济示范园内多家AI漫剧团队扎根，单团队月完成7至8个项目、多部作品播放量破亿。<br>三是构建AI产业生态与配套支撑。去年获省级数据标注基地建设试点，吸引科大讯飞西南产业化基地落地，建起高质量数据标注中心、智算服务中心，相关储备项目99个；推出"遂智十条"专项政策，从场景建设、词元供给、技术攻关、金融扶持、人才引育等方面拿出真金白银扶持；计划采用"Token工厂+边缘节点"轻量化布局建设成渝中部Token工厂，在经开区电子信息产业园、射洪锂电产业园部署边缘计算节点。</div>
-    <div class="meta">
-      <span class="source">四川日报  11月12日</span>
-      <span class="tag">人工智能</span><span class="tag">OPC创业</span>
-    </div>
-    <div class="src">（信息来源：四川日报11月12日《拥抱AI，遂宁在工厂车间和创业社区找机遇》  https://epaper.scdaily.cn/shtml/scrb/20261112/1094231.html）</div>
-  </div>
-  <div class="news-card">
-    <div class="title"><span class="num">5</span>让文化被看见被送达</div>
-    <div class="summary">浙江2024年启动文化基因激活工程，建立省、市、县三级协同机制，开展全域文化资源大普查，推动传统文化从"解码"走向"激活"，赋能千行百业、走进百姓生活。<br>一是开展全域文化资源大普查与基因解码。全省摸排3万余个文化资源，梳理出3023个重要文化元素，涵盖物质文化遗产、非物质文化元素、重要历史人物；借鉴现代生物遗传学思维，从物质、精神、规制、语符四个维度对核心资源进行基因解码，凝练出10859个文化基因；2025年11月发布浙江重要文化基因图谱，精准提炼良渚文化等十大现象级省域文化标识。<br>二是布局八大行动培育项目。全省布局名人故里深度开发、古籍古画转化利用、历史经典产业振兴、遗产文创联动开发等八大行动，在库培育项目达201个；良渚遗址管委会建成国内大遗址领域首个色彩及纹饰基因库，累计收录1000余组色彩数据、近百套标准化纹样矢量素材。<br>三是推动活态转化与消费场景落地。开化贡纸制作技艺联合高校团队复兴传统工艺，被图书馆、档案馆批量采购用于档案修复；省文化广电和旅游厅与顺丰速运联手打造联名包装，将良渚玉琮王等文化符号印上快递文件封；浙江图书馆联合蚂蚁集团推出"文澜重光·书阁一体"数字化展陈，覆盖全省多个城市地标、文化场馆的超2.3万块"浙江文化时钟"准时播放报时微视频；全省累计开展"文艺赋美"演出超55万场。</div>
-    <div class="meta">
-      <span class="source">浙江日报  11月12日</span>
-      <span class="tag">文化基因</span><span class="tag">消费场景</span>
-    </div>
-    <div class="src">（信息来源：浙江日报11月12日《让文化被看见被送达》  https://zjnews.zjol.com.cn/zjnews/202611/t20261112_32022182.shtml）</div>
-  </div>
-  </div>
-  <div class="footer">
-    每日自动更新 · 数据来源：各省级官方媒体 · 仅供内部决策参考
-  </div>
-</div>
+<footer>数据来源：新华日报、江西日报、河北日报、贵州日报（均为2026-11-13当日刊发）</footer>
 </body>
 </html>
