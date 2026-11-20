@@ -5,99 +5,99 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>媒体信息摘报</title>
 <style>
-  :root {{ --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
+  :root { --primary: #1a3a6b; --primary-light: #2d5aa0; --bg: #f8f9fb;
     --card-bg: #ffffff; --text: #2c2c2c; --text-secondary: #555;
     --border: #e0e4ea; --accent: #c41230; --tag-bg: #eef2f8;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06); }}
-  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-  body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: var(--bg);
-    color: var(--text); line-height: 1.8; min-height: 100vh; }}
-  .header {{ background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: white; padding: 40px 20px; text-align: center; }}
-  .header h1 {{ font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }}
-  .header .date {{ font-size: 14px; opacity: 0.85; }}
-  .header .subtitle {{ font-size: 14px; opacity: 0.7; margin-top: 4px; }}
-  .container {{ max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }}
-  .action-bar {{ display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }}
-  .btn {{ display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
+    color: var(--text); line-height: 1.8; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white; padding: 40px 20px; text-align: center; }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+  .header .date { font-size: 14px; opacity: 0.85; }
+  .header .subtitle { font-size: 14px; opacity: 0.7; margin-top: 4px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; }
+  .action-bar { display: flex; gap: 12px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
     border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none;
-    cursor: pointer; border: none; transition: all 0.2s; }}
-  .btn-download {{ background: var(--accent); color: white; }}
-  .btn-download:hover {{ background: #a00e26; transform: translateY(-1px); }}
-  .btn-refresh {{ background: white; color: var(--primary); border: 1.5px solid var(--border); }}
-  .btn-refresh:hover {{ border-color: var(--primary); }}
-  .news-list {{ display: flex; flex-direction: column; gap: 16px; }}
-  .news-card {{ background: var(--card-bg); border: 1px solid var(--border);
+    cursor: pointer; border: none; transition: all 0.2s; }
+  .btn-download { background: var(--accent); color: white; }
+  .btn-download:hover { background: #a00e26; transform: translateY(-1px); }
+  .btn-refresh { background: white; color: var(--primary); border: 1.5px solid var(--border); }
+  .btn-refresh:hover { border-color: var(--primary); }
+  .news-list { display: flex; flex-direction: column; gap: 16px; }
+  .news-card { background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 10px; padding: 22px 26px; box-shadow: var(--shadow);
-    transition: box-shadow 0.2s; }}
-  .news-card:hover {{ box-shadow: 0 4px 20px rgba(0,0,0,0.1); }}
-  .news-card .num {{ display: inline-block; width: 28px; height: 28px; background: var(--primary);
+    transition: box-shadow 0.2s; }
+  .news-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .news-card .num { display: inline-block; width: 28px; height: 28px; background: var(--primary);
     color: white; border-radius: 50%; text-align: center; line-height: 28px;
-    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }}
-  .news-card .title {{ font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }}
-  .news-card .summary {{ font-size: 14px; color: var(--text); margin-bottom: 10px; }}
-  .news-card .meta {{ display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }}
-  .news-card .source {{ font-size: 12px; color: var(--text-secondary); }}
-  .news-card .tag {{ display: inline-block; padding: 2px 10px; background: var(--tag-bg);
-    color: var(--primary); border-radius: 12px; font-size: 12px; }}
-  .footer {{ text-align: center; padding: 20px; color: #999; font-size: 12px;
-    border-top: 1px solid var(--border); margin-top: 32px; }}
-  @media (max-width: 600px) {{ .header {{ padding: 28px 16px; }}
-    .header h1 {{ font-size: 22px; }} .container {{ padding: 16px 12px 40px; }}
-    .news-card {{ padding: 16px 18px; }} }}
+    font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
+  .news-card .title { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .news-card .summary { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .news-card .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .news-card .source { font-size: 12px; color: var(--text-secondary); }
+  .news-card .tag { display: inline-block; padding: 2px 10px; background: var(--tag-bg);
+    color: var(--primary); border-radius: 12px; font-size: 12px; }
+  .footer { text-align: center; padding: 20px; color: #999; font-size: 12px;
+    border-top: 1px solid var(--border); margin-top: 32px; }
+  @media (max-width: 600px) { .header { padding: 28px 16px; }
+    .header h1 { font-size: 22px; } .container { padding: 16px 12px 40px; }
+    .news-card { padding: 16px 18px; } }
 </style>
 </head>
 <body>
 <div class="header">
   <h1>媒体信息摘报</h1>
-  <div class="date">2026年11月19日</div>
+  <div class="date">2026年11月20日</div>
   <div class="subtitle">省级党报经济·科技·消费创新举措精选（福建省可借鉴）</div>
 </div>
 <div class="container">
   <div class="action-bar">
-    <a href="11.19%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
+    <a href="11.20%E5%AA%92%E4%BD%93%E4%BF%A1%E6%81%AF%E6%91%98%E6%8A%A5.docx" class="btn btn-download">⬇ 下载 Word 文档</a>
     <a href="javascript:location.reload()" class="btn btn-refresh">刷新页面</a>
   </div>
   <div class="news-list">
     <div class="news-card">
-  <div class="title"><span class="num">1</span>事关平台经济创新和规范健康发展，江苏省政府最新通知</div>
-  <div class="summary">江苏省政府办公厅印发《关于促进平台经济创新和规范健康发展若干措施的通知》（苏政办规〔2026〕8号），推出八方面举措，自2026年12月11日起施行。<br>一是创新发展人工智能服务平台。鼓励重点企业与基础电信运营商共建行业专属算力节点，发展标准化算力云服务，支持有条件地方对采购智能算力服务的企业发放词元（Token）券；支持平台企业研发多模态大模型、垂直领域专用小模型；鼓励建设具身智能训练场，推动机器人进工厂、进商场、进家庭。<br>二是集成打造生产性服务平台。梯度培育专业型、行业型、协作型工业互联网平台，培育一批“人工智能+制造”融合型平台，推进集群“智改数转网联”，打造“小快轻准”数智化解决方案；推动网络道路货运“反向开票”试点，加快“一单制”“一箱制”。<br>三是高品质建设生活性服务平台。鼓励电商平台参与“苏品苏货上平台”，推动“产业带+跨境电商+海外仓”扩容升级；打造“苏心游”智慧文旅平台；鼓励有条件地方实行巡游车“一车双价”“双证合一”；发展“直播+家政”新模式，扩大助浴、康复等刚需服务供给。<br>四是强化要素支撑与规范监管。为一人公司（OPC）人才提供物理空间、算力支持、首单扶持等创业服务；加大“苏服贷”“苏科贷”信贷支持，对符合条件的平台企业项目贷款按规定给予财政贴息；推进5G-A、万兆光网和工业5G专网建设，前瞻布局6G；依法打击算法霸权、流量垄断，查处“大数据杀熟”。</div>
+  <div class="title"><span class="num">1</span>邗江区：以“生态留才”托举硬核科技企业崛起</div>
+  <div class="summary">扬州邗江区以政策、平台、服务编织“留才生态网”，推动人才从“引凤来”走向扎根硬科技。<br>一是政策真金白银直达生产线。迭代至4.0版人才政策体系，企业全职引进的职工每月最高可享3500元生活补贴，市区购房可领“人才安家券”，覆盖大专（高级工）到博士；把申报条件、支持标准面对面讲清楚，让政策从文件落到企业账上。<br>二是以赛引才、以活动聚才。连续11年举办扬州（邗江）高层次人才高科技成果“荟邗城”活动周，深化“人才+基金+项目+载体”模式；“绿扬金凤”人才创新创业大赛专场“明月湖”科创大赛走进苏州科技大学，参与竞演的5个项目达成落户意向、2个已注册公司；通过路演、沙龙和产才对接机制打磨产品、推向市场。<br>三是布局离岸孵化人才飞地。在北京、上海、深圳及德国斯图加特布局“3+1”离岸孵化人才飞地，依托飞地开展项目路演、产才金对接等活动30场；科技镇长团以“校地直通车”促成高校成果“供给侧”与企业技术“需求侧”双向贯通。<br>四是服务从安居到安居乐业。打造“邗U+”人才公寓品牌，累计建成1万套，配套青年人才驿站、人才客厅和“人才服务管家”队伍，锦绣西湖人才公寓与西湖科创园“人才驿站”形成“安居+创业”近距离支撑；“三送三问”人才政策进园区活动持续走进创业载体。</div>
   <div class="meta">
-    <span class="source">荔枝网  11月19日</span>
-    <span class="tag">平台经济</span><span class="tag">人工智能</span>
+    <span class="source">新华日报　11月20日</span>
+    <span class="tag">人才引育</span><span class="tag">营商环境</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">2</span>单个项目最高支持200万元</div>
-  <div class="summary">泸州市科技局、市财政局联合印发《泸州市科技成果转化项目“先投后股”试点工作方案（试行）》，创新财政科技资金支持方式，推动财政科技资金由一次性无偿资助向“先期项目支持、达标股权转化、市场化退出、资金循环使用”转变，形成投入、转股、退出、再投入的可持续资金支持链条。<br>一是明确支持范围。重点支持契合泸州市“5+5”重点产业链以及战略性新兴产业、未来产业发展方向，技术先进、市场开发价值和产业化前景良好、商业计划可行、技术路线清晰的科技成果转化项目，引导各类资本共同支持科技成果在泸转化和产业化。<br>二是创新资金安排。按照“总额核定、分期拨付”原则安排支持资金，单个项目支持资金不超过项目预期总投入的50%，最高不超过200万元；项目立项、承担企业与市科技局及受托管理机构签订项目合同书后拨付支持资金的60%，项目通过验收或达到转股条件后拨付支持资金的40%。<br>三是明确申报条件。项目申报主体原则上为成立不超过5年的科技企业或寻求投资入股的科研团队，并应当符合相应条件，如申报企业创始股东实缴资金不低于申报项目预期总投入的10%、相关知识产权明晰等。<br>四是设置股权激励。《方案》配套《股权激励工作指引（试行）》，设置转股激励与退股激励；其中，退股阶段单个项目股权退出形成收益的50%（税前）奖励被投企业成果转化核心团队，10%（税前）奖励受托管理机构。</div>
+<div class="news-card">
+  <div class="title"><span class="num">2</span>入驻“岛主”企业超70家 集聚创新人才近2000人</div>
+  <div class="summary">成都科创生态岛作为四川“四链”深度融合先行先试平台、成都科技成果转化“一号工程”核心承载，围绕成果转化构建全链条机制。<br>一是首发中试标准化服务指引补空白。联合成都科技企业孵化器协会等共同提出《成都市医药健康领域中试标准化服务指引》《成都市智能制造领域中试标准化服务指引》，明确两大领域中试服务的定义、基础要求、服务流程与增值服务，破解行业“无章可循、无据可依”痛点，集成电路领域中试标准化服务指引正加快编制。<br>二是开放真实应用场景供检验。岛上已开放100多个应用场景，无人智能游船、无人接驳车、楼宇智能配送等40个场景相继落地并示范运行，让创新产品在真实场景中经受检验、节省适配场地时间。<br>三是沿全链条搭建三层支撑。沿“研发—中试—孵化—产业化”全链条建成创新转化服务区、新兴产业育成区、生态活力聚集区三区，实现“聚、服、展、孵”闭环；依托“线上科创通+线下科创岛”服务模式把技术、资本、政策打包上岛，以“双向揭榜挂帅”让产业出题、市场阅卷；构建“总岛+分岛”协同体系，已签约分岛13个，覆盖攀枝花、绵阳、雅安、乐山等地。<br>四是以第三方身份做好供需撮合。组织优质项目路演，引入投资机构现场问诊，运营公司与科技企业、科技服务机构集中签约，覆盖检验检测、知识产权、金融、法律服务等业态。<br>五是培育OPC开放创新生态。孵化“单人+AI即公司”创业范式，并探索“研发在成都、转化在市州”的科创飞地模式。</div>
   <div class="meta">
-    <span class="source">四川日报  11月19日</span>
-    <span class="tag">科技成果转化</span><span class="tag">财政资金</span>
+    <span class="source">四川日报　11月20日</span>
+    <span class="tag">科技成果转化</span><span class="tag">中试标准</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">3</span>镇江科技招商跑出“向新”加速度</div>
-  <div class="summary">镇江紧扣“4833”现代化产业体系建设，以科技招商撬动产业向新，形成重质量、按图索骥、全要素保障的科技招商机制。<br>一是织密招商网络。完善四级科技招商工作体系，市级成立“科技招商服务中心”，8个板块组建专职机构，建成182人的专业化招商队伍；将高校院所划分为工科类高校、中科系、央企研究院等10大类，设立9个专项对接工作组；与72所省内外高校、49家中国科学院研究所建立常态化信息对接机制，在上海、北京、苏州等地布局14个科技招商驻点及飞地孵化器，挖掘有效项目线索120条。<br>二是按图索骥精准招引。围绕“4833”产业体系细分赛道，滚动编制“五图六清单”，摸排高端人才1217名、头部创新企业1638家，确保招引项目与产业方向高度契合；依托驻点招商与飞地孵化机制捕获并落户优质项目，今年落地项目中83.2%落地专业园区载体。<br>三是聚焦产业链匹配。将具身智能装备和终端列为重点培育的未来产业，围绕产业图谱“按图索骥”，推动项目方向与产业规划契合；依托科创载体和高效对接服务，促进项目入驻孵化、对接市场。<br>四是优化全要素生态。构建“项目团队+技术副总+技术经理人”三位一体政策体系，出台3项专项文件，对创新创业团队最高给予50万元启动支持，新增持证技术经理人75名；今年新获评部级孵化器2家、省级孵化器4家，载体招引科创项目666项，盘活闲置载体资源11万平方米。</div>
+<div class="news-card">
+  <div class="title"><span class="num">3</span>不补产线补需求，山东扩内需换了打法</div>
+  <div class="summary">山东在消费品以旧换新中用地方自主权限调整补贴打法，把补贴决策权部分交还需求侧。<br>一是五部门联合印发地方自主品类补贴实施方案。今年6月，山东5部门联合印发方案，在国家标准之外用地方配套资金自主确定补贴品类，首批纳入扫地机器人、助行类外骨骼机器人、智能马桶、助听器等8类产品，精准对接愿意为智能便利付费的年轻家庭和失能半失能老人、听障群体两类人群。<br>二是从需求端反向采集确定补贴目录。品类不按产业分类表照抄，而是对应一类具体人群的未满足需求——扫地机器人对应家务解放、外骨骼机器人对应行动尊严、影像设备对应兴趣消费升温、微蒸烤一体机对应厨房场景品质化改造。<br>三是动态扩容并明确补贴标准。11月16日将影像拍摄设备、厨房烹饪电器纳入，自主品类扩至10类；按最终销售价格15%给予补贴，每人每类限补1件，单件最高1500元。<br>四是以绿色门槛筛选补贴品类。自主品类中涉及能效水效的须达到国家一级标准，财政资金在降低换新门槛的同时抬高供给端准入门槛，让高耗能旧机被淘汰、一级能效新机进场。<br>五是让财政资金跟着需求票数走。从跑通申领流程、到产品不断扩容、再到动用自主权限为细分需求买单，把需求发现做准、能效门槛守住，形成需求侧投票、财政资金跟进的机制。</div>
   <div class="meta">
-    <span class="source">新华日报  11月19日</span>
-    <span class="tag">科技招商</span><span class="tag">产业培育</span>
+    <span class="source">闪电新闻　11月20日</span>
+    <span class="tag">消费促进</span><span class="tag">以旧换新</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">4</span>内外通达 活力迸发（开局“十五五” 河南谱新篇·许昌）</div>
-  <div class="summary">许昌围绕优化营商环境、深度融入全国统一大市场，从政务服务、监管方式、政企机制、内外贸融合四方面推出具体举措。<br>一是推进政务服务流程再造。2000多项政务服务事项实现“最多跑一次”，1000多项实现“免证可办”；与多个市县打通“跨省通办”；“水电气暖信报装一件事”在全省率先实现网上申请材料零提交；企业开办实现“一网通办、一次办妥、半日办结”；清理市场准入壁垒，实行“一照多址”，企业仅提交备案申请即可办结，实现“准入即准营”。<br>二是转变监管方式。落实首违不罚、轻微免罚清单，推行“综合查一次”，最大限度减少对企业正常生产经营的干扰；推行“投标零跑腿、开标零见面”，在全省率先停止收取工程建设项目投标保证金，将社会投资类工程建设项目审批用时压缩至全省最短。<br>三是健全政企服务机制。常态化举办企业家座谈会、推动企业诉求闭环处置、开展“万人助万企”包联服务；推广“胖东来”经验，2000余家经营主体承诺无理由退货，构建“纠纷不出店、维权更便捷”的保障体系；强化知识产权、企业产权平等保护，对内资外资企业一视同仁，涉企纠纷快调快审快结。<br>四是推动内外贸一体化。围绕智能电力、新型材料、汽车零部件等主导产业链推行产业链图谱招商、专业化市场化招商；持续优化跨境结算、出口信用保险、外贸信贷供给，缓解中小外贸企业资金压力；支持企业一条生产线适配国内国际两套标准，实现国内市场托底、海外市场扩容。</div>
+<div class="news-card">
+  <div class="title"><span class="num">4</span>勇挑大梁“一路有你”，赋能增效“全程有我”</div>
+  <div class="summary">江苏税务部门围绕经营主体开办、成长、壮大各环节，以减负担、疏堵点、促合规、增便利、优环境优化营商环境。<br>一是以税收大数据让“政策找企业”。变“企业追着政策跑”为政策主动匹配，支持科技创新和制造业发展的政策减税降费及退税直达企业生产线。<br>二是出台服务外贸高质量发展“税十条”。围绕出口退税提速、入境消费等方面细化举措。<br>三是建立出口退税“白名单”绿色通道。税务、商务、海关等部门共同确定全省出口退（免）税“白名单”企业，在保证正常办理3个工作日基础上进一步压缩办理时长。<br>四是针对新业态定制合规服务。泰州市海陵区税务局成立“早茶经济服务专班”，为经营主体定制“一企一策”方案；南京市建邺区税务局针对OPC企业“一人多岗、没有专职财务”难题，梳理适配政策清单、编制《OPC税收合规与优惠指南》电子书，用流程图拆解操作。<br>五是创新“智系列”用票服务。健全用票合规管理专线受理、三级审核、限期办结机制，推出“智能服、智能管、智能析”产品，向186万户企业精准推送政策280批次。<br>六是深化“税银互动”与集成办理。以纳税信用撬动金融机构授信；推进税费事项“一件事、一次办、一次成”，全省97%税费事项、99%纳税申报事项可线上全流程办理，90%高频业务3分钟内办结，灵活就业登记、申报等7个事项“一表通办”、办理时长由9个工作日压缩至1个工作日。</div>
   <div class="meta">
-    <span class="source">河南日报  11月19日</span>
-    <span class="tag">营商环境</span><span class="tag">对外开放</span>
+    <span class="source">新华日报　11月20日</span>
+    <span class="tag">营商环境</span><span class="tag">税务服务</span>
   </div>
 </div>
-    <div class="news-card">
-  <div class="title"><span class="num">5</span>场景上新 陕西消费一线热气升腾</div>
-  <div class="summary">陕西围绕提振消费，从首店经济、惠民补贴、票根经济、旅居养老四方面推出系列举措。<br>一是发展首店经济。西安持续引进特色首店，传统茶饮、前沿科技体验等新业态接连落地，全球首家机器人5E全生态体验店集售、玩、学于一体，为消费者提供科普体验并为行业提供方案；仅三季度就有90家品质首店落地西安，高能级占比51.1%，首发活动达149场，推动首店经济从规模扩张转向量质并进。<br>二是加大惠民补贴。渭南市发布冬春季惠民促消费系列举措，投放2000万元今冬明春惠民消费券，同步扩围推出智能家居适老化产品、地方专属以旧换新补贴，并发放500万元网络消费券，进一步释放消费潜力。<br>三是创新票根经济。安康瀛湖景区对持7日内有效车票的游客免门票入园，汉中留坝、南郑等地推行“一票多用”，凭景区门票或赛事票根可在合作民宿、餐饮店和农特产品超市享受折扣；安康岚皋县依托“村BA”赛事推出票根经济，游客凭票根享景区游览、特色美食、非遗体验专属折扣，联动川渝毗邻县区实现票根互认，打通川陕渝“吃住行游购娱”全消费链条；未购票游客上传消费票据审核通过也可领取票根大礼包。<br>四是拓展旅居养老。省民政厅等部门联合印发《推动陕西省旅居养老发展十项措施》，于10月至12月集中发放旅居养老消费券，每人每天享受30元补贴；全省已打造秦岭生态康养、黄河人文研学、关中民俗休闲三大银发精品线路，丰富旅居养老产品供给。</div>
+<div class="news-card">
+  <div class="title"><span class="num">5</span>机构聚成生态 服务嵌入产线</div>
+  <div class="summary">广东惠城推动人力资源服务从中介环节迈向产业基础设施，把服务嵌入制造业运行节奏。<br>一是机构错位布局形成功能咬合。惠城人力资源服务产业园集聚中智、红海等10余家优质机构，让头部机构解决“够不着”、本土机构解决“扎不深”，形成功能互补而非简单“大小共存”。<br>二是从活动对接转向场景嵌入。“才聚圆桌派”业务早餐会不设主席台、没有冗长致辞，让税务师事务所合伙人坐在企业HR中间逐条拆解增值税新政、社保夯实率等难题；“人社有约”活动线下结合真实仲裁案例解读就业扶持、社保、工伤权益政策，线上同步直播带岗，一场活动同时疏通政策落地和岗位触达两条通道。<br>三是把供需对接压缩到具体场景。承办惠州市第二届人力资源服务业发展大会，省内外50余家机构与本地200余家重点用工企业面对面并签订5份战略合作协议，随后针对30家重点用工企业开展专场对接。<br>四是向外延伸服务半径补用工缺口。由惠州市人社局带队赴江西五市开展劳务协作，4家重点企业带去30余个岗位、计划招聘560人，五市共举办招聘会、政校企对接座谈会等14场，与四地人社部门签署4份合作协议。<br>五是推动跨园协同。惠城产业园与仲恺产业园敲定“资源共通、品牌共塑、活动共办、成果共享”共建框架，从“各管一”转向接续服务。<br>六是以数智和阵地延伸服务。推广以“行业云”为核心的AI应用、自研大模型面试评估；依托商圈、社区10个就业驿站和“HR俱乐部之家”平台常态化开展HR技能提升工作坊。</div>
   <div class="meta">
-    <span class="source">陕西日报  11月19日</span>
-    <span class="tag">提振消费</span><span class="tag">票根经济</span>
+    <span class="source">南方日报　11月20日</span>
+    <span class="tag">生产服务业</span><span class="tag">就业服务</span>
   </div>
 </div>
   </div>
